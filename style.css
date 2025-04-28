@@ -1,0 +1,641 @@
+/* === GLOBAL STYLES & VARIABLES === */
+:root {
+    --primary-dark: #1a2533; /* Dark Blue/Navy */
+    --primary-medium: #3a506b; /* Medium Blue */
+    --primary-light: #6fffe9;  /* Bright Cyan/Turquoise Accent */
+    --accent-pink: #ff4081;  /* Vibrant Pink */
+    --accent-purple: #9b59b6; /* Vibrant Purple */
+    --accent-green: #2ecc71;  /* Vibrant Green */
+    --neutral-light: #f8f9fa; /* Very Light Grey */
+    --neutral-medium: #e9ecef;/* Light Grey */
+    --neutral-dark: #6c757d; /* Medium Grey */
+    --text-light: #ffffff;
+    --text-dark: #343a40;
+
+    --font-primary: 'Poppins', sans-serif;
+    --container-width: 1140px;
+    --border-radius: 8px;
+    --box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-primary);
+    color: var(--text-dark);
+    line-height: 1.6;
+    background-color: var(--text-light);
+}
+
+.container {
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+a {
+    text-decoration: none;
+    color: var(--accent-pink);
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--primary-medium);
+}
+
+h1, h2, h3 {
+    margin-bottom: 0.8em;
+    line-height: 1.3;
+    font-weight: 700;
+}
+
+h1 { font-size: 2.8rem; }
+h2 { font-size: 2.2rem; color: var(--primary-dark) }
+h3 { font-size: 1.5rem; color: var(--primary-dark) }
+
+p { margin-bottom: 1em; }
+
+.section-padding {
+    padding: 60px 0;
+}
+
+.text-center { text-align: center; }
+.subtitle {
+    font-size: 1.1rem;
+    color: var(--neutral-dark);
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 30px; /* Added margin */
+}
+.pre-title {
+    font-size: 1rem;
+    color: var(--neutral-dark);
+    margin-bottom: 0.5em; /* Adjust spacing */
+}
+
+
+/* === BUTTONS === */
+.button {
+    display: inline-block;
+    padding: 12px 25px;
+    border-radius: var(--border-radius);
+    font-weight: 600;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: none;
+    font-size: 1rem;
+}
+
+.button-primary {
+    background-color: var(--accent-pink);
+    color: var(--text-light);
+}
+.button-primary:hover {
+    background-color: #d6306c; /* Darker Pink */
+    color: var(--text-light);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 64, 129, 0.4);
+}
+
+.button-secondary {
+    background-color: var(--accent-purple);
+    color: var(--text-light);
+}
+.button-secondary:hover {
+    background-color: #7b4593; /* Darker Purple */
+    color: var(--text-light);
+    transform: translateY(-2px);
+}
+.button-dark {
+    background-color: var(--primary-dark);
+    color: var(--text-light);
+}
+.button-dark:hover {
+    background-color: var(--primary-medium);
+    color: var(--text-light);
+}
+
+.button-small {
+    padding: 8px 15px;
+    font-size: 0.9rem;
+}
+
+/* === HEADER === */
+.site-header {
+    background-color: var(--primary-dark);
+    color: var(--text-light);
+    padding: 15px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-light);
+}
+.logo:hover {
+    color: var(--primary-light);
+}
+
+.main-nav .nav-links {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+
+.main-nav li {
+    margin-left: 25px;
+    position: relative; /* For dropdown positioning */
+}
+
+.main-nav a {
+    color: var(--text-light);
+    font-weight: 600;
+    padding: 5px 0;
+    position: relative;
+}
+.main-nav a:not(.button)::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -3px;
+    left: 0;
+    background-color: var(--accent-pink);
+    transition: width 0.3s ease;
+}
+.main-nav a:not(.button):hover::after {
+    width: 100%;
+}
+.main-nav a:hover, .main-nav a:focus {
+    color: var(--primary-light);
+}
+.main-nav .button { margin-left: 20px; }
+
+.nav-toggle { display: none; background: none; border: none; color: white; font-size: 2rem; cursor: pointer; }
+
+/* Dropdown Menu */
+.dropdown .arrow { font-size: 0.7em; display: inline-block; margin-left: 4px; }
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: var(--primary-medium);
+    list-style: none;
+    padding: 10px 0;
+    margin: 0;
+    min-width: 180px;
+    border-radius: 0 0 var(--border-radius) var(--border-radius);
+    box-shadow: var(--box-shadow);
+}
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+.dropdown-menu li { margin: 0; }
+.dropdown-menu a {
+    display: block;
+    padding: 8px 15px;
+    color: var(--text-light);
+    white-space: nowrap;
+}
+.dropdown-menu a:hover {
+    background-color: var(--accent-pink);
+    color: var(--text-light); /* Keep text light on hover */
+}
+.dropdown-menu a::after { display: none; } /* Remove hover underline */
+
+
+/* === HERO SECTION === */
+.hero-section {
+    background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-medium) 100%);
+    color: var(--text-light);
+    padding: 80px 0;
+    position: relative;
+    overflow: hidden; /* Hide overflow from potential background shapes */
+}
+
+.hero-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+}
+
+.hero-text { flex-basis: 55%; }
+.hero-text h1 {
+    font-size: 3.5rem; /* Larger hero text */
+    margin-bottom: 0.5em;
+    font-weight: 700;
+    line-height: 1.2;
+}
+.hero-text .highlight-pink { color: var(--accent-pink); }
+.hero-text p {
+    font-size: 1.1rem;
+    margin-bottom: 1.5em;
+    max-width: 500px;
+}
+.hero-image {
+    flex-basis: 40%;
+    text-align: center; /* Center image if it's smaller */
+}
+.hero-image img {
+    border-radius: 50% 50% 0 0; /* Example shape */
+    max-width: 90%; /* Adjust as needed */
+}
+
+/* === STATS BAR === */
+.stats-bar {
+    background: linear-gradient(90deg, var(--accent-pink) 0%, var(--accent-purple) 100%);
+    color: var(--text-light);
+    padding: 30px 0;
+}
+
+.stats-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.stat-item {
+    text-align: center;
+}
+
+.stat-number {
+    display: block;
+    font-size: 2.5rem;
+    font-weight: 700;
+    line-height: 1;
+}
+
+.stat-location {
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+/* === TAILORED SUPPORT & SERVICES === */
+.support-icon {
+    max-width: 120px;
+    margin: 0 auto 20px;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.service-card {
+    background-color: var(--text-light);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: var(--box-shadow);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+.service-card img {
+    width: 100%;
+    height: 220px; /* Fixed height */
+    object-fit: cover; /* Crop image nicely */
+}
+.service-card h3, .service-card p {
+    padding: 0 20px;
+}
+.service-card h3 { margin-top: 20px; }
+.service-card p { padding-bottom: 20px; font-size: 0.95rem; color: var(--neutral-dark); }
+
+/* === OVERWHELMED SECTION === */
+.overwhelmed-section {
+    background-color: var(--primary-dark);
+    color: var(--text-light);
+    position: relative;
+    overflow: hidden;
+}
+.overwhelmed-section h2 { color: var(--text-light); }
+.overwhelmed-section .highlight-pink { color: var(--accent-pink); }
+
+.overwhelmed-content {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Center items */
+    gap: 50px; /* Space between image and tags */
+    position: relative; /* For tag positioning if needed */
+    margin-top: 40px;
+    min-height: 400px; /* Ensure space for tags */
+}
+.overwhelmed-image {
+    flex-shrink: 0; /* Prevent image from shrinking */
+    z-index: 5; /* Image above tags */
+    position: relative; /* Needed if tags use absolute positioning */
+}
+.overwhelmed-image img {
+    max-width: 300px; /* Control image size */
+    border-radius: var(--border-radius);
+}
+
+.feature-tags {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Center tags horizontally */
+    gap: 15px;
+    max-width: 600px; /* Limit width of tag area */
+    position: relative; /* Adjust if needed */
+    z-index: 1; /* Tags behind image if overlapping */
+}
+
+.tag {
+    display: inline-block;
+    padding: 10px 20px;
+    border-radius: 50px; /* Pill shape */
+    font-size: 0.9rem;
+    font-weight: 600;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    transition: transform 0.2s ease;
+}
+.tag:hover {
+    transform: scale(1.05);
+}
+
+.tag-green { background-color: var(--accent-green); color: var(--text-light); }
+.tag-purple { background-color: var(--accent-purple); color: var(--text-light); }
+.tag-red { background-color: var(--accent-pink); color: var(--text-light); }
+.tag-white { background-color: var(--text-light); color: var(--primary-dark); }
+
+/* === PRICING ANALYSIS === */
+.pricing-section {
+    background-color: var(--neutral-light);
+}
+.pricing-section .highlight-pink { color: var(--accent-pink); }
+.pricing-illustration {
+    max-width: 450px;
+    margin: 30px auto 0;
+}
+
+/* === FINAL CTA === */
+.final-cta {
+    background: linear-gradient(135deg, var(--accent-purple) 0%, var(--primary-medium) 100%);
+    color: var(--text-light);
+    padding: 60px 0;
+    position: relative;
+    overflow: hidden;
+}
+.cta-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 40px;
+    position: relative; /* For image positioning */
+    z-index: 2;
+}
+.cta-text { flex-basis: 60%; }
+.cta-text p { font-size: 1.1rem; }
+.cta-text h2 {
+    font-size: 2.5rem;
+    color: var(--text-light);
+    margin-bottom: 1em;
+}
+.cta-image {
+    flex-basis: 30%;
+    text-align: right;
+}
+.cta-image img {
+    max-width: 180px;
+    /* Position adjustments if needed */
+    /* position: absolute; right: 0; bottom: -20px; */
+}
+
+/* === FOOTER === */
+.site-footer-main {
+    background-color: var(--primary-dark);
+    color: var(--neutral-medium);
+    padding-top: 50px;
+    font-size: 0.9rem;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.footer-logo-area .footer-logo {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--text-light);
+    display: block;
+    margin-bottom: 10px;
+}
+.footer-logo-area .footer-logo:hover {
+    color: var(--primary-light);
+}
+
+.footer-links h4, .footer-social h4, .contact-details h4 {
+    color: var(--text-light);
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.footer-links ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-links li {
+    margin-bottom: 10px;
+}
+
+.footer-links a {
+    color: var(--neutral-medium);
+}
+.footer-links a:hover {
+    color: var(--text-light);
+    text-decoration: underline;
+}
+
+.social-icons a {
+    color: var(--neutral-medium);
+    font-size: 1.5rem; /* Adjust if using real icons */
+    margin-right: 15px;
+    display: inline-block; /* Allows margin */
+}
+.social-icons a:hover {
+    color: var(--accent-pink);
+}
+
+.footer-contact-section {
+    background-color: #15202b; /* Slightly darker shade */
+    padding: 30px 0;
+    border-top: 1px solid var(--primary-medium);
+    border-bottom: 1px solid var(--primary-medium);
+}
+.footer-contact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+.contact-details p {
+    margin-bottom: 8px;
+    color: var(--neutral-medium);
+    display: flex;
+    align-items: center; /* Align icons and text */
+    gap: 8px; /* Space between icon and text */
+}
+.contact-details p:last-child { margin-bottom: 0; }
+/* Add basic styling for emoji/character "icons" */
+.contact-details p::before {
+    display: inline-block;
+    width: 1em; /* Reserve space */
+    text-align: center;
+}
+.contact-details p:nth-of-type(1)::before { content: '📧'; }
+.contact-details p:nth-of-type(2)::before { content: '📞'; }
+.contact-details p:nth-of-type(3)::before { content: '📍'; }
+
+
+.footer-bottom {
+    padding: 20px 0;
+    text-align: center;
+    font-size: 0.85rem;
+    color: var(--neutral-dark);
+}
+
+/* === FLOATING WHATSAPP BUTTON === */
+.whatsapp-float {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 30px;
+    right: 30px;
+    background-color: #25D366; /* WhatsApp Green */
+    color: #FFF;
+    border-radius: 50px;
+    text-align: center;
+    font-size: 30px; /* Adjust for icon */
+    box-shadow: 2px 2px 6px rgba(0,0,0,0.3);
+    z-index: 100;
+    display: flex; /* Center icon */
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.3s ease;
+}
+.whatsapp-float:hover {
+    transform: scale(1.1);
+    color: #fff; /* Ensure icon stays white */
+}
+
+/* === RESPONSIVENESS === */
+
+/* Tablets and smaller desktops */
+@media (max-width: 992px) {
+    :root { --container-width: 960px; }
+    h1 { font-size: 2.5rem; }
+    .hero-text h1 { font-size: 3rem; }
+    h2 { font-size: 2rem; }
+
+    .services-grid { grid-template-columns: 1fr; } /* Stack service cards */
+    .overwhelmed-content { flex-direction: column; gap: 30px; }
+    .feature-tags { order: 2; } /* Put tags below image */
+    .overwhelmed-image { order: 1; }
+    .cta-container { flex-direction: column; text-align: center; }
+    .cta-image { text-align: center; margin-top: 20px; }
+    .stats-container { justify-content: space-between; } /* Better spacing */
+}
+
+/* Mobile devices */
+@media (max-width: 768px) {
+    h1 { font-size: 2rem; }
+    .hero-text h1 { font-size: 2.5rem; }
+    h2 { font-size: 1.8rem; }
+    h3 { font-size: 1.3rem; }
+
+    .header-container { position: relative; }
+    .nav-toggle { display: block; position: absolute; right: 20px; top: 50%; transform: translateY(-50%); }
+    .main-nav .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 100%; /* Position below header */
+        left: 0;
+        width: 100%;
+        background-color: var(--primary-dark); /* Same as header */
+        padding: 20px 0;
+        border-top: 1px solid var(--primary-medium);
+    }
+    .main-nav .nav-links.active { display: flex; }
+    .main-nav li { margin: 10px 0; text-align: center; margin-left: 0; }
+    .main-nav .button { margin-left: 0; margin-top: 15px; }
+    /* Hide dropdown arrow on mobile if not handled by JS */
+    .dropdown .arrow { display: none; }
+    /* Force dropdown to show links vertically within mobile nav */
+    .dropdown-menu {
+        position: static; /* Override absolute */
+        display: block; /* Always show when parent nav is active */
+        background: none;
+        box-shadow: none;
+        padding: 10px 0 0 0; /* Adjust padding */
+        text-align: center;
+        border: none;
+    }
+     .dropdown-menu a {
+        color: var(--neutral-medium); /* Slightly dimmer color for sub-items */
+        padding: 8px 0;
+    }
+     .dropdown-menu a:hover {
+         background: none;
+         color: var(--accent-pink);
+     }
+
+
+    .hero-content { flex-direction: column; text-align: center; }
+    .hero-text { order: 2; }
+    .hero-image { order: 1; margin-bottom: 30px; }
+    .hero-text p { max-width: 100%; }
+    .hero-image img { max-width: 70%; }
+
+    .stats-container { grid-template-columns: repeat(2, 1fr); gap: 30px; } /* 2 columns */
+    .stat-number { font-size: 2rem; }
+
+    .footer-grid { grid-template-columns: 1fr; text-align: center; }
+    .footer-logo-area { text-align: center; }
+    .social-icons { text-align: center; margin-top: 10px; }
+    .footer-contact-grid { grid-template-columns: 1fr; text-align: center;}
+    .contact-details p { justify-content: center;} /* Center contact items */
+
+    .whatsapp-float { width: 50px; height: 50px; font-size: 24px; bottom: 20px; right: 20px;}
+}
