@@ -8,13 +8,13 @@
     --process-box-gradient-start: #66BDAA;
     --process-box-gradient-end: #33A085;
     --process-box-icon-bg: #00563f;
-    --neutral-light: #F9FAFB;     /* Light background, also used for footer */
-    --neutral-medium: #6B7280;    /* Lighter text on light bg */
-    --neutral-dark: #374151;      /* Darker text on light bg */
-    --text-light: #F9FAFB;        /* White/Off-white text */
-    --text-dark: #111827;         /* Very dark text */
-    --border-color: #D1D5DB;      /* Default border color */
-    --footer-border-color: #E5E7EB; /* Lighter border for footer top/bottom */
+    --neutral-light: #F9FAFB;
+    --neutral-medium: #6B7280;
+    --neutral-dark: #374151;
+    --text-light: #F9FAFB;
+    --text-dark: #111827;
+    --border-color: #D1D5DB;
+    --footer-border-color: #E5E7EB;
     --hero-overlay-color: rgba(31, 41, 55, 0.5);
     --line-color: rgba(255, 255, 255, 0.7);
     --hero-highlight-green: #34D399;
@@ -30,10 +30,7 @@
 /* === Base Styles === */
 * { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; font-size: 16px; }
-body {
-    font-family: var(--font-primary); color: var(--neutral-medium); line-height: 1.7;
-    background-color: var(--neutral-light); -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;
-}
+body { font-family: var(--font-primary); color: var(--neutral-medium); line-height: 1.7; background-color: var(--neutral-light); -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
 .container { max-width: var(--container-width); margin: 0 auto; padding: 0 20px; }
 img { max-width: 100%; height: auto; display: block; }
 a { color: var(--accent-green); text-decoration: none; transition: color 0.3s ease; }
@@ -43,13 +40,11 @@ h1 { font-size: clamp(2.5rem, 5vw, 3.5rem); margin-bottom: 0.5em; }
 h2 { font-size: clamp(1.8rem, 4vw, 2.5rem); margin-bottom: 1em; }
 h3 { font-size: 1.25rem; margin-bottom: 0.5em; color: var(--primary-dark-blue) }
 p { margin-bottom: 1.2em; }
-.subtitle { font-size: 1.1rem; color: var(--neutral-medium); max-width: 650px; margin: 0 auto 1.5em auto; }
+.subtitle { font-size: 1.1rem; color: var(--neutral-medium); max-width: 650px; margin-left: auto; margin-right: auto; margin-bottom: 1.5em; } /* Kept auto margins */
 .text-center { text-align: center; }
 .section-padding { padding: 80px 0; }
 strong { font-weight: 600; }
-/* Visually hide labels but keep them for screen readers */
 .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border-width: 0; }
-
 
 /* === Buttons === */
 .button { display: inline-block; padding: 12px 28px; border-radius: var(--border-radius); font-weight: 600; text-align: center; cursor: pointer; transition: all 0.3s ease; border: none; font-size: 1rem; letter-spacing: 0.5px; }
@@ -118,74 +113,49 @@ strong { font-weight: 600; }
 .testimonial-card blockquote[lang="zh-CN"] { font-style: normal; }
 .testimonial-card cite { font-style: normal; font-weight: 600; color: var(--neutral-medium); font-size: 0.9rem; }
 
-/* === Final CTA Section (UPDATED with Form Styles) === */
+/* === Final CTA Section (UPDATED for Flex Layout) === */
 .final-cta-section { background: linear-gradient(135deg, var(--accent-green) 0%, var(--accent-green-dark) 100%); color: var(--text-light); }
-.final-cta-section h2 { color: var(--text-light); }
-.final-cta-section .subtitle { color: var(--neutral-light); opacity: 0.9; max-width: 550px; /* Limit width */ }
+.final-cta-section h2 { color: var(--text-light); text-align: left; } /* Align heading left */
+.final-cta-section .subtitle { color: var(--neutral-light); opacity: 0.9; text-align: left; max-width: 100%; margin-left: 0; margin-right: 0; } /* Align subtitle left */
 
-/* Form Styling */
+/* ADDED: Flex container for image and form */
+.cta-container-flex {
+    display: flex;
+    align-items: center; /* Vertically align items */
+    gap: 40px; /* Space between image and form */
+}
+
+/* ADDED: Image column styles */
+.cta-image-column {
+    flex: 1 1 45%; /* Allow flexing, basis 45% */
+    max-width: 45%;
+}
+.cta-image-column img {
+    width: 100%;
+    height: auto;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow-lg);
+}
+
+/* ADDED: Form column styles */
+.cta-form-column {
+    flex: 1 1 50%; /* Allow flexing, basis 50% */
+    max-width: 50%;
+}
+
+/* Form Styling (Adjusted Margins) */
 .cta-form {
-    max-width: 600px; /* Limit form width */
-    margin: 30px auto 0;
-    text-align: left; /* Align form elements left */
+    max-width: 100%; /* Let column control width */
+    margin: 30px 0 0 0; /* Remove auto margins, add top margin */
+    text-align: left;
 }
-.form-group {
-    margin-bottom: 15px;
-}
-/* Style inputs and textarea */
-.cta-form input[type="text"],
-.cta-form input[type="email"],
-.cta-form input[type="tel"],
-.cta-form textarea {
-    width: 100%;
-    padding: 12px 15px;
-    border-radius: var(--border-radius);
-    border: 1px solid rgba(255, 255, 255, 0.3); /* Light border */
-    background-color: rgba(255, 255, 255, 0.1); /* Slightly transparent bg */
-    color: var(--text-light); /* Light text color */
-    font-family: var(--font-primary);
-    font-size: 1rem;
-    transition: border-color 0.3s ease, background-color 0.3s ease;
-}
-.cta-form input::placeholder,
-.cta-form textarea::placeholder {
-    color: rgba(249, 250, 251, 0.7); /* Lighter placeholder text */
-    opacity: 1; /* Override browser defaults */
-}
-.cta-form input:focus,
-.cta-form textarea:focus {
-    outline: none;
-    border-color: var(--text-light); /* White border on focus */
-    background-color: rgba(255, 255, 255, 0.15);
-}
-.cta-form textarea {
-    resize: vertical; /* Allow vertical resize */
-    min-height: 100px;
-}
-/* Style submit button */
-.cta-form button[type="submit"] {
-    /* Use existing button styles but customize colors */
-    display: block; /* Make button full width of its container */
-    width: 100%;
-    background-color: var(--text-light); /* White button */
-    color: var(--accent-green-dark); /* Dark green text */
-    padding: 15px 30px;
-    font-size: 1.1rem;
-    font-weight: 700;
-    margin-top: 10px;
-    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
-    border: none;
-    border-radius: var(--border-radius);
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-.cta-form button[type="submit"]:hover {
-    background-color: #f0f0f0; /* Slightly off-white hover */
-    color: var(--accent-green-dark);
-    transform: translateY(-2px);
-    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
-}
-
+.form-group { margin-bottom: 15px; }
+.cta-form input[type="text"], .cta-form input[type="email"], .cta-form input[type="tel"], .cta-form textarea { width: 100%; padding: 12px 15px; border-radius: var(--border-radius); border: 1px solid rgba(255, 255, 255, 0.3); background-color: rgba(255, 255, 255, 0.1); color: var(--text-light); font-family: var(--font-primary); font-size: 1rem; transition: border-color 0.3s ease, background-color 0.3s ease; }
+.cta-form input::placeholder, .cta-form textarea::placeholder { color: rgba(249, 250, 251, 0.7); opacity: 1; }
+.cta-form input:focus, .cta-form textarea:focus { outline: none; border-color: var(--text-light); background-color: rgba(255, 255, 255, 0.15); }
+.cta-form textarea { resize: vertical; min-height: 100px; }
+.cta-form button[type="submit"] { display: block; width: 100%; background-color: var(--text-light); color: var(--accent-green-dark); padding: 15px 30px; font-size: 1.1rem; font-weight: 700; margin-top: 10px; box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1); border: none; border-radius: var(--border-radius); cursor: pointer; transition: all 0.3s ease; }
+.cta-form button[type="submit"]:hover { background-color: #f0f0f0; color: var(--accent-green-dark); transform: translateY(-2px); box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15); }
 
 /* === Footer (UPDATED STYLES) === */
 .site-footer-main { background-color: var(--neutral-light); color: var(--neutral-dark); padding-top: 60px; font-size: 0.9rem; border-top: 1px solid var(--footer-border-color); }
@@ -212,13 +182,37 @@ strong { font-weight: 600; }
 
 /* === RESPONSIVENESS === */
 @media (min-width: 768px) { .process-steps-grid { grid-template-columns: repeat(2, 1fr); gap: 40px; } }
+
+/* Tablet breakpoint */
 @media (max-width: 992px) {
     :root { --container-width: 960px; }
     h1 { font-size: clamp(2.2rem, 5vw, 3rem); }
     h2 { font-size: clamp(1.6rem, 4vw, 2.2rem); }
     .hero-content { padding: 60px 20px; }
     .process-steps-grid { gap: 30px; }
+
+    /* Stack CTA columns */
+    .cta-container-flex {
+        flex-direction: column;
+        gap: 30px;
+    }
+    .cta-image-column,
+    .cta-form-column {
+        flex-basis: auto; /* Reset basis */
+        max-width: 100%; /* Allow full width */
+    }
+     .cta-form-column h2,
+     .cta-form-column .subtitle {
+         text-align: center; /* Center text when stacked */
+     }
+     .cta-form {
+         max-width: 600px; /* Re-apply max width when centered */
+         margin-left: auto;
+         margin-right: auto;
+     }
 }
+
+/* Mobile breakpoint */
 @media (max-width: 768px) {
     .section-padding { padding: 60px 0; }
     .header-container { position: relative; }
@@ -238,4 +232,10 @@ strong { font-weight: 600; }
     .footer-logo img { margin-left: auto; margin-right: auto; }
     .footer-contact p { justify-content: center; }
     .whatsapp-float { width: 50px; height: 50px; font-size: 1.5rem; bottom: 20px; right: 20px; }
+
+    /* Ensure CTA columns stack correctly on mobile */
+    .cta-container-flex { flex-direction: column; gap: 30px; }
+    .cta-image-column, .cta-form-column { max-width: 100%; flex-basis: auto; }
+    .cta-form-column h2, .cta-form-column .subtitle { text-align: center; }
+    .cta-form { max-width: 100%; margin: 20px 0 0 0; } /* Adjust top margin */
 }
