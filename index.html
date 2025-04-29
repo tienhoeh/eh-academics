@@ -152,45 +152,53 @@
             </div>
         </section>
 
-        <!-- Final CTA Section (UPDATED STRUCTURE for Image + Form) -->
+        <!-- Final CTA Section (UPDATED STRUCTURE) -->
         <section id="consultation" class="final-cta-section section-padding">
-             <div class="container cta-container-flex"> 
+             <div class="container"> {/* Main container for padding */}
 
-                <div class="cta-image-column">
-                    <img src="images/kids.jpg" alt="kids">
-                </div>
-
-                <div class="cta-form-column">
-                    <h2 >Ready to Find Your Child's Ideal Singapore School, Stress-Free?</h2>
+                {/* Title and Subtitle spanning full width */}
+                <div class="cta-header text-center">
+                    <h2>Ready to Find Your Child's Ideal Singapore School, Stress-Free?</h2>
                     <p class="subtitle">Take the first step towards a smooth school transition. Book your complimentary, no-obligation consultation today and let our experts guide you.</p>
-
-                    <form name="consultation-request" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/thank-you.html" class="cta-form">
-                        <input type="hidden" name="form-name" value="consultation-request">
-                        <p class="hidden" style="display: none;">
-                            <label>Don’t fill this out if you're human: <input name="bot-field"></label>
-                        </p>
-
-                        <div class="form-group">
-                            <label for="name" class="sr-only">Name</label>
-                            <input type="text" id="name" name="name" placeholder="Your Name" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email" class="sr-only">Email</label>
-                            <input type="email" id="email" name="email" placeholder="Your Email Address" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="phone" class="sr-only">Phone</label>
-                            <input type="tel" id="phone" name="phone" placeholder="Your Phone Number (Optional)">
-                        </div>
-                        <div class="form-group">
-                            <label for="message" class="sr-only">Message</label>
-                            <textarea id="message" name="message" rows="4" placeholder="Tell us briefly about your needs (e.g., child's age, desired curriculum, timeline)" required></textarea>
-                        </div>
-                        <button type="submit" class="button button-submit">Send Consultation Request</button>
-                    </form>
                 </div>
 
-             </div> 
+                 {/* Flex Container for Image and Form Columns */}
+                <div class="cta-container-flex">
+
+                    {/* Image Column */}
+                    <div class="cta-image-column">
+                        <img src="image/Singapore supertree 1.jpg" alt="Singapore Supertree Grove">
+                    </div>
+
+                    {/* Form Column */}
+                    <div class="cta-form-column">
+                        {/* Form moved here, no title/subtitle inside */}
+                        <form name="consultation-request" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/thank-you.html" class="cta-form">
+                            <input type="hidden" name="form-name" value="consultation-request">
+                            <p class="hidden" style="display: none;">
+                                <label>Don’t fill this out if you're human: <input name="bot-field"></label>
+                            </p>
+                            <div class="form-group">
+                                <label for="name" class="sr-only">Name</label>
+                                <input type="text" id="name" name="name" placeholder="Your Name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email" class="sr-only">Email</label>
+                                <input type="email" id="email" name="email" placeholder="Your Email Address" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="phone" class="sr-only">Phone</label>
+                                <input type="tel" id="phone" name="phone" placeholder="Your Phone Number (Optional)">
+                            </div>
+                            <div class="form-group">
+                                <label for="message" class="sr-only">Message</label>
+                                <textarea id="message" name="message" rows="4" placeholder="Tell us briefly about your needs (e.g., child's age, desired curriculum, timeline)" required></textarea>
+                            </div>
+                            <button type="submit" class="button button-submit">Send Consultation Request</button>
+                        </form>
+                    </div> {/* End Form Column */}
+                </div> {/* End Flex Container */}
+             </div> {/* End Main Container */}
         </section>
 
     </main>
@@ -210,7 +218,7 @@
                      <li><a href="#">Home</a></li>
                      <li><a href="#process">Our Process</a></li>
                      <li><a href="#testimonials">Testimonials</a></li>
-                     <li><a href="#contact">Contact</a></li> {/* Added Contact link */}
+                     <li><a href="#contact">Contact</a></li>
                  </ul>
              </div>
              <div class="footer-contact">
