@@ -3,245 +3,200 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Updated Title -->
-    <title>eh-academics.com - Find Top Singapore Schools</title>
-    <link rel="stylesheet" href="style.css">
-    <!-- Consider adding Google Fonts -->
+    <title>eh-academics.com - Find Your Perfect Singapore School Match</title>
+    <!-- Font Awesome CDN (for icons) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <!-- Header Section (Remains the same structure, CSS will change button/link colors) -->
+    <!-- Header Section -->
     <header class="site-header">
         <div class="container header-container">
             <a href="#" class="logo">eh-academics.com</a>
             <nav class="main-nav">
-                <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
+                <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+                    <i class="fas fa-bars"></i> <!-- Hamburger Icon -->
+                </button>
                 <ul class="nav-links">
                     <li><a href="#">Home</a></li>
-                    <li><a href="#">About</a></li>
-                    <li class="dropdown">
-                        <a href="#">Services <span class="arrow">▼</span></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="#consulting">Education Consulting</a></li>
-                            <li><a href="#shortlist">School Shortlist</a></li>
-                            <li><a href="#visits">School Visits</a></li>
-                            <li><a href="#guidance">Application Guidance</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="#">FAQ</a></li>
-                    <li><a href="#">Blog</a></li>
-                    <li><a href="#">Contact</a></li>
-                     <!-- button-primary class will now use green based on CSS changes -->
-                    <li><a href="#booking" class="button button-primary button-small">Make a Booking</a></li>
+                    <li><a href="#process">Our Process</a></li>
+                    <li><a href="#testimonials">Testimonials</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#consultation" class="button button-primary button-small">Book Free Consultation</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
-    <!-- Hero Section (UPDATED with Green Theme & New Text) -->
-    <section class="hero-section">
-        <div class="container hero-content">
-            <div class="hero-text">
-                <h1>Find the Perfect <br><span class="highlight-green">High-Calibre School</span> in Singapore for Your Child</h1>
-                <p>Navigating Singapore's top international & private schools? eh-academics.com specialises in helping non-local families (including PRs & returning Singaporeans) secure places in the best-fit high-calibre schools.</p>
-                 <!-- button-primary class will now use green based on CSS changes -->
-                <a href="#booking" class="button button-primary">Book Your Free Consultation</a>
+    <main>
+        <!-- Hero Section (Section 1: The Hook) -->
+        <section class="hero-section">
+            <div class="container hero-content">
+                <div class="hero-text">
+                    <h1>70+ Schools. One Perfect Fit for Your Child. <span class="highlight-green">Let Us Find It.</span></h1>
+                    <p class="subtitle">Moving to Singapore is exciting, but navigating the complex international school landscape takes time and creates anxiety. We help families like yours find the ideal high-calibre school, stress-free.</p>
+                    <a href="#consultation" class="button button-primary button-large">Simplify Your School Search Now</a>
+                </div>
+                <div class="hero-image">
+                    <!-- *** REPLACE THIS IMAGE *** -->
+                    <img src="https://via.placeholder.com/500x450/DEE2E6/495057?text=Image:+Diverse,+Happy+Students+or+Calm+Planning+Scene" alt="Finding the right international school in Singapore">
+                </div>
             </div>
-            <div class="hero-image">
-                <!-- *** REPLACE THIS IMAGE *** -->
-                <img src="https://via.placeholder.com/450x500/E0E0E0/666666?text=Placeholder:+Happy+Student+or+SG+School+Montage" alt="Consultancy helping find the best school in Singapore">
-                <!-- Add decorative shapes/lines via CSS background or SVG if needed -->
-            </div>
-        </div>
-        <div class="hero-background-shapes">
-             <!-- Optional decorative elements -->
-        </div>
-    </section>
+        </section>
 
-    <!-- Stats Bar Section (UPDATED with Green Theme & Adjusted Text) -->
-    <section class="stats-bar">
-        <div class="container stats-container">
-             <!-- Consider if these stats are still the most relevant. -->
-             <!-- Maybe focus on Singapore specific achievements? -->
-            <div class="stat-item">
-                <span class="stat-number">67+</span>
-                <span class="stat-location">Schools in Abu Dhabi</span>
+        <!-- Pain Points Section (Section 2: Empathize) -->
+        <section class="pain-points-section section-padding">
+            <div class="container">
+                <h2 class="text-center">Navigating Singapore's School Search Can Feel Overwhelming...</h2>
+                <div class="pain-points-grid">
+                    <div class="pain-point">
+                        <i class="fas fa-search-dollar fa-2x icon-color"></i>
+                        <h3>Endless Research</h3>
+                        <p>Comparing 70+ schools, curricula, hidden fees, and locations takes dozens of hours.</p>
+                    </div>
+                    <div class="pain-point">
+                        <i class="fas fa-puzzle-piece fa-2x icon-color"></i>
+                        <h3>Complex Choices</h3>
+                        <p>Matching budget, specific programs (like languages or SEN), and school culture is tough.</p>
+                    </div>
+                    <div class="pain-point">
+                        <i class="fas fa-map-signs fa-2x icon-color"></i>
+                        <h3>Lack of Local Insight</h3>
+                        <p>Online info misses the nuances. How do you know what a school is *really* like?</p>
+                    </div>
+                     <div class="pain-point">
+                        <i class="fas fa-clock fa-2x icon-color"></i>
+                        <h3>Time Pressure</h3>
+                        <p>You need to focus on your move, not get bogged down decoding school admissions.</p>
+                    </div>
+                </div>
             </div>
-            <div class="stat-item">
-                <span class="stat-number">98+</span>
-                <span class="stat-location">Schools in Bangkok</span>
-            </div>
-            <div class="stat-item">
-                <span class="stat-number">150+</span>
-                <span class="stat-location">Schools in Dubai</span>
-            </div>
-            <div class="stat-item">
-                <span class="stat-number">40+</span>
-                <span class="stat-location">Schools in Ho Chi Minh</span>
-            </div>
-             <div class="stat-item">
-                <span class="stat-number">118+</span>
-                <span class="stat-location">Schools in KL</span>
-            </div>
-            <div class="stat-item stat-highlight"> <!-- Added stat-highlight class -->
-                <span class="stat-number">80+</span>
-                <span class="stat-location">Schools in Singapore</span>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- ================================================= -->
-    <!-- REMAINDER OF THE PAGE (Unchanged from 1st response) -->
-    <!-- ================================================= -->
+        <!-- Solution / Process Section (Section 3: The Solution) -->
+        <section id="process" class="solution-process-section section-padding">
+            <div class="container">
+                <h2 class="text-center">Your Clear Path to the Perfect Singapore School (Without the Stress)</h2>
+                <div class="process-steps-grid">
+                    <!-- Step 1 -->
+                    <div class="process-step">
+                        <div class="step-icon-container"><i class="fas fa-comments fa-2x"></i></div>
+                        <div class="step-content">
+                            <h3><span>1.</span> Gain Clarity & Insight</h3>
+                            <p>Start with confidence. We begin with an in-depth consultation, leveraging **insider knowledge** to **simplify** Singapore's complex school options, focusing on *your* unique family needs.</p>
+                        </div>
+                    </div>
+                    <!-- Step 2 -->
+                    <div class="process-step">
+                         <div class="step-icon-container"><i class="fas fa-list-check fa-2x"></i></div>
+                         <div class="step-content">
+                            <h3><span>2.</span> Save Time & Get Focused Options</h3>
+                            <p>Stop drowning in choices. Receive a focused, curated shortlist matching your criteria, **saving you countless hours**. Get **simplified**, clear comparisons enhanced with **insider knowledge**.</p>
+                        </div>
+                    </div>
+                    <!-- Step 3 -->
+                    <div class="process-step">
+                         <div class="step-icon-container"><i class="fas fa-calendar-check fa-2x"></i></div>
+                         <div class="step-content">
+                            <h3><span>3.</span> Effortless School Visits</h3>
+                            <p>Focus on the environment, not logistics. We **streamline** the visit process, scheduling convenient virtual or physical tours, helping you get a real feel for the schools that matter.</p>
+                        </div>
+                    </div>
+                    <!-- Step 4 -->
+                     <div class="process-step">
+                         <div class="step-icon-container"><i class="fas fa-file-signature fa-2x"></i></div>
+                         <div class="step-content">
+                            <h3><span>4.</span> Secure Your Place with Confidence</h3>
+                             <p>Navigate admissions smoothly. We **streamline** applications, offer **insider strategies**, and provide expert guidance on documentation, deadlines, and assessments, giving you **peace of mind**.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-    <!-- Tailored Support Section -->
-    <section class="tailored-support section-padding">
-        <div class="container text-center">
-             <img src="https://via.placeholder.com/150x80/CCCCCC/FFFFFF?text=Support+Icon" alt="Tailored Support Graphic" class="support-icon">
-             <!-- Heading color will depend on global h2 style -->
-            <h2>Tailored Support Every step of the way</h2>
-            <p class="subtitle">Our experienced educational consultants have an in-depth understanding of international schools in Singapore and the UAE. We've researched each one, gaining first-hand knowledge of their strengths and specialisations.</p>
-             <!-- button-secondary style needs to be defined/checked in CSS -->
-            <a href="#" class="button button-secondary">Read More About Our Service</a>
-        </div>
+        <!-- Trust Building Section (Section 4: Build Trust) -->
+        <section id="testimonials" class="trust-building-section section-padding">
+            <div class="container">
+                <h2 class="text-center">Trusted by Families Relocating to Singapore</h2>
 
-        <div class="container services-grid">
-            <div class="service-card" id="consulting">
-                <img src="https://via.placeholder.com/500x300/CCCCCC/FFFFFF?text=Consulting+Meeting" alt="Education consultation meeting">
-                <h3>Education Consulting</h3>
-                <p>Provides a comprehensive outlook on the educational environment within the new location, encompassing an intricate assessment of requirements tailored to each individual family.</p>
-            </div>
-            <div class="service-card" id="shortlist">
-                <img src="https://via.placeholder.com/500x300/CCCCCC/FFFFFF?text=Planning+Session" alt="Couple looking at laptop during planning">
-                <h3>School Shortlist Compilation</h3>
-                <p>Our expert counsellor will develop a customised shortlist of International schools, considering the criteria identified during the education consultation.</p>
-            </div>
-            <div class="service-card" id="visits">
-                <img src="https://via.placeholder.com/500x300/CCCCCC/FFFFFF?text=School+Campus" alt="University style school building exterior">
-                <h3>Scheduling of School Visits</h3>
-                <p>Our team will schedule virtual and physical school visits according to your schedule.</p>
-            </div>
-            <div class="service-card" id="guidance">
-                <img src="https://via.placeholder.com/500x300/CCCCCC/FFFFFF?text=Signing+Contract" alt="Hands signing a document or application form">
-                <h3>Application Guidance</h3>
-                <p>eh-academics.com will work closely with the selected school to ensure the application is efficiently and effectively managed through the approval process.</p>
-            </div>
-        </div>
-    </section>
+                <div class="expertise-statement text-center">
+                    <p><strong>Our Expertise:</strong> We specialise in guiding non-local families (Expatriates, Permanent Residents, and returning Singaporeans) through the complexities of finding and securing places in Singapore's high-calibre international and private schools.</p>
+                </div>
 
-    <!-- Overwhelmed Section -->
-    <section class="overwhelmed-section section-padding">
-        <div class="container text-center">
-             <!-- Heading color depends on h2 style in this section's CSS -->
-             <!-- highlight-pink usage retained from original, CSS needs --accent-pink defined -->
-            <h2>Overwhelmed by all of the options? We assist you <span class="highlight-pink">every step of the way</span></h2>
-        </div>
-        <div class="container overwhelmed-content">
-            <div class="overwhelmed-image">
-                 <img src="https://via.placeholder.com/400x500/CCCCCC/FFFFFF?text=Student+at+Board" alt="Student writing on a chalkboard">
+                <div class="testimonials-grid">
+                    <!-- Testimonial 1 -->
+                    <div class="testimonial-card">
+                        <span class="quote-icon">“</span>
+                        <blockquote>
+                            [Insert powerful testimonial here highlighting saved time, reduced stress, or finding the perfect school. Keep it concise.]
+                        </blockquote>
+                        <cite>– Happy Parent Name, Moved from [Country/City]</cite>
+                    </div>
+                    <!-- Testimonial 2 -->
+                    <div class="testimonial-card">
+                         <span class="quote-icon">“</span>
+                        <blockquote>
+                            [Insert another strong testimonial focusing on a different benefit, like the consultant's expertise or help with a tricky situation.]
+                        </blockquote>
+                        <cite>– Another Family Name, [Child's Age/Grade Level]</cite>
+                    </div>
+                     <!-- Testimonial 3 (Optional) -->
+                    <div class="testimonial-card">
+                         <span class="quote-icon">“</span>
+                        <blockquote>
+                            [A shorter testimonial could go here, perhaps emphasizing the smooth process or consultant's responsiveness.]
+                        </blockquote>
+                        <cite>– Satisfied Client, [Origin Country]</cite>
+                    </div>
+                </div>
             </div>
-             <!-- Tag colors depend on CSS, using original tag classes -->
-            <div class="feature-tags">
-                <span class="tag tag-green">Bilingual Provision</span>
-                <span class="tag tag-purple">Languages</span>
-                <span class="tag tag-white">Boarding Options</span>
-                <span class="tag tag-white">Fee Structures</span>
-                <span class="tag tag-red">Learning Support</span>
-                <span class="tag tag-red">Student Diversity</span>
-                <span class="tag tag-green">Curriculum</span>
-                <span class="tag tag-green">Academically Selective</span>
-                <span class="tag tag-purple">Sport & Music Programs</span>
-            </div>
-        </div>
-         <div class="overwhelmed-background-shapes">
-             <!-- Decorative elements -->
-         </div>
-    </section>
+        </section>
 
-    <!-- Pricing Analysis Section -->
-    <section class="pricing-section section-padding">
-        <div class="container text-center">
-            <p class="pre-title">We take a deep dive into costs with a</p>
-             <!-- highlight-pink usage retained from original, CSS needs --accent-pink defined -->
-            <h2>Comprehensive <span class="highlight-pink">Pricing Analysis</span> to help you make an informed decision</h2>
-            <p class="subtitle">Our detailed price breakdown will simplify your school decision from an investment point of view. Our analysis provides a detailed breakdown of the initial and ongoing annual costs associated with the school tuition.</p>
-            <img src="https://via.placeholder.com/500x300/CCCCCC/FFFFFF?text=Pricing+Analysis+Graphic" alt="Illustration showing financial analysis and charts" class="pricing-illustration">
-        </div>
-    </section>
+        <!-- Final CTA Section (Section 5: Action) -->
+        <section id="consultation" class="final-cta-section section-padding">
+            <div class="container text-center">
+                <h2>Ready to Find Your Child's Ideal Singapore School, Stress-Free?</h2>
+                <p class="subtitle">Take the first step towards a smooth school transition. Book your complimentary, no-obligation consultation today and let our experts guide you.</p>
+                <a href="#contact" class="button button-primary button-large">Book Your Free Consultation Now</a>
+                <p class="contact-info">Or call us: <a href="tel:+6587855563">(65) 8785 5563</a></p>
+            </div>
+        </section>
 
-    <!-- Final CTA Section -->
-    <section class="final-cta" id="booking">
-        <div class="container cta-container">
-            <div class="cta-text">
-                <p>Join our ever-growing list of happy families</p>
-                <h2>Ready to Make the Move?</h2>
-                 <!-- button-dark style needs to be defined/checked in CSS -->
-                <a href="#" class="button button-dark">Book a Free Consultation</a>
-            </div>
-            <div class="cta-image">
-                 <img src="https://via.placeholder.com/200x200/CCCCCC/FFFFFF?text=Globe+Graphic" alt="Stylized graphic of a globe on a stand">
-            </div>
-        </div>
-    </section>
+    </main>
 
-    <!-- Footer (Unchanged Structure) -->
-    <footer class="site-footer-main">
-        <div class="container footer-grid">
-            <div class="footer-logo-area">
-                <a href="#" class="footer-logo">eh-academics.com</a>
-                <!-- Maybe add a short tagline here -->
-            </div>
-            <div class="footer-links">
-                <h4>Quicklinks</h4>
-                <ul>
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">About</a></li>
-                    <li><a href="#">Blog</a></li>
-                    <li><a href="#">Services</a></li>
-                    <li><a href="#">Contact</a></li>
-                </ul>
-            </div>
-            <div class="footer-links">
-                <h4>About</h4>
-                <ul>
-                    <li><a href="#">Our Mission</a></li>
-                    <li><a href="#">Our Values</a></li>
-                    <li><a href="#">Our Story</a></li>
-                    <li><a href="#">Team Members</a></li>
-                </ul>
-            </div>
-            <div class="footer-links">
-                <h4>Terms</h4>
-                <ul>
-                    <li><a href="#">Terms & Conditions</a></li>
-                    <li><a href="#">Privacy Policy</a></li>
-                </ul>
-            </div>
-             <div class="footer-social">
-                <h4>Follow Us</h4>
-                 <div class="social-icons">
-                    <a href="#" aria-label="Facebook">F</a>
-                    <a href="#" aria-label="Instagram">I</a>
-                    <a href="#" aria-label="LinkedIn">L</a>
-                    <a href="#" aria-label="Twitter">T</a>
+    <!-- Footer -->
+    <footer id="contact" class="site-footer-main">
+         <!-- Using the footer structure from previous examples -->
+         <div class="container footer-grid">
+             <div class="footer-logo-area">
+                 <a href="#" class="footer-logo">eh-academics.com</a>
+                 <p>Your expert partner in Singapore school placement.</p>
+             </div>
+             <div class="footer-links">
+                 <h4>Quicklinks</h4>
+                 <ul>
+                     <li><a href="#">Home</a></li>
+                     <li><a href="#process">Our Process</a></li>
+                     <li><a href="#testimonials">Testimonials</a></li>
+                      <li><a href="#">About Us (Add Link)</a></li>
+                     <li><a href="#">FAQ (Add Link)</a></li>
+                 </ul>
+             </div>
+             <div class="footer-contact"> <!-- Combined Contact Details -->
+                <h4>Contact Us</h4>
+                <p><i class="fas fa-envelope icon-footer"></i> info@eh-academics.com</p>
+                <p><i class="fas fa-phone icon-footer"></i> (65) 8785 5563</p>
+                <p><i class="fas fa-map-marker-alt icon-footer"></i> Duo Tower, 3 Fraser St, #08-21, Singapore 189352</p>
+                <!-- Add Social Links if desired -->
+                 <div class="social-icons-footer">
+                    <!-- <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a> -->
+                    <!-- <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a> -->
+                    <!-- <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a> -->
                  </div>
-            </div>
-        </div>
-         <div class="footer-contact-section">
-             <div class="container footer-contact-grid">
-                 <div class="contact-details">
-                    <h4>Contact Details Singapore</h4>
-                    <p>📧 info@eh-academics.com</p>
-                    <p>📞 (65) 8785 5563</p>
-                    <p>📍 Duo Tower, 3 Fraser St, #08-21, Singapore 189352</p>
-                </div>
-                 <div class="contact-details">
-                    <h4>Contact Details UAE (Example)</h4>
-                    <p>📧 info.uae@eh-academics.com</p>
-                    <p>📞 +971 XX XXX XXXX</p>
-                    <p>📍 Business Centre, Meydan Freezone, Nad Al Sheba, Dubai, UAE (Update)</p>
-                </div>
             </div>
          </div>
          <div class="footer-bottom">
@@ -251,13 +206,11 @@
          </div>
     </footer>
 
-    <!-- Floating Contact/WhatsApp Button (Unchanged) -->
-    <a href="https://wa.me/6587855563" class="whatsapp-float" target="_blank" rel="noopener noreferrer">
-       <span>💬</span> <!-- Replace with a proper icon -->
-       <!-- Contact Us -->
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/6587855563" class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
+       <i class="fab fa-whatsapp"></i>
     </a>
 
-
-    <script src="script.js"></script> <!-- Unchanged -->
+    <script src="script.js"></script>
 </body>
 </html>
