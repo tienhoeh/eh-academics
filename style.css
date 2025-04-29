@@ -1,20 +1,25 @@
 /* === GLOBAL STYLES & VARIABLES === */
 :root {
     /* --- Palette --- */
-    --primary-dark-blue: #1F2937;  /* Dark Cool Gray/Blue - For backgrounds, text */
-    --primary-medium-blue: #374151;/* Medium Gray/Blue */
-    --accent-green: #10B981;      /* Emerald 500 - Main Accent */
-    --accent-green-dark: #059669; /* Emerald 600 - Hover / Darker icon bg */
-    --accent-green-light: #A7F3D0; /* Emerald 200 - Lighter part of gradient */
-    --accent-light-blue: #E0F2FE; /* Light Sky 100 - Subtle background (Original, kept for reference) */
-    --neutral-light: #F9FAFB;     /* Off-White - Backgrounds */
-    --neutral-medium: #6B7280;    /* Gray 500 - Body text on light bg */
-    --neutral-dark: #374151;      /* Gray 700 - Headings on light bg */
-    --text-light: #F9FAFB;        /* Light text on dark/colored backgrounds */
-    --text-dark: #111827;         /* Very dark text */
-    --border-color: #D1D5DB;      /* Gray 300 */
-    /* ADDED: Overlay color variable for hero */
-    --hero-overlay-color: rgba(25, 35, 45, 0.65); /* Dark semi-transparent overlay */
+    --primary-dark-blue: #1F2937;
+    --primary-medium-blue: #374151;
+    /* UPDATED: New Primary Green */
+    --accent-green: #006A4E; /* Darker Green from image */
+    --accent-green-dark: #00563f; /* Slightly darker for hover */
+    /* --accent-green-light: #A7F3D0; */ /* Old light green, may not be needed */
+
+    /* ADDED: Colors for the process box gradient based on #48b89F */
+    --process-box-green: #48b89F;
+    --process-box-green-light: #8be0cc; /* Lighter shade for gradient start */
+    --process-box-icon-bg: #3a9a85; /* Slightly darker shade for icon bg */
+
+    --neutral-light: #F9FAFB;
+    --neutral-medium: #6B7280;
+    --neutral-dark: #374151;
+    --text-light: #F9FAFB;
+    --text-dark: #111827;
+    --border-color: #D1D5DB;
+    --hero-overlay-color: rgba(25, 35, 45, 0.65);
 
 
     /* --- Fonts & Structure --- */
@@ -65,19 +70,25 @@ strong { font-weight: 600; }
     letter-spacing: 0.5px;
 }
 .button-primary {
-    background-color: var(--accent-green);
+    background-color: var(--accent-green); /* Uses new dark green */
     color: var(--text-light);
-    box-shadow: 0 4px 14px rgba(16, 185, 129, 0.3);
+    /* Adjust shadow color slightly if needed, or keep generic */
+    box-shadow: 0 4px 14px rgba(0, 106, 78, 0.3);
 }
 .button-primary:hover {
-    background-color: var(--accent-green-dark);
+    background-color: var(--accent-green-dark); /* Uses new dark hover green */
     color: var(--text-light);
     transform: translateY(-2px);
-    box-shadow: 0 6px 16px rgba(16, 185, 129, 0.4);
+    box-shadow: 0 6px 16px rgba(0, 106, 78, 0.4);
 }
 .button-large { padding: 15px 35px; font-size: 1.1rem; }
-.button-small { padding: 10px 20px; font-size: 0.9rem; box-shadow: none;}
-.button-small:hover { box-shadow: 0 2px 8px rgba(16, 185, 129, 0.3); }
+.button-small {
+    /* UPDATED Padding */
+    padding: 10px 22px; /* Slightly wider padding */
+    font-size: 0.9rem;
+    box-shadow: none;
+}
+.button-small:hover { box-shadow: 0 2px 8px rgba(0, 106, 78, 0.3); }
 
 /* === Header === */
 .site-header {
@@ -91,122 +102,85 @@ strong { font-weight: 600; }
 }
 .header-container { display: flex; justify-content: space-between; align-items: center; }
 .logo { font-size: 1.6rem; font-weight: 700; color: var(--primary-dark-blue); }
-.logo:hover { color: var(--accent-green); }
+.logo:hover { color: var(--accent-green); } /* Uses new dark green */
 .main-nav .nav-links { list-style: none; display: flex; align-items: center; margin: 0; padding: 0; }
 .main-nav li { margin-left: 30px; }
 .main-nav a { color: var(--primary-dark-blue); font-weight: 600; padding: 5px 0; position: relative; font-size: 0.95rem;}
 .main-nav a:not(.button)::after {
     content: ''; position: absolute; width: 0; height: 2px; bottom: -5px; left: 50%; transform: translateX(-50%);
-    background-color: var(--accent-green); transition: width 0.3s ease;
+    background-color: var(--accent-green); /* Uses new dark green */
+     transition: width 0.3s ease;
 }
 .main-nav a:not(.button):hover::after { width: 100%; }
-.main-nav a:hover, .main-nav a:focus { color: var(--accent-green); }
+.main-nav a:hover, .main-nav a:focus { color: var(--accent-green); } /* Uses new dark green */
 .main-nav .button { margin-left: 20px; }
 .nav-toggle { display: none; background: none; border: none; color: var(--primary-dark-blue); font-size: 1.5rem; cursor: pointer; }
 
-/* === Hero Section (UPDATED Background) === */
+/* === Hero Section === */
 .hero-section {
-    /* REMOVED background-color: var(--primary-dark-blue); */
     color: var(--text-light);
     padding: 100px 0 80px;
     overflow: hidden;
-    position: relative; /* Needed for potential pseudo-element overlays if used */
-
-    /* ADDED: Background Image with Overlay */
+    position: relative;
     background-image:
-        /* Dark overlay */
         linear-gradient(var(--hero-overlay-color), var(--hero-overlay-color)),
-        /* Actual image */
-        url('images/Singapore park.jpg'); /* Make sure this path is correct */
-    background-size: cover; /* Cover the entire area */
-    background-position: center center; /* Center the image */
-    background-repeat: no-repeat; /* Do not repeat the image */
+        url('images/family in park.jpg');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
 }
 .hero-content {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 50px;
-    position: relative; /* Ensure content is above potential pseudo-elements */
-    z-index: 2; /* Ensure content is above overlay */
+    display: flex; align-items: center; justify-content: space-between; gap: 50px;
+    position: relative; z-index: 2;
 }
 .hero-text { flex-basis: 55%; }
 .hero-text h1 { color: var(--text-light); }
-.hero-text .highlight-green { color: var(--accent-green); }
+.hero-text .highlight-green { color: var(--accent-green); } /* Uses new dark green */
 .hero-text .subtitle { color: var(--neutral-light); opacity: 0.95; margin: 0 0 2em 0; max-width: 550px; }
-.hero-image {
-    flex-basis: 40%;
-    text-align: center;
-    /* Hide the placeholder image if hero BG is used */
-    /* Consider removing the hero-image div entirely if no separate image is needed */
-    display: none; /* ADDED: Hides the placeholder now */
-}
-/* If you decide to keep a separate image OVER the background later, remove display:none and style accordingly */
-/* .hero-image img { border-radius: var(--border-radius); box-shadow: var(--box-shadow-lg); } */
+.hero-image { display: none; } /* Keep hidden */
 
 /* === Pain Points Section === */
 .pain-points-section { background-color: var(--neutral-light); }
 .pain-points-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 30px;
-    margin-top: 40px;
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 30px; margin-top: 40px;
 }
 .pain-point {
-    text-align: center;
-    padding: 25px;
-    background-color: #fff;
-    border-radius: var(--border-radius);
-    border: 1px solid var(--border-color);
+    text-align: center; padding: 25px; background-color: #fff;
+    border-radius: var(--border-radius); border: 1px solid var(--border-color);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-.pain-point:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--box-shadow);
-}
-.pain-point .icon-color { color: var(--accent-green); margin-bottom: 15px; }
+.pain-point:hover { transform: translateY(-5px); box-shadow: var(--box-shadow); }
+.pain-point .icon-color { color: var(--accent-green); margin-bottom: 15px; } /* Uses new dark green */
 .pain-point h3 { margin-top: 0.5em; font-size: 1.15rem; color: var(--primary-dark-blue);}
 .pain-point p { font-size: 0.95rem; color: var(--neutral-medium); margin-bottom: 0; }
 
-/* === Solution / Process Section === */
-.solution-process-section {
-    background-color: var(--neutral-light);
-}
+/* === Solution / Process Section (UPDATED COLORS) === */
+.solution-process-section { background-color: var(--neutral-light); }
 .solution-process-section h2 { color: var(--primary-dark-blue); }
 
 .process-steps-grid {
-    display: grid;
-    /* Default to 1 column (mobile-first) */
-    grid-template-columns: 1fr;
-    gap: 30px; /* Adjusted gap for potential stacking */
-    margin-top: 50px;
+    display: grid; grid-template-columns: 1fr; gap: 30px; margin-top: 50px;
 }
 .process-step {
-    display: flex;
-    align-items: flex-start;
-    gap: 20px;
-    background: linear-gradient(145deg, var(--accent-green-light) 0%, var(--accent-green) 100%);
-    padding: 30px;
-    border-radius: var(--border-radius);
-    box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.6),
-                0 5px 15px rgba(0, 100, 80, 0.15);
+    display: flex; align-items: flex-start; gap: 20px;
+    /* UPDATED: Gradient using specific color #48b89F */
+    background: linear-gradient(145deg, var(--process-box-green-light) 0%, var(--process-box-green) 100%);
+    padding: 30px; border-radius: var(--border-radius);
+    /* Adjusted shadow for the new color */
+    box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.7),
+                0 5px 15px rgba(72, 184, 159, 0.2); /* Softer shadow based on #48b89F */
     color: var(--text-light);
 }
 .step-icon-container {
-    flex-shrink: 0;
-    width: 50px;
-    height: 50px;
-    background-color: var(--accent-green-dark);
-    color: var(--text-light);
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    flex-shrink: 0; width: 50px; height: 50px;
+    /* UPDATED: Slightly darker background for icon container */
+    background-color: var(--process-box-icon-bg);
+    color: var(--text-light); border-radius: 50%;
+    display: flex; justify-content: center; align-items: center;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
-.process-step h3 {
-    font-size: 1.3rem; margin-top: 0; color: var(--text-light); font-weight: 700;
-}
+.process-step h3 { font-size: 1.3rem; margin-top: 0; color: var(--text-light); font-weight: 700; }
 .process-step h3 span { margin-right: 8px; font-weight: 700; }
 .process-step p { font-size: 1rem; margin-bottom: 0; color: var(--text-light); opacity: 0.95; }
 .process-step p strong { color: var(--text-light); font-weight: 700; }
@@ -221,8 +195,7 @@ strong { font-weight: 600; }
 }
 .expertise-statement strong { color: var(--primary-dark-blue); }
 .testimonials-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 30px; margin-top: 40px;
 }
 .testimonial-card {
@@ -231,11 +204,15 @@ strong { font-weight: 600; }
 }
 .testimonial-card .quote-icon {
     position: absolute; top: 15px; left: 20px; font-size: 3rem;
-    color: var(--accent-green); opacity: 0.2; line-height: 1;
+    color: var(--accent-green); opacity: 0.2; line-height: 1; /* Uses new dark green */
 }
 .testimonial-card blockquote {
     font-size: 1.05rem; font-style: italic; color: var(--neutral-dark);
     margin-bottom: 1em; padding-top: 10px;
+}
+/* ADDED: Ensure Chinese text renders appropriately */
+.testimonial-card blockquote[lang="zh-CN"] {
+    font-style: normal; /* Chinese doesn't typically use italics like English */
 }
 .testimonial-card cite {
     font-style: normal; font-weight: 600; color: var(--neutral-medium); font-size: 0.9rem;
@@ -243,17 +220,21 @@ strong { font-weight: 600; }
 
 /* === Final CTA Section === */
 .final-cta-section {
+    /* UPDATED: Gradient uses new dark green */
     background: linear-gradient(135deg, var(--accent-green) 0%, var(--accent-green-dark) 100%);
     color: var(--text-light);
 }
 .final-cta-section h2 { color: var(--text-light); }
 .final-cta-section .subtitle { color: var(--neutral-light); opacity: 0.9; }
 .final-cta-section .button-primary {
-    background-color: var(--text-light); color: var(--accent-green-dark);
+    background-color: var(--text-light);
+    /* UPDATED: Text color uses new dark green */
+    color: var(--accent-green-dark);
     box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
 }
 .final-cta-section .button-primary:hover {
-    background-color: #f0f0f0; color: var(--accent-green-dark);
+    background-color: #f0f0f0;
+    color: var(--accent-green-dark);
     box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
 }
 .contact-info { margin-top: 25px; font-size: 1rem; }
@@ -280,12 +261,12 @@ strong { font-weight: 600; }
 .footer-links ul { list-style: none; padding: 0; margin: 0; }
 .footer-links li { margin-bottom: 12px; }
 .footer-links a { color: var(--neutral-medium); }
-.footer-links a:hover { color: var(--accent-green); text-decoration: underline; }
+.footer-links a:hover { color: var(--accent-green); text-decoration: underline; } /* Uses new dark green */
 .footer-contact p { margin-bottom: 12px; display: flex; align-items: center; gap: 10px; }
-.footer-contact .icon-footer { color: var(--accent-green); width: 1em; text-align: center; }
+.footer-contact .icon-footer { color: var(--accent-green); width: 1em; text-align: center; } /* Uses new dark green */
 .social-icons-footer { margin-top: 15px; }
 .social-icons-footer a { color: var(--neutral-medium); font-size: 1.2rem; margin-right: 15px; }
-.social-icons-footer a:hover { color: var(--accent-green); }
+.social-icons-footer a:hover { color: var(--accent-green); } /* Uses new dark green */
 .footer-bottom {
     padding: 25px 0; text-align: center; font-size: 0.85rem;
     border-top: 1px solid var(--primary-medium-blue); color: var(--neutral-medium);
@@ -294,7 +275,9 @@ strong { font-weight: 600; }
 /* === Floating WhatsApp Button === */
 .whatsapp-float {
     position: fixed; width: 60px; height: 60px; bottom: 30px; right: 30px;
-    background-color: #25D366; color: #FFF; border-radius: 50%;
+    /* Keep official WhatsApp green */
+    background-color: #25D366;
+    color: #FFF; border-radius: 50%;
     text-align: center; font-size: 1.8rem;
     box-shadow: 2px 2px 10px rgba(0,0,0,0.3); z-index: 100;
     display: flex; justify-content: center; align-items: center;
@@ -304,11 +287,10 @@ strong { font-weight: 600; }
 
 
 /* === RESPONSIVENESS === */
-@media (min-width: 768px) { /* Apply 2x2 grid only on tablet+ */
+@media (min-width: 768px) {
     .process-steps-grid {
-        /* UPDATED: Force 2 columns on wider screens */
         grid-template-columns: repeat(2, 1fr);
-        gap: 40px; /* Restore original gap for 2 columns */
+        gap: 40px;
     }
 }
 
@@ -316,10 +298,9 @@ strong { font-weight: 600; }
     :root { --container-width: 960px; }
     h1 { font-size: clamp(2.2rem, 5vw, 3rem); }
     h2 { font-size: clamp(1.6rem, 4vw, 2.2rem); }
-    .hero-content { gap: 30px; flex-direction: column; text-align: center;} /* Stack hero text earlier if needed */
-    .hero-text { flex-basis: auto; } /* Reset basis when stacked */
-    .hero-text .subtitle { margin-left: auto; margin-right: auto; } /* Center subtitle */
-    /* Keep hero image hidden */
+    .hero-content { gap: 30px; flex-direction: column; text-align: center;}
+    .hero-text { flex-basis: auto; }
+    .hero-text .subtitle { margin-left: auto; margin-right: auto; }
     /* Adjust process grid gap if needed for medium screens */
      .process-steps-grid { gap: 30px; }
 }
@@ -340,9 +321,9 @@ strong { font-weight: 600; }
     .main-nav li { margin: 10px 0; text-align: center; margin-left: 0; }
     .main-nav .button { margin-left: 0; margin-top: 15px; }
 
-    .hero-content { /* Already stacked via 992px media query */ }
+    /* Ensure Process steps stack correctly */
+    .process-steps-grid { grid-template-columns: 1fr; gap: 30px;}
     .pain-points-grid { grid-template-columns: 1fr; }
-    /* .process-steps-grid is already 1fr by default */
     .testimonials-grid { grid-template-columns: 1fr; }
     .footer-grid { grid-template-columns: 1fr; text-align: center; }
     .footer-contact p { justify-content: center; }
