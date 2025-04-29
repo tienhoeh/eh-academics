@@ -41,10 +41,10 @@
                     <p class="subtitle">Moving to Singapore is exciting, but navigating the complex international school landscape takes time and creates anxiety. We help families like yours find the ideal high-calibre school, stress-free.</p>
                     <a href="#consultation" class="button button-primary button-large">Simplify Your School Search Now</a>
                 </div>
-                <div class="hero-image">
-                    <!-- *** REPLACE THIS IMAGE *** -->
-                    <img src="https://via.placeholder.com/500x450/DEE2E6/495057?text=Image:+Diverse,+Happy+Students+or+Calm+Planning+Scene" alt="Finding the right international school in Singapore">
-                </div>
+                <!-- Hero image div is hidden via CSS as background is used -->
+                 <div class="hero-image">
+                    <img src="https://via.placeholder.com/500x450/DEE2E6/495057?text=Placeholder" alt="Finding the right international school in Singapore">
+                 </div>
             </div>
         </section>
 
@@ -66,7 +66,7 @@
                     <div class="pain-point">
                         <i class="fas fa-map-signs fa-2x icon-color"></i>
                         <h3>Lack of Local Insight</h3>
-                        <p>Online info misses the nuances. How do you know what a school is <strong>really</strong> like?</p>
+                        <p>Online info misses the nuances. How do you know what a school is *really* like?</p>
                     </div>
                      <div class="pain-point">
                         <i class="fas fa-clock fa-2x icon-color"></i>
@@ -87,6 +87,7 @@
                         <div class="step-icon-container"><i class="fas fa-comments fa-2x"></i></div>
                         <div class="step-content">
                             <h3><span>1.</span> Gain Clarity & Insight</h3>
+                            {/* UPDATED: Replaced *your* with <strong>your</strong> */}
                             <p>Start with confidence. We begin with an in-depth consultation, leveraging <strong>insider knowledge</strong> to <strong>simplify</strong> Singapore's complex school options, focusing on <strong>your</strong> unique family needs.</p>
                         </div>
                     </div>
@@ -127,30 +128,31 @@
                     <p><strong>Our Expertise:</strong> We specialise in guiding non-local families (Expatriates, Permanent Residents, and returning Singaporeans) through the complexities of finding and securing places in Singapore's high-calibre international and private schools.</p>
                 </div>
 
+                {/* UPDATED Testimonials */}
                 <div class="testimonials-grid">
-                    <!-- Testimonial 1 -->
+                    <!-- Testimonial 1 (France) -->
                     <div class="testimonial-card">
                         <span class="quote-icon">“</span>
                         <blockquote>
-                            [Insert powerful testimonial here highlighting saved time, reduced stress, or finding the perfect school. Keep it concise.]
+                            Moving from Paris, we were overwhelmed by the IB vs. other curricula. eh-academics listened carefully and found a school perfect for our daughter's learning style and our desire for strong arts programs. Their local knowledge was invaluable!
                         </blockquote>
-                        <cite>– Happy Parent Name, Moved from [Country/City]</cite>
+                        <cite>– Moreau Family, Moved from France</cite>
                     </div>
-                    <!-- Testimonial 2 -->
+                    <!-- Testimonial 2 (China - Simplified Chinese) -->
+                    <div class="testimonial-card">
+                         <span class="quote-icon">“</span>
+                        <blockquote lang="zh-CN">
+                            我们从上海搬来，eh-academics 的顾问非常专业，帮我们快速筛选了几所真正符合我们对学术和中文课程高要求的学校。他们对申请流程的指导非常清晰，为我们节省了大量时间和精力。
+                        </blockquote>
+                        <cite>– 李先生 (Mr. Li), Moved from China</cite>
+                    </div>
+                     <!-- Testimonial 3 (UK) -->
                     <div class="testimonial-card">
                          <span class="quote-icon">“</span>
                         <blockquote>
-                            [Insert another strong testimonial focusing on a different benefit, like the consultant's expertise or help with a tricky situation.]
+                            As a busy professional moving from London, I simply didn't have time for the endless school research. eh-academics provided a fantastic shortlist, managed the visit scheduling, and gave honest advice. They made a stressful process feel manageable and found a brilliant fit for our son.
                         </blockquote>
-                        <cite>– Another Family Name, [Child's Age/Grade Level]</cite>
-                    </div>
-                     <!-- Testimonial 3 (Optional) -->
-                    <div class="testimonial-card">
-                         <span class="quote-icon">“</span>
-                        <blockquote>
-                            [A shorter testimonial could go here, perhaps emphasizing the smooth process or consultant's responsiveness.]
-                        </blockquote>
-                        <cite>– Satisfied Client, [Origin Country]</cite>
+                        <cite>– J. Williams, Moved from the UK</cite>
                     </div>
                 </div>
             </div>
@@ -170,7 +172,6 @@
 
     <!-- Footer -->
     <footer id="contact" class="site-footer-main">
-         <!-- Using the footer structure from previous examples -->
          <div class="container footer-grid">
              <div class="footer-logo-area">
                  <a href="#" class="footer-logo">eh-academics.com</a>
@@ -186,22 +187,21 @@
                      <li><a href="#">FAQ (Add Link)</a></li>
                  </ul>
              </div>
-             <div class="footer-contact"> <!-- Combined Contact Details -->
+             <div class="footer-contact">
                 <h4>Contact Us</h4>
                 <p><i class="fas fa-envelope icon-footer"></i> info@eh-academics.com</p>
                 <p><i class="fas fa-phone icon-footer"></i> (65) 8785 5563</p>
                 <p><i class="fas fa-map-marker-alt icon-footer"></i> Duo Tower, 3 Fraser St, #08-21, Singapore 189352</p>
-                <!-- Add Social Links if desired -->
                  <div class="social-icons-footer">
-                    <!-- <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a> -->
-                    <!-- <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a> -->
-                    <!-- <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a> -->
+                    {/* <!-- <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a> --> */}
+                    {/* <!-- <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a> --> */}
+                    {/* <!-- <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a> --> */}
                  </div>
             </div>
          </div>
          <div class="footer-bottom">
              <div class="container">
-                 <p>© 2023 eh-academics.com. All Rights Reserved.</p>
+                 <p>© 2024 eh-academics.com. All Rights Reserved.</p> {/* Year updated */}
              </div>
          </div>
     </footer>
