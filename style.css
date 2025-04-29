@@ -86,7 +86,7 @@ strong { font-weight: 600; }
 .button-hero:hover { background-color: #f0f0f0; color: var(--accent-green-dark); transform: translateY(-2px); box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15); }
 
 /* === Pain Points Section === */
-.pain-points-section { position: relative; background-image: linear-gradient(var(--pain-point-overlay-color), var(--pain-point-overlay-color)), url('images/map of schools.jpg'); background-size: cover; background-position: center center; background-repeat: no-repeat; background-color: var(--neutral-light); }
+.pain-points-section { position: relative; background-image: linear-gradient(var(--pain-point-overlay-color), var(--pain-point-overlay-color)), url('images/map with schools.jpg'); background-size: cover; background-position: center center; background-repeat: no-repeat; background-color: var(--neutral-light); }
 .pain-points-section h2 { color: var(--primary-dark-blue); position: relative; z-index: 2; }
 .pain-points-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 30px; margin-top: 40px; position: relative; z-index: 2; }
 .pain-point { text-align: center; padding: 25px; background-color: #fff; border-radius: var(--border-radius); border: 1px solid var(--border-color); transition: transform 0.3s ease, box-shadow 0.3s ease; }
