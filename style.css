@@ -91,7 +91,7 @@ strong { font-weight: 600; }
     /* Add background image with light overlay */
     background-image:
         linear-gradient(var(--pain-point-overlay-color), var(--pain-point-overlay-color)),
-        url('images/map of schools.jpg'); /* Make sure path is correct */
+        url('images/map with schools.jpg'); /* Make sure path is correct */
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
