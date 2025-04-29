@@ -3,19 +3,23 @@
     /* --- Palette --- */
     --primary-dark-blue: #1F2937;
     --primary-medium-blue: #374151;
-    --accent-green: #006A4E;
-    --accent-green-dark: #00563f;
+    --accent-green: #006A4E;      /* Main Dark Green */
+    --accent-green-dark: #00563f; /* Darker for hover */
     --process-box-gradient-start: #66BDAA;
     --process-box-gradient-end: #33A085;
     --process-box-icon-bg: #00563f;
     --neutral-light: #F9FAFB;
     --neutral-medium: #6B7280;
     --neutral-dark: #374151;
-    --text-light: #F9FAFB; /* This is the variable for white text */
+    --text-light: #F9FAFB;        /* White/Off-white for text */
     --text-dark: #111827;
     --border-color: #D1D5DB;
-    --hero-overlay-color: rgba(31, 41, 55, 0.7); /* Adjusted overlay slightly */
+    /* UPDATED: Reduced overlay opacity */
+    --hero-overlay-color: rgba(31, 41, 55, 0.5); /* Was 0.7, now 0.5 */
     --line-color: rgba(255, 255, 255, 0.7);
+    /* ADDED: Brighter green for hero highlight */
+    --hero-highlight-green: #34D399; /* Tailwind Emerald 400 - for better contrast */
+
 
     /* --- Fonts & Structure --- */
     --font-primary: 'Poppins', sans-serif;
@@ -59,7 +63,7 @@ strong { font-weight: 600; }
 }
 .button-primary {
     background-color: var(--accent-green);
-    color: var(--text-light); /* ** CORRECTED/VERIFIED: Explicitly set white text */
+    color: var(--text-light); /* Ensure text is white */
     box-shadow: 0 4px 14px rgba(0, 106, 78, 0.3);
 }
 .button-primary:hover {
@@ -96,49 +100,26 @@ strong { font-weight: 600; }
 
 /* === Hero Section === */
 .hero-section {
-    color: var(--text-light); padding: 120px 0 100px; /* Adjusted padding */
-    overflow: hidden; position: relative;
-    display: flex; /* Use flex to center content vertically */
-    align-items: center; /* Center content vertically */
-    min-height: 60vh; /* Ensure section has some height */
-
-    /* =============================================== */
-    /* === BACKGROUND IMAGE RULE - PLEASE CHECK! === */
-    /* =============================================== */
+    color: var(--text-light); padding: 120px 0 100px; overflow: hidden; position: relative;
+    display: flex; align-items: center; min-height: 60vh;
     background-image:
-        /* Dark overlay for text readability */
+        /* UPDATED Overlay Opacity */
         linear-gradient(var(--hero-overlay-color), var(--hero-overlay-color)),
-        /* Your image - **MAKE SURE THE PATH 'images/Singapore park.jpg' IS CORRECT!** */
-        /* Check: Is there an 'images' folder in the same directory as your HTML file? */
-        /* Check: Is the image filename exactly 'Singapore park.jpg'? (Case sensitive!) */
-        url('images/Singapore park.jpg');
-
-    background-size: cover;
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-color: #2a3a4a; /* Slightly different fallback color */
-    /* =============================================== */
+        url('images/Singapore park.jpg'); /* ** MAKE SURE PATH IS CORRECT ** */
+    background-size: cover; background-position: center center; background-repeat: no-repeat;
+    background-color: #2a3a4a;
 }
 .hero-content {
-    /* Remove flex layout from inner container if outer section handles alignment */
-    /* display: flex; align-items: center; justify-content: space-between; gap: 50px; */
-    position: relative; z-index: 2;
-    width: 100%; /* Allow content to take width */
-    max-width: var(--container-width); /* Limit content width */
-    margin: 0 auto; /* Center content horizontally */
-    padding: 0 20px; /* Add padding */
-    text-align: center; /* Center text if no image */
+    position: relative; z-index: 2; width: 100%;
+    max-width: var(--container-width); margin: 0 auto;
+    padding: 0 20px; text-align: center;
 }
-.hero-text {
-    /* Remove flex-basis if content is centered */
-    /* flex-basis: 55%; */
-    max-width: 750px; /* Limit text width for readability */
-    margin: 0 auto; /* Center text block */
-}
+.hero-text { max-width: 750px; margin: 0 auto; }
 .hero-text h1 { color: var(--text-light); }
-.hero-text .highlight-green { color: var(--accent-green); }
-.hero-text .subtitle { color: var(--neutral-light); opacity: 0.95; margin: 0 0 2em 0; max-width: 100%; } /* Adjust max-width if needed */
-.hero-image { display: none; } /* Keep hidden */
+/* UPDATED: Specific brighter green for hero highlight */
+.hero-text .highlight-green { color: var(--hero-highlight-green); }
+.hero-text .subtitle { color: var(--neutral-light); opacity: 0.95; margin: 0 0 2em 0; max-width: 100%; }
+.hero-image { display: none; }
 
 /* === Pain Points Section === */
 .pain-points-section { background-color: var(--neutral-light); }
@@ -250,10 +231,7 @@ strong { font-weight: 600; }
     :root { --container-width: 960px; }
     h1 { font-size: clamp(2.2rem, 5vw, 3rem); }
     h2 { font-size: clamp(1.6rem, 4vw, 2.2rem); }
-    .hero-content { /* Updated for centered content */
-        padding: 60px 20px; /* Add padding inside hero when content centered */
-    }
-    .hero-text { /* No changes needed as it's centered */ }
+    .hero-content { padding: 60px 20px; }
     .process-steps-grid { gap: 30px; }
 }
 @media (max-width: 768px) {
@@ -264,8 +242,9 @@ strong { font-weight: 600; }
     .main-nav .nav-links.active { display: flex; }
     .main-nav li { margin: 10px 0; text-align: center; margin-left: 0; }
     .main-nav .button { margin-left: 0; margin-top: 15px; }
-    .hero-section { min-height: 50vh; } /* Reduce min-height on mobile */
-    .hero-content { padding: 40px 20px; }
+    .hero-section { min-height: 50vh; }
+    .hero-content { padding: 40px 20px; flex-direction: column; text-align: center; } /* Ensure stacking */
+    .hero-text { flex-basis: auto; }
     .process-steps-grid { grid-template-columns: 1fr; gap: 30px;}
     .pain-points-grid { grid-template-columns: 1fr; }
     .testimonials-grid { grid-template-columns: 1fr; }
