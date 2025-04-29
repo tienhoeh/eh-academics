@@ -1,21 +1,24 @@
 /* === GLOBAL STYLES & VARIABLES === */
 :root {
     /* --- Palette --- */
-    --primary-dark-blue: #1F2937;
-    --primary-medium-blue: #374151;
-    --accent-green: #006A4E;
-    --accent-green-dark: #00563f;
-    --process-box-gradient-start: #66BDAA;
-    --process-box-gradient-end: #33A085;
-    --process-box-icon-bg: #00563f;
-    --neutral-light: #F9FAFB;
-    --neutral-medium: #6B7280;
-    --neutral-dark: #374151;
-    --text-light: #F9FAFB; /* White/Off-white for text on dark/colored backgrounds */
-    --text-dark: #111827;
-    --border-color: #D1D5DB;
-    --hero-overlay-color: rgba(25, 35, 45, 0.65);
-    --line-color: rgba(255, 255, 255, 0.7);
+    --primary-dark-blue: #1F2937;  /* Dark Cool Gray/Blue - For backgrounds, text */
+    --primary-medium-blue: #374151;/* Medium Gray/Blue */
+    --accent-green: #006A4E;      /* Main Dark Green */
+    --accent-green-dark: #00563f; /* Darker for hover */
+
+    /* Process Box Gradient (Lighter shades derived from #006A4E) */
+    --process-box-gradient-start: #66BDAA; /* Lighter teal/green */
+    --process-box-gradient-end: #33A085;   /* Medium teal/green */
+    --process-box-icon-bg: #00563f;      /* Darker green for icon contrast */
+
+    --neutral-light: #F9FAFB;     /* Off-White - Backgrounds */
+    --neutral-medium: #6B7280;    /* Gray 500 - Body text on light bg */
+    --neutral-dark: #374151;      /* Gray 700 - Headings on light bg */
+    --text-light: #F9FAFB;        /* White/Off-white for text on dark/colored backgrounds */
+    --text-dark: #111827;         /* Very dark text */
+    --border-color: #D1D5DB;      /* Gray 300 */
+    --hero-overlay-color: rgba(25, 35, 45, 0.65); /* Dark semi-transparent overlay */
+    --line-color: rgba(255, 255, 255, 0.7); /* Semi-transparent white for lines */
 
     /* --- Fonts & Structure --- */
     --font-primary: 'Poppins', sans-serif;
@@ -44,7 +47,7 @@ a:hover { color: var(--accent-green-dark); }
 h1, h2, h3 { line-height: 1.3; font-weight: 700; margin-bottom: 0.6em; color: var(--neutral-dark); }
 h1 { font-size: clamp(2.5rem, 5vw, 3.5rem); margin-bottom: 0.5em; }
 h2 { font-size: clamp(1.8rem, 4vw, 2.5rem); margin-bottom: 1em; }
-h3 { font-size: 1.25rem; margin-bottom: 0.5em; color: var(--primary-dark-blue) }
+h3 { font-size: 1.25rem; margin-bottom: 0.5em; color: var(--primary-dark-blue) } /* Default H3 */
 p { margin-bottom: 1.2em; }
 .subtitle { font-size: 1.1rem; color: var(--neutral-medium); max-width: 650px; margin: 0 auto 1.5em auto; }
 .text-center { text-align: center; }
@@ -67,7 +70,7 @@ strong { font-weight: 600; }
     transform: translateY(-2px); box-shadow: 0 6px 16px rgba(0, 106, 78, 0.4);
 }
 .button-large { padding: 15px 35px; font-size: 1.1rem; }
-.button-small { padding: 10px 22px; font-size: 0.9rem; box-shadow: none; }
+.button-small { padding: 10px 22px; font-size: 0.9rem; box-shadow: none; } /* Adjusted padding */
 .button-small:hover { box-shadow: 0 2px 8px rgba(0, 106, 78, 0.3); }
 
 /* === Header === */
@@ -97,18 +100,16 @@ strong { font-weight: 600; }
     background-image:
         linear-gradient(var(--hero-overlay-color), var(--hero-overlay-color)),
         /* CRITICAL: Make sure this path is correct relative to your HTML file! */
-        /* Example: If your image is in root/images/family.jpg and HTML is in root/index.html, use 'images/family.jpg' */
-        url('images/family in park.jpg');
+        url('images/Singapre park.jpg');
     background-size: cover; background-position: center center; background-repeat: no-repeat;
-    /* Add fallback color in case image fails to load */
-    background-color: var(--primary-dark-blue);
+    background-color: var(--primary-dark-blue); /* Fallback color */
 }
 .hero-content { display: flex; align-items: center; justify-content: space-between; gap: 50px; position: relative; z-index: 2; }
 .hero-text { flex-basis: 55%; }
 .hero-text h1 { color: var(--text-light); }
 .hero-text .highlight-green { color: var(--accent-green); }
 .hero-text .subtitle { color: var(--neutral-light); opacity: 0.95; margin: 0 0 2em 0; max-width: 550px; }
-.hero-image { display: none; }
+.hero-image { display: none; } /* Image is now background */
 
 /* === Pain Points Section === */
 .pain-points-section { background-color: var(--neutral-light); }
