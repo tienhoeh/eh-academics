@@ -1,23 +1,30 @@
-/* === GLOBAL STYLES & VARIABLES === */
+/* === GLOBAL STYLES & VARIABLES (UPDATED PALETTE) === */
 :root {
-    --primary-dark: #1a2533; /* Dark Blue/Navy */
-    --primary-medium: #3a506b; /* Medium Blue */
-    --primary-light: #6fffe9;  /* Bright Cyan/Turquoise Accent */
-    --accent-pink: #ff4081;  /* Vibrant Pink */
-    --accent-purple: #9b59b6; /* Vibrant Purple */
-    --accent-green: #2ecc71;  /* Vibrant Green */
-    --neutral-light: #f8f9fa; /* Very Light Grey */
-    --neutral-medium: #e9ecef;/* Light Grey */
-    --neutral-dark: #6c757d; /* Medium Grey */
-    --text-light: #ffffff;
-    --text-dark: #343a40;
+    /* --- NEW Green-Focused Palette --- */
+    --primary-dark: #1F2937;  /* Dark Cool Gray - Professional Base */
+    --accent-green-vibrant: #10B981; /* Emerald 500 - Main Accent */
+    --accent-green-darker: #059669;  /* Emerald 600 - Hover/Darker Accent */
+    --accent-green-light: #6EE7B7;   /* Emerald 300 - Lighter Accent/Gradient */
+    --text-light: #F9FAFB; /* Off-White for better contrast on dark */
+    --text-dark: #111827;  /* Very Dark Gray for light backgrounds */
+    --neutral-light: #F3F4F6; /* Light Gray for backgrounds */
+    --neutral-medium: #9CA3AF;/* Medium Gray for subdued text */
+    --neutral-dark: #4B5563; /* Dark Gray for secondary text */
 
+    /* --- Retained from original for other sections (ensure these are used if needed) --- */
+    --accent-pink: #ff4081;  /* Vibrant Pink (Used in Overwhelmed/Pricing) */
+    --accent-purple: #9b59b6; /* Vibrant Purple (Used in Tags/CTA) */
+    /* --accent-green: #2ecc71; */ /* Original green, replaced by new greens above */
+
+
+    /* --- Retained structure variables --- */
     --font-primary: 'Poppins', sans-serif;
     --container-width: 1140px;
     --border-radius: 8px;
     --box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
+/* === Base Styles (Unchanged from 1st response, uses new variables) === */
 * {
     box-sizing: border-box;
     margin: 0;
@@ -30,9 +37,9 @@ html {
 
 body {
     font-family: var(--font-primary);
-    color: var(--text-dark);
+    color: var(--text-dark); /* Default text on light background */
     line-height: 1.6;
-    background-color: var(--text-light);
+    background-color: var(--neutral-light); /* Default light background */
 }
 
 .container {
@@ -49,12 +56,13 @@ img {
 
 a {
     text-decoration: none;
-    color: var(--accent-pink);
+    /* Default link color - choose one, maybe neutral-dark or a subtle blue? */
+    color: var(--accent-green-vibrant); /* Or use primary-dark */
     transition: color 0.3s ease;
 }
 
 a:hover {
-    color: var(--primary-medium);
+     color: var(--accent-green-darker); /* Default link hover */
 }
 
 h1, h2, h3 {
@@ -63,9 +71,10 @@ h1, h2, h3 {
     font-weight: 700;
 }
 
-h1 { font-size: 2.8rem; }
-h2 { font-size: 2.2rem; color: var(--primary-dark) }
-h3 { font-size: 1.5rem; color: var(--primary-dark) }
+/* Default Heading Colors (Adjust if needed per section) */
+h1 { font-size: 2.8rem; color: var(--text-dark); } /* Default H1 color */
+h2 { font-size: 2.2rem; color: var(--primary-dark); } /* Default H2 color */
+h3 { font-size: 1.5rem; color: var(--primary-dark); } /* Default H3 color */
 
 p { margin-bottom: 1em; }
 
@@ -80,16 +89,16 @@ p { margin-bottom: 1em; }
     max-width: 700px;
     margin-left: auto;
     margin-right: auto;
-    margin-bottom: 30px; /* Added margin */
+    margin-bottom: 30px;
 }
 .pre-title {
     font-size: 1rem;
     color: var(--neutral-dark);
-    margin-bottom: 0.5em; /* Adjust spacing */
+    margin-bottom: 0.5em;
 }
 
 
-/* === BUTTONS === */
+/* === BUTTONS (UPDATED Primary, others retained) === */
 .button {
     display: inline-block;
     padding: 12px 25px;
@@ -102,17 +111,19 @@ p { margin-bottom: 1em; }
     font-size: 1rem;
 }
 
+/* --- Primary Button (NOW GREEN) --- */
 .button-primary {
-    background-color: var(--accent-pink);
-    color: var(--text-light);
+    background-color: var(--accent-green-vibrant);
+    color: var(--text-light); /* Text on green */
 }
 .button-primary:hover {
-    background-color: #d6306c; /* Darker Pink */
+    background-color: var(--accent-green-darker);
     color: var(--text-light);
     transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(255, 64, 129, 0.4);
+    box-shadow: 0 6px 20px rgba(16, 185, 129, 0.3); /* Subtle green shadow */
 }
 
+/* --- Secondary Button (Style as needed, example using purple from original palette) --- */
 .button-secondary {
     background-color: var(--accent-purple);
     color: var(--text-light);
@@ -122,12 +133,14 @@ p { margin-bottom: 1em; }
     color: var(--text-light);
     transform: translateY(-2px);
 }
+
+/* --- Dark Button (Retained) --- */
 .button-dark {
     background-color: var(--primary-dark);
     color: var(--text-light);
 }
 .button-dark:hover {
-    background-color: var(--primary-medium);
+    background-color: var(--neutral-dark); /* Example hover */
     color: var(--text-light);
 }
 
@@ -136,15 +149,15 @@ p { margin-bottom: 1em; }
     font-size: 0.9rem;
 }
 
-/* === HEADER === */
+/* === HEADER (UPDATED Link/Hover Colors) === */
 .site-header {
     background-color: var(--primary-dark);
-    color: var(--text-light);
+    color: var(--text-light); /* Text in header */
     padding: 15px 0;
     position: sticky;
     top: 0;
     z-index: 1000;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
 }
 
 .header-container {
@@ -159,7 +172,7 @@ p { margin-bottom: 1em; }
     color: var(--text-light);
 }
 .logo:hover {
-    color: var(--primary-light);
+    color: var(--accent-green-light); /* Green hover */
 }
 
 .main-nav .nav-links {
@@ -188,33 +201,34 @@ p { margin-bottom: 1em; }
     height: 2px;
     bottom: -3px;
     left: 0;
-    background-color: var(--accent-pink);
+    background-color: var(--accent-green-vibrant); /* Green underline */
     transition: width 0.3s ease;
 }
 .main-nav a:not(.button):hover::after {
     width: 100%;
 }
 .main-nav a:hover, .main-nav a:focus {
-    color: var(--primary-light);
+    color: var(--accent-green-light); /* Green hover */
 }
 .main-nav .button { margin-left: 20px; }
 
 .nav-toggle { display: none; background: none; border: none; color: white; font-size: 2rem; cursor: pointer; }
 
-/* Dropdown Menu */
+/* Dropdown Menu (Updated hover) */
 .dropdown .arrow { font-size: 0.7em; display: inline-block; margin-left: 4px; }
 .dropdown-menu {
     display: none;
     position: absolute;
     top: 100%;
     left: 0;
-    background-color: var(--primary-medium);
+    background-color: #2c3e50; /* Slightly lighter dark blue */
     list-style: none;
     padding: 10px 0;
     margin: 0;
     min-width: 180px;
     border-radius: 0 0 var(--border-radius) var(--border-radius);
     box-shadow: var(--box-shadow);
+    z-index: 10; /* Ensure dropdown is above content */
 }
 .dropdown:hover .dropdown-menu {
     display: block;
@@ -227,19 +241,19 @@ p { margin-bottom: 1em; }
     white-space: nowrap;
 }
 .dropdown-menu a:hover {
-    background-color: var(--accent-pink);
-    color: var(--text-light); /* Keep text light on hover */
+    background-color: var(--accent-green-vibrant); /* Green hover */
+    color: var(--text-light);
 }
 .dropdown-menu a::after { display: none; } /* Remove hover underline */
 
 
-/* === HERO SECTION === */
+/* === HERO SECTION (UPDATED) === */
 .hero-section {
-    background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-medium) 100%);
-    color: var(--text-light);
-    padding: 80px 0;
+    background-color: var(--primary-dark); /* Use the dark base */
+    color: var(--text-light); /* Default text color in hero */
+    padding: 80px 0 60px; /* Adjust padding */
     position: relative;
-    overflow: hidden; /* Hide overflow from potential background shapes */
+    overflow: hidden;
 }
 
 .hero-content {
@@ -251,31 +265,37 @@ p { margin-bottom: 1em; }
 
 .hero-text { flex-basis: 55%; }
 .hero-text h1 {
-    font-size: 3.5rem; /* Larger hero text */
+    font-size: 3.2rem; /* Adjust size as needed */
     margin-bottom: 0.5em;
     font-weight: 700;
     line-height: 1.2;
+    color: var(--text-light); /* Ensure heading is light */
 }
-.hero-text .highlight-pink { color: var(--accent-pink); }
+.hero-text .highlight-green { /* Class used in updated HTML */
+    color: var(--accent-green-vibrant);
+}
 .hero-text p {
     font-size: 1.1rem;
-    margin-bottom: 1.5em;
-    max-width: 500px;
+    margin-bottom: 1.8em; /* Increased space before button */
+    max-width: 520px; /* Slightly wider */
+    color: var(--neutral-light); /* Slightly dimmer than pure white */
 }
 .hero-image {
     flex-basis: 40%;
-    text-align: center; /* Center image if it's smaller */
+    text-align: center;
 }
 .hero-image img {
-    border-radius: 50% 50% 0 0; /* Example shape */
-    max-width: 90%; /* Adjust as needed */
+    border-radius: var(--border-radius); /* Simple rounded corners */
+    max-width: 100%; /* Allow image flexibility */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); /* Add shadow to image */
 }
 
-/* === STATS BAR === */
+/* === STATS BAR (UPDATED) === */
 .stats-bar {
-    background: linear-gradient(90deg, var(--accent-pink) 0%, var(--accent-purple) 100%);
-    color: var(--text-light);
-    padding: 30px 0;
+    /* Green gradient background */
+    background: linear-gradient(90deg, var(--accent-green-vibrant) 0%, var(--accent-green-light) 100%);
+    color: var(--text-dark); /* Use dark text for contrast on green */
+    padding: 35px 0; /* Slightly more padding */
 }
 
 .stats-container {
@@ -292,31 +312,49 @@ p { margin-bottom: 1em; }
 
 .stat-number {
     display: block;
-    font-size: 2.5rem;
+    font-size: 2.6rem; /* Slightly larger */
     font-weight: 700;
     line-height: 1;
+    margin-bottom: 2px; /* Small gap */
 }
 
 .stat-location {
-    font-size: 1rem;
+    font-size: 0.9rem; /* Slightly smaller location text */
     font-weight: 600;
+    text-transform: uppercase; /* Uppercase for style */
+    letter-spacing: 0.5px;
 }
 
+/* Optional: Highlight the Singapore stat */
+.stat-item.stat-highlight .stat-number {
+    color: var(--primary-dark); /* Make number stand out if needed */
+}
+.stat-item.stat-highlight {
+   /* Optional styling */
+}
+
+
+/* ========================================================== */
+/* REMAINDER OF CSS (Unchanged structurally from 1st response) */
+/* ========================================================== */
+
 /* === TAILORED SUPPORT & SERVICES === */
+.tailored-support { background-color: var(--text-light); } /* Example background */
 .support-icon {
     max-width: 120px;
     margin: 0 auto 20px;
 }
+.tailored-support h2 { color: var(--primary-dark); } /* Example color */
 
 .services-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive grid */
     gap: 30px;
     margin-top: 40px;
 }
 
 .service-card {
-    background-color: var(--text-light);
+    background-color: var(--text-light); /* Card background */
     border-radius: var(--border-radius);
     overflow: hidden;
     box-shadow: var(--box-shadow);
@@ -328,52 +366,52 @@ p { margin-bottom: 1em; }
 }
 .service-card img {
     width: 100%;
-    height: 220px; /* Fixed height */
-    object-fit: cover; /* Crop image nicely */
+    height: 220px;
+    object-fit: cover;
 }
 .service-card h3, .service-card p {
     padding: 0 20px;
 }
-.service-card h3 { margin-top: 20px; }
-.service-card p { padding-bottom: 20px; font-size: 0.95rem; color: var(--neutral-dark); }
+.service-card h3 { margin-top: 20px; color: var(--primary-dark); } /* Heading inside card */
+.service-card p { padding-bottom: 20px; font-size: 0.95rem; color: var(--neutral-dark); } /* Text inside card */
 
 /* === OVERWHELMED SECTION === */
 .overwhelmed-section {
-    background-color: var(--primary-dark);
+    background-color: var(--primary-dark); /* Original dark background */
     color: var(--text-light);
     position: relative;
     overflow: hidden;
 }
 .overwhelmed-section h2 { color: var(--text-light); }
-.overwhelmed-section .highlight-pink { color: var(--accent-pink); }
+.overwhelmed-section .highlight-pink { color: var(--accent-pink); } /* Using pink */
 
 .overwhelmed-content {
     display: flex;
     align-items: center;
-    justify-content: center; /* Center items */
-    gap: 50px; /* Space between image and tags */
-    position: relative; /* For tag positioning if needed */
+    justify-content: center;
+    gap: 50px;
+    position: relative;
     margin-top: 40px;
-    min-height: 400px; /* Ensure space for tags */
+    min-height: 400px;
 }
 .overwhelmed-image {
-    flex-shrink: 0; /* Prevent image from shrinking */
-    z-index: 5; /* Image above tags */
-    position: relative; /* Needed if tags use absolute positioning */
+    flex-shrink: 0;
+    z-index: 5;
+    position: relative;
 }
 .overwhelmed-image img {
-    max-width: 300px; /* Control image size */
+    max-width: 300px;
     border-radius: var(--border-radius);
 }
 
 .feature-tags {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center; /* Center tags horizontally */
+    justify-content: center;
     gap: 15px;
-    max-width: 600px; /* Limit width of tag area */
-    position: relative; /* Adjust if needed */
-    z-index: 1; /* Tags behind image if overlapping */
+    max-width: 600px;
+    position: relative;
+    z-index: 1;
 }
 
 .tag {
@@ -388,25 +426,27 @@ p { margin-bottom: 1em; }
 .tag:hover {
     transform: scale(1.05);
 }
-
-.tag-green { background-color: var(--accent-green); color: var(--text-light); }
+/* Original Tag Colors (Using retained variables) */
+.tag-green { background-color: #2ecc71; color: var(--text-light); } /* Original green */
 .tag-purple { background-color: var(--accent-purple); color: var(--text-light); }
-.tag-red { background-color: var(--accent-pink); color: var(--text-light); }
+.tag-red { background-color: var(--accent-pink); color: var(--text-light); } /* Uses pink */
 .tag-white { background-color: var(--text-light); color: var(--primary-dark); }
 
-/* === PRICING ANALYSIS === */
+/* === PRICING ANALYSIS SECTION === */
 .pricing-section {
-    background-color: var(--neutral-light);
+    background-color: var(--neutral-light); /* Light background */
 }
-.pricing-section .highlight-pink { color: var(--accent-pink); }
+.pricing-section h2 { color: var(--primary-dark); }
+.pricing-section .highlight-pink { color: var(--accent-pink); } /* Using pink */
 .pricing-illustration {
     max-width: 450px;
     margin: 30px auto 0;
 }
 
-/* === FINAL CTA === */
+/* === FINAL CTA SECTION === */
 .final-cta {
-    background: linear-gradient(135deg, var(--accent-purple) 0%, var(--primary-medium) 100%);
+    /* Original gradient using purple */
+    background: linear-gradient(135deg, var(--accent-purple) 0%, #3a506b 100%); /* Adjusted medium blue */
     color: var(--text-light);
     padding: 60px 0;
     position: relative;
@@ -417,7 +457,7 @@ p { margin-bottom: 1em; }
     justify-content: space-between;
     align-items: center;
     gap: 40px;
-    position: relative; /* For image positioning */
+    position: relative;
     z-index: 2;
 }
 .cta-text { flex-basis: 60%; }
@@ -433,11 +473,9 @@ p { margin-bottom: 1em; }
 }
 .cta-image img {
     max-width: 180px;
-    /* Position adjustments if needed */
-    /* position: absolute; right: 0; bottom: -20px; */
 }
 
-/* === FOOTER === */
+/* === FOOTER (UPDATED Link Hovers) === */
 .site-footer-main {
     background-color: var(--primary-dark);
     color: var(--neutral-medium);
@@ -460,7 +498,7 @@ p { margin-bottom: 1em; }
     margin-bottom: 10px;
 }
 .footer-logo-area .footer-logo:hover {
-    color: var(--primary-light);
+    color: var(--accent-green-light); /* Green hover */
 }
 
 .footer-links h4, .footer-social h4, .contact-details h4 {
@@ -470,39 +508,32 @@ p { margin-bottom: 1em; }
     font-weight: 600;
 }
 
-.footer-links ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.footer-links li {
-    margin-bottom: 10px;
-}
+.footer-links ul { list-style: none; padding: 0; margin: 0; }
+.footer-links li { margin-bottom: 10px; }
 
 .footer-links a {
     color: var(--neutral-medium);
 }
 .footer-links a:hover {
-    color: var(--text-light);
+    color: var(--accent-green-light); /* Green hover */
     text-decoration: underline;
 }
 
 .social-icons a {
     color: var(--neutral-medium);
-    font-size: 1.5rem; /* Adjust if using real icons */
+    font-size: 1.5rem;
     margin-right: 15px;
-    display: inline-block; /* Allows margin */
+    display: inline-block;
 }
 .social-icons a:hover {
-    color: var(--accent-pink);
+    color: var(--accent-green-vibrant); /* Green hover */
 }
 
 .footer-contact-section {
-    background-color: #15202b; /* Slightly darker shade */
+    background-color: #111827; /* Slightly darker shade */
     padding: 30px 0;
-    border-top: 1px solid var(--primary-medium);
-    border-bottom: 1px solid var(--primary-medium);
+    border-top: 1px solid #2c3e50; /* Adjust border color */
+    border-bottom: 1px solid #2c3e50;
 }
 .footer-contact-grid {
     display: grid;
@@ -513,16 +544,11 @@ p { margin-bottom: 1em; }
     margin-bottom: 8px;
     color: var(--neutral-medium);
     display: flex;
-    align-items: center; /* Align icons and text */
-    gap: 8px; /* Space between icon and text */
+    align-items: center;
+    gap: 8px;
 }
 .contact-details p:last-child { margin-bottom: 0; }
-/* Add basic styling for emoji/character "icons" */
-.contact-details p::before {
-    display: inline-block;
-    width: 1em; /* Reserve space */
-    text-align: center;
-}
+.contact-details p::before { display: inline-block; width: 1em; text-align: center; }
 .contact-details p:nth-of-type(1)::before { content: '📧'; }
 .contact-details p:nth-of-type(2)::before { content: '📞'; }
 .contact-details p:nth-of-type(3)::before { content: '📍'; }
@@ -546,96 +572,102 @@ p { margin-bottom: 1em; }
     color: #FFF;
     border-radius: 50px;
     text-align: center;
-    font-size: 30px; /* Adjust for icon */
+    font-size: 30px;
     box-shadow: 2px 2px 6px rgba(0,0,0,0.3);
     z-index: 100;
-    display: flex; /* Center icon */
+    display: flex;
     justify-content: center;
     align-items: center;
     transition: transform 0.3s ease;
 }
 .whatsapp-float:hover {
     transform: scale(1.1);
-    color: #fff; /* Ensure icon stays white */
+    color: #fff;
 }
 
-/* === RESPONSIVENESS === */
+/* === RESPONSIVENESS (Adjusted mobile nav colors) === */
 
 /* Tablets and smaller desktops */
 @media (max-width: 992px) {
     :root { --container-width: 960px; }
     h1 { font-size: 2.5rem; }
-    .hero-text h1 { font-size: 3rem; }
+    /* Updated hero H1 size */
+    .hero-text h1 { font-size: 2.8rem; }
     h2 { font-size: 2rem; }
 
-    .services-grid { grid-template-columns: 1fr; } /* Stack service cards */
+    .services-grid { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); } /* Adjust grid */
     .overwhelmed-content { flex-direction: column; gap: 30px; }
-    .feature-tags { order: 2; } /* Put tags below image */
+    .feature-tags { order: 2; }
     .overwhelmed-image { order: 1; }
     .cta-container { flex-direction: column; text-align: center; }
     .cta-image { text-align: center; margin-top: 20px; }
-    .stats-container { justify-content: space-between; } /* Better spacing */
+    .stats-container { justify-content: space-evenly; } /* Even spacing */
 }
 
 /* Mobile devices */
 @media (max-width: 768px) {
     h1 { font-size: 2rem; }
-    .hero-text h1 { font-size: 2.5rem; }
+     /* Updated hero H1 size */
+    .hero-text h1 { font-size: 2.4rem; }
     h2 { font-size: 1.8rem; }
     h3 { font-size: 1.3rem; }
 
     .header-container { position: relative; }
-    .nav-toggle { display: block; position: absolute; right: 20px; top: 50%; transform: translateY(-50%); }
+    .nav-toggle { display: block; position: absolute; right: 20px; top: 50%; transform: translateY(-50%); color: var(--text-light); } /* Ensure toggle is visible */
     .main-nav .nav-links {
         display: none;
         flex-direction: column;
         position: absolute;
-        top: 100%; /* Position below header */
+        top: 100%;
         left: 0;
         width: 100%;
-        background-color: var(--primary-dark); /* Same as header */
+        background-color: var(--primary-dark); /* Mobile nav background */
         padding: 20px 0;
-        border-top: 1px solid var(--primary-medium);
+        border-top: 1px solid #2c3e50; /* Separator color */
     }
     .main-nav .nav-links.active { display: flex; }
     .main-nav li { margin: 10px 0; text-align: center; margin-left: 0; }
     .main-nav .button { margin-left: 0; margin-top: 15px; }
-    /* Hide dropdown arrow on mobile if not handled by JS */
     .dropdown .arrow { display: none; }
-    /* Force dropdown to show links vertically within mobile nav */
     .dropdown-menu {
-        position: static; /* Override absolute */
-        display: block; /* Always show when parent nav is active */
+        position: static;
+        display: block;
         background: none;
         box-shadow: none;
-        padding: 10px 0 0 0; /* Adjust padding */
+        padding: 10px 0 0 0;
         text-align: center;
         border: none;
     }
      .dropdown-menu a {
-        color: var(--neutral-medium); /* Slightly dimmer color for sub-items */
+        color: var(--neutral-medium); /* Dimmer sub-items */
         padding: 8px 0;
     }
      .dropdown-menu a:hover {
          background: none;
-         color: var(--accent-pink);
+         color: var(--accent-green-light); /* Green hover for sub-items */
      }
 
 
+    /* Updated hero layout */
     .hero-content { flex-direction: column; text-align: center; }
-    .hero-text { order: 2; }
-    .hero-image { order: 1; margin-bottom: 30px; }
-    .hero-text p { max-width: 100%; }
-    .hero-image img { max-width: 70%; }
+    .hero-text { order: 2; margin-top: 20px; }
+    .hero-image { order: 1; max-width: 80%; margin: 0 auto 30px; } /* Center image */
+    .hero-text p { max-width: 100%; font-size: 1rem; }
 
-    .stats-container { grid-template-columns: repeat(2, 1fr); gap: 30px; } /* 2 columns */
+    /* Updated stats layout */
+    .stats-container { grid-template-columns: repeat(2, 1fr); gap: 25px; padding: 0 15px;}
     .stat-number { font-size: 2rem; }
+    .stat-location { font-size: 0.8rem; }
 
+    /* Footer adjustments */
     .footer-grid { grid-template-columns: 1fr; text-align: center; }
     .footer-logo-area { text-align: center; }
     .social-icons { text-align: center; margin-top: 10px; }
     .footer-contact-grid { grid-template-columns: 1fr; text-align: center;}
-    .contact-details p { justify-content: center;} /* Center contact items */
+    .contact-details p { justify-content: center;}
 
     .whatsapp-float { width: 50px; height: 50px; font-size: 24px; bottom: 20px; right: 20px;}
+
+    /* Specific overrides for other sections if needed */
+    .services-grid { grid-template-columns: 1fr; }
 }
