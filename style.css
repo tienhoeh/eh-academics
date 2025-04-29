@@ -1,6 +1,5 @@
 /* === GLOBAL STYLES & VARIABLES === */
 :root {
-    /* --- Palette --- */
     --primary-dark-blue: #1F2937;
     --primary-medium-blue: #374151;
     --accent-green: #006A4E;
@@ -15,11 +14,9 @@
     --text-dark: #111827;
     --border-color: #D1D5DB;
     --footer-border-color: #E5E7EB;
-    --hero-overlay-color: rgba(31, 41, 55, 0.5);
     --line-color: rgba(255, 255, 255, 0.7);
     --hero-highlight-green: #34D399;
 
-    /* --- Fonts & Structure --- */
     --font-primary: 'Poppins', sans-serif;
     --container-width: 1140px;
     --border-radius: 8px;
@@ -70,13 +67,55 @@ strong { font-weight: 600; }
 .nav-toggle { display: none; background: none; border: none; color: var(--primary-dark-blue); font-size: 1.5rem; cursor: pointer; }
 
 /* === Hero Section === */
-.hero-section { color: var(--text-light); padding: 120px 0 100px; overflow: hidden; position: relative; display: flex; align-items: center; min-height: 60vh; background-image: linear-gradient(var(--hero-overlay-color), var(--hero-overlay-color)), url('images/Singapore park.jpg'); background-size: cover; background-position: center center; background-repeat: no-repeat; background-color: #2a3a4a; }
-.hero-content { position: relative; z-index: 2; width: 100%; max-width: var(--container-width); margin: 0 auto; padding: 0 20px; text-align: center; }
-.hero-text { max-width: 750px; margin: 0 auto; }
-.hero-text h1 { color: var(--text-light); }
-.hero-text .highlight-green { color: var(--hero-highlight-green); }
-.hero-text .subtitle { color: var(--neutral-light); opacity: 0.95; margin: 0 0 2em 0; max-width: 100%; }
-.hero-image { display: none; }
+.hero-section {
+    background-color: var(--accent-green); /* Solid green background */
+    color: var(--text-light);
+    padding: 80px 0; /* Adjust padding as needed */
+    overflow: hidden;
+}
+.hero-content {
+    display: flex;
+    align-items: center; /* Vertically align text and image */
+    gap: 40px; /* Space between text and image */
+    text-align: left; /* Align text left */
+}
+.hero-text-column {
+    flex: 1 1 55%; /* Allow text column to take up slightly more space */
+    max-width: 55%;
+    padding-right: 20px; /* Add some space to the right of text */
+}
+.hero-image-column {
+    flex: 1 1 45%; /* Image column takes less space */
+    max-width: 45%;
+}
+.hero-image-column img {
+    width: 100%;
+    height: auto;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow-lg);
+}
+.hero-text-column h1 { color: var(--text-light); }
+.hero-text-column .highlight-green { color: var(--hero-highlight-green); }
+.hero-text-column .subtitle {
+    color: var(--neutral-light);
+    opacity: 0.95;
+    margin: 0 0 2em 0; /* Remove auto margins */
+    max-width: 100%; /* Allow full width within its column */
+    text-align: left; /* Ensure subtitle is left aligned */
+}
+/* Hero button specific styles */
+.button-hero {
+    background-color: var(--text-light); /* White background */
+    color: var(--accent-green-dark); /* Dark green text */
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
+}
+.button-hero:hover {
+    background-color: #f0f0f0; /* Slightly off-white hover */
+    color: var(--accent-green-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+}
+
 
 /* === Pain Points Section === */
 .pain-points-section { background-color: var(--neutral-light); }
@@ -113,39 +152,16 @@ strong { font-weight: 600; }
 .testimonial-card blockquote[lang="zh-CN"] { font-style: normal; }
 .testimonial-card cite { font-style: normal; font-weight: 600; color: var(--neutral-medium); font-size: 0.9rem; }
 
-/* === Final CTA Section (UPDATED STRUCTURE & STYLES) === */
+/* === Final CTA Section === */
 .final-cta-section { background: linear-gradient(135deg, var(--accent-green) 0%, var(--accent-green-dark) 100%); color: var(--text-light); }
-
-/* ADDED: Header for title/subtitle */
-.cta-header {
-    text-align: center;
-    margin-bottom: 40px; /* Space below subtitle */
-}
+.cta-header { text-align: center; margin-bottom: 40px; }
 .final-cta-section h2 { color: var(--text-light); }
-.final-cta-section .subtitle { color: var(--neutral-light); opacity: 0.9; max-width: 650px; margin-left: auto; margin-right: auto; } /* Center subtitle */
-
-/* Flex container for image and form */
-.cta-container-flex {
-    display: flex;
-    align-items: flex-start; /* Align tops of columns */
-    gap: 40px; /* Space between image and form */
-}
-
-/* Image column styles */
-.cta-image-column {
-    flex: 1 1 45%;
-    max-width: 45%;
-}
+.final-cta-section .subtitle { color: var(--neutral-light); opacity: 0.9; max-width: 650px; margin-left: auto; margin-right: auto; }
+.cta-container-flex { display: flex; align-items: flex-start; gap: 40px; margin-top: 40px; } /* Added margin-top */
+.cta-image-column { flex: 1 1 45%; max-width: 45%; }
 .cta-image-column img { width: 100%; height: auto; border-radius: var(--border-radius); box-shadow: var(--box-shadow-lg); }
-
-/* Form column styles */
-.cta-form-column {
-    flex: 1 1 50%;
-    max-width: 50%;
-}
-
-/* Form Styling */
-.cta-form { max-width: 100%; margin: 0; text-align: left; } /* Adjusted margins */
+.cta-form-column { flex: 1 1 50%; max-width: 50%; }
+.cta-form { max-width: 100%; margin: 0; text-align: left; }
 .form-group { margin-bottom: 15px; }
 .cta-form input[type="text"], .cta-form input[type="email"], .cta-form input[type="tel"], .cta-form textarea { width: 100%; padding: 12px 15px; border-radius: var(--border-radius); border: 1px solid rgba(255, 255, 255, 0.3); background-color: rgba(255, 255, 255, 0.1); color: var(--text-light); font-family: var(--font-primary); font-size: 1rem; transition: border-color 0.3s ease, background-color 0.3s ease; }
 .cta-form input::placeholder, .cta-form textarea::placeholder { color: rgba(249, 250, 251, 0.7); opacity: 1; }
@@ -185,15 +201,18 @@ strong { font-weight: 600; }
     :root { --container-width: 960px; }
     h1 { font-size: clamp(2.2rem, 5vw, 3rem); }
     h2 { font-size: clamp(1.6rem, 4vw, 2.2rem); }
-    .hero-content { padding: 60px 20px; }
-    .process-steps-grid { gap: 30px; }
+    /* Hero adjustments */
+    .hero-content { flex-direction: column; text-align: center; gap: 30px; }
+    .hero-text-column, .hero-image-column { max-width: 100%; flex-basis: auto; padding-right: 0; }
+    .hero-image-column { order: -1; max-width: 70%; margin: 0 auto; } /* Image above text, smaller */
+    .hero-text-column .subtitle { margin-left: auto; margin-right: auto; } /* Center subtitle */
+    .hero-text-column { text-align: center; } /* Center text */
 
-    /* Stack CTA columns */
+    .process-steps-grid { gap: 30px; }
     .cta-container-flex { flex-direction: column; gap: 30px; }
     .cta-image-column, .cta-form-column { flex-basis: auto; max-width: 100%; }
-    /* Center text/form again when stacked */
-    .cta-form-column { text-align: center; } /* Center form container */
-    .cta-form { max-width: 600px; margin-left: auto; margin-right: auto; } /* Limit form width and center */
+    .cta-form-column { text-align: center; }
+    .cta-form { max-width: 600px; margin-left: auto; margin-right: auto; }
 }
 
 /* Mobile breakpoint */
@@ -205,9 +224,8 @@ strong { font-weight: 600; }
     .main-nav .nav-links.active { display: flex; }
     .main-nav li { margin: 10px 0; text-align: center; margin-left: 0; }
     .main-nav .button { margin-left: 0; margin-top: 15px; }
-    .hero-section { min-height: 50vh; }
-    .hero-content { padding: 40px 20px; flex-direction: column; text-align: center; }
-    .hero-text { flex-basis: auto; }
+    .hero-section { min-height: auto; padding: 60px 0; } /* Adjust hero padding */
+    .hero-image-column { max-width: 80%; } /* Adjust image size */
     .process-steps-grid { grid-template-columns: 1fr; gap: 30px;}
     .pain-points-grid { grid-template-columns: 1fr; }
     .testimonials-grid { grid-template-columns: 1fr; }
@@ -216,10 +234,8 @@ strong { font-weight: 600; }
     .footer-logo img { margin-left: auto; margin-right: auto; }
     .footer-contact p { justify-content: center; }
     .whatsapp-float { width: 50px; height: 50px; font-size: 1.5rem; bottom: 20px; right: 20px; }
-
-    /* Ensure CTA stacks correctly */
     .cta-container-flex { flex-direction: column; gap: 30px; }
     .cta-image-column, .cta-form-column { max-width: 100%; flex-basis: auto; }
-    .cta-form-column { text-align: center; } /* Center form container on mobile */
-    .cta-form { max-width: 100%; margin: 20px 0 0 0; } /* Adjust top margin */
+    .cta-form-column { text-align: center; }
+    .cta-form { max-width: 100%; margin: 20px 0 0 0; }
 }
