@@ -152,13 +152,43 @@
             </div>
         </section>
 
-        <!-- Final CTA Section -->
+        <!-- Final CTA Section (UPDATED with Form) -->
         <section id="consultation" class="final-cta-section section-padding">
              <div class="container text-center">
                 <h2>Ready to Find Your Child's Ideal Singapore School, Stress-Free?</h2>
                 <p class="subtitle">Take the first step towards a smooth school transition. Book your complimentary, no-obligation consultation today and let our experts guide you.</p>
-                <a href="#contact" class="button button-primary button-large">Book Your Free Consultation Now</a>
-                <p class="contact-info">Or call us: <a href="tel:+6587855563">(65) 8785 5563</a></p>
+
+                {/* === NETLIFY FORM START === */}
+                <form name="consultation-request" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="cta-form">
+                    {/* Hidden input for Netlify */}
+                    <input type="hidden" name="form-name" value="consultation-request">
+                    {/* Hidden honeypot field for spam */}
+                    <p class="hidden" style="display: none;">
+                        <label>Don’t fill this out if you're human: <input name="bot-field"></label>
+                    </p>
+
+                    <div class="form-group">
+                        <label for="name" class="sr-only">Name</label>
+                        <input type="text" id="name" name="name" placeholder="Your Name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email" class="sr-only">Email</label>
+                        <input type="email" id="email" name="email" placeholder="Your Email Address" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone" class="sr-only">Phone</label>
+                        <input type="tel" id="phone" name="phone" placeholder="Your Phone Number (Optional)">
+                    </div>
+                    <div class="form-group">
+                        <label for="message" class="sr-only">Message</label>
+                        <textarea id="message" name="message" rows="4" placeholder="Tell us briefly about your needs (e.g., child's age, desired curriculum, timeline)" required></textarea>
+                    </div>
+                    <button type="submit" class="button button-submit">Send Consultation Request</button>
+                </form>
+                {/* === NETLIFY FORM END === */}
+
+                {/* REMOVED Phone number paragraph */}
+                {/* <p class="contact-info">Or call us: <a href="tel:+6587855563">(65) 8785 5563</a></p> */}
             </div>
         </section>
 
@@ -179,8 +209,9 @@
                      <li><a href="#">Home</a></li>
                      <li><a href="#process">Our Process</a></li>
                      <li><a href="#testimonials">Testimonials</a></li>
-                      <li><a href="#">About Us (Add Link)</a></li>
-                     <li><a href="#">FAQ (Add Link)</a></li>
+                      {/* REMOVED About Us and FAQ links */}
+                      {/* <li><a href="#">About Us (Add Link)</a></li> */}
+                      {/* <li><a href="#">FAQ (Add Link)</a></li> */}
                  </ul>
              </div>
              <div class="footer-contact">
