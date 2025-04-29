@@ -8,12 +8,13 @@
     --process-box-gradient-start: #66BDAA;
     --process-box-gradient-end: #33A085;
     --process-box-icon-bg: #00563f;
-    --neutral-light: #F9FAFB;     /* Use this for light footer background */
-    --neutral-medium: #6B7280;    /* Use this for lighter text on light footer */
-    --neutral-dark: #374151;      /* Use this for darker text on light footer */
-    --text-light: #F9FAFB;
-    --text-dark: #111827;         /* Use this for main text on light footer */
-    --border-color: #D1D5DB;
+    --neutral-light: #F9FAFB;     /* Light background, also used for footer */
+    --neutral-medium: #6B7280;    /* Lighter text on light bg */
+    --neutral-dark: #374151;      /* Darker text on light bg */
+    --text-light: #F9FAFB;        /* White/Off-white text */
+    --text-dark: #111827;         /* Very dark text */
+    --border-color: #D1D5DB;      /* Default border color */
+    --footer-border-color: #E5E7EB; /* Lighter border for footer top/bottom */
     --hero-overlay-color: rgba(31, 41, 55, 0.5);
     --line-color: rgba(255, 255, 255, 0.7);
     --hero-highlight-green: #34D399;
@@ -46,6 +47,9 @@ p { margin-bottom: 1.2em; }
 .text-center { text-align: center; }
 .section-padding { padding: 80px 0; }
 strong { font-weight: 600; }
+/* Visually hide labels but keep them for screen readers */
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border-width: 0; }
+
 
 /* === Buttons === */
 .button { display: inline-block; padding: 12px 28px; border-radius: var(--border-radius); font-weight: 600; text-align: center; cursor: pointer; transition: all 0.3s ease; border: none; font-size: 1rem; letter-spacing: 0.5px; }
@@ -114,62 +118,93 @@ strong { font-weight: 600; }
 .testimonial-card blockquote[lang="zh-CN"] { font-style: normal; }
 .testimonial-card cite { font-style: normal; font-weight: 600; color: var(--neutral-medium); font-size: 0.9rem; }
 
-/* === Final CTA Section === */
+/* === Final CTA Section (UPDATED with Form Styles) === */
 .final-cta-section { background: linear-gradient(135deg, var(--accent-green) 0%, var(--accent-green-dark) 100%); color: var(--text-light); }
 .final-cta-section h2 { color: var(--text-light); }
-.final-cta-section .subtitle { color: var(--neutral-light); opacity: 0.9; }
-.final-cta-section .button-primary { background-color: var(--text-light); color: var(--accent-green-dark); box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1); }
-.final-cta-section .button-primary:hover { background-color: #f0f0f0; color: var(--accent-green-dark); box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15); }
-.contact-info { margin-top: 25px; font-size: 1rem; }
-.contact-info a { color: var(--text-light); font-weight: 600; text-decoration: underline; }
-.contact-info a:hover { color: var(--neutral-light); }
+.final-cta-section .subtitle { color: var(--neutral-light); opacity: 0.9; max-width: 550px; /* Limit width */ }
+
+/* Form Styling */
+.cta-form {
+    max-width: 600px; /* Limit form width */
+    margin: 30px auto 0;
+    text-align: left; /* Align form elements left */
+}
+.form-group {
+    margin-bottom: 15px;
+}
+/* Style inputs and textarea */
+.cta-form input[type="text"],
+.cta-form input[type="email"],
+.cta-form input[type="tel"],
+.cta-form textarea {
+    width: 100%;
+    padding: 12px 15px;
+    border-radius: var(--border-radius);
+    border: 1px solid rgba(255, 255, 255, 0.3); /* Light border */
+    background-color: rgba(255, 255, 255, 0.1); /* Slightly transparent bg */
+    color: var(--text-light); /* Light text color */
+    font-family: var(--font-primary);
+    font-size: 1rem;
+    transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+.cta-form input::placeholder,
+.cta-form textarea::placeholder {
+    color: rgba(249, 250, 251, 0.7); /* Lighter placeholder text */
+    opacity: 1; /* Override browser defaults */
+}
+.cta-form input:focus,
+.cta-form textarea:focus {
+    outline: none;
+    border-color: var(--text-light); /* White border on focus */
+    background-color: rgba(255, 255, 255, 0.15);
+}
+.cta-form textarea {
+    resize: vertical; /* Allow vertical resize */
+    min-height: 100px;
+}
+/* Style submit button */
+.cta-form button[type="submit"] {
+    /* Use existing button styles but customize colors */
+    display: block; /* Make button full width of its container */
+    width: 100%;
+    background-color: var(--text-light); /* White button */
+    color: var(--accent-green-dark); /* Dark green text */
+    padding: 15px 30px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-top: 10px;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+.cta-form button[type="submit"]:hover {
+    background-color: #f0f0f0; /* Slightly off-white hover */
+    color: var(--accent-green-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+}
+
 
 /* === Footer (UPDATED STYLES) === */
-.site-footer-main {
-    background-color: var(--neutral-light); /* Light background */
-    color: var(--neutral-dark); /* Darker base text */
-    padding-top: 60px;
-    font-size: 0.9rem;
-    border-top: 1px solid var(--border-color); /* Add subtle top border */
-}
+.site-footer-main { background-color: var(--neutral-light); color: var(--neutral-dark); padding-top: 60px; font-size: 0.9rem; border-top: 1px solid var(--footer-border-color); }
 .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 40px; margin-bottom: 40px; }
-.footer-logo-area { text-align: center; /* Center logo area content */ }
+.footer-logo-area { text-align: center; }
 .footer-logo { display: inline-block; margin-bottom: 10px; }
 .footer-logo img { height: 50px; width: auto; display: block; margin-left: auto; margin-right: auto; }
-.footer-logo-area p {
-    color: var(--neutral-medium); /* Lighter text for tagline */
-    margin-bottom: 0; line-height: 1.5;
-}
-.footer-links h4, .footer-contact h4 {
-    color: var(--primary-dark-blue); /* Dark heading color */
-    font-size: 1.1rem; margin-bottom: 18px; font-weight: 600;
-}
+.footer-logo-area p { color: var(--neutral-medium); margin-bottom: 0; line-height: 1.5;}
+.footer-links h4, .footer-contact h4 { color: var(--primary-dark-blue); font-size: 1.1rem; margin-bottom: 18px; font-weight: 600; }
 .footer-links ul { list-style: none; padding: 0; margin: 0; }
 .footer-links li { margin-bottom: 12px; }
-.footer-links a {
-    color: var(--neutral-dark); /* Dark link color */
-}
+.footer-links a { color: var(--neutral-dark); }
 .footer-links a:hover { color: var(--accent-green); text-decoration: underline; }
-.footer-contact p {
-    margin-bottom: 12px; display: flex; align-items: center; gap: 10px;
-    color: var(--neutral-dark); /* Dark contact text */
-}
-.footer-contact .icon-footer {
-    color: var(--accent-green); /* Green icon color */
-    width: 1em; text-align: center;
-}
+.footer-contact p { margin-bottom: 12px; display: flex; align-items: center; gap: 10px; color: var(--neutral-dark); }
+.footer-contact .icon-footer { color: var(--accent-green); width: 1em; text-align: center; }
 .social-icons-footer { margin-top: 15px; }
-.social-icons-footer a {
-    color: var(--neutral-medium); /* Medium icon color */
-    font-size: 1.2rem; margin-right: 15px;
-}
-.social-icons-footer a:hover { color: var(--accent-green); } /* Green hover */
-
-.footer-bottom {
-    padding: 25px 0; text-align: center; font-size: 0.85rem;
-    border-top: 1px solid var(--border-color); /* Lighter border */
-    color: var(--neutral-medium); /* Medium text color */
-}
+.social-icons-footer a { color: var(--neutral-medium); font-size: 1.2rem; margin-right: 15px; }
+.social-icons-footer a:hover { color: var(--accent-green); }
+.footer-bottom { padding: 25px 0; text-align: center; font-size: 0.85rem; border-top: 1px solid var(--footer-border-color); color: var(--neutral-medium); }
 
 /* === Floating WhatsApp Button === */
 .whatsapp-float { position: fixed; width: 60px; height: 60px; bottom: 30px; right: 30px; background-color: #25D366; color: #FFF; border-radius: 50%; text-align: center; font-size: 1.8rem; box-shadow: 2px 2px 10px rgba(0,0,0,0.3); z-index: 100; display: flex; justify-content: center; align-items: center; transition: transform 0.3s ease; }
