@@ -1,242 +1,215 @@
-/* === GLOBAL STYLES & VARIABLES === */
-:root {
-    /* --- Palette --- */
-    --primary-dark-blue: #1F2937;
-    --primary-medium-blue: #374151;
-    --accent-green: #006A4E;
-    --accent-green-dark: #00563f;
-    --process-box-gradient-start: #66BDAA;
-    --process-box-gradient-end: #33A085;
-    --process-box-icon-bg: #00563f;
-    --neutral-light: #F9FAFB;
-    --neutral-medium: #6B7280;
-    --neutral-dark: #374151;
-    --text-light: #F9FAFB; /* White/Off-white for text on dark/colored backgrounds */
-    --text-dark: #111827;
-    --border-color: #D1D5DB;
-    --hero-overlay-color: rgba(25, 35, 45, 0.65);
-    --line-color: rgba(255, 255, 255, 0.7);
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>eh-academics.com - Find Your Perfect Singapore School Match</title>
+    <!-- Font Awesome CDN (for icons) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 
-    /* --- Fonts & Structure --- */
-    --font-primary: 'Poppins', sans-serif;
-    --container-width: 1140px;
-    --border-radius: 8px;
-    --box-shadow: 0 4px 15px rgba(0, 0, 0, 0.07);
-    --box-shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.1);
-}
+    <!-- ************************************************** -->
+    <!-- ****** THIS IS THE CRITICAL LINE FOR CSS ******* -->
+    <!-- Make sure 'style.css' is in the same folder as this HTML file -->
+    <link rel="stylesheet" href="style.css">
+    <!-- ************************************************** -->
 
-/* === Base Styles === */
-* { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; font-size: 16px; }
-body {
-    font-family: var(--font-primary);
-    color: var(--neutral-medium);
-    line-height: 1.7;
-    background-color: var(--neutral-light);
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-}
-.container { max-width: var(--container-width); margin: 0 auto; padding: 0 20px; }
-img { max-width: 100%; height: auto; display: block; }
-a { color: var(--accent-green); text-decoration: none; transition: color 0.3s ease; }
-a:hover { color: var(--accent-green-dark); }
+</head>
+<body>
 
-h1, h2, h3 { line-height: 1.3; font-weight: 700; margin-bottom: 0.6em; color: var(--neutral-dark); }
-h1 { font-size: clamp(2.5rem, 5vw, 3.5rem); margin-bottom: 0.5em; }
-h2 { font-size: clamp(1.8rem, 4vw, 2.5rem); margin-bottom: 1em; }
-h3 { font-size: 1.25rem; margin-bottom: 0.5em; color: var(--primary-dark-blue) }
-p { margin-bottom: 1.2em; }
-.subtitle { font-size: 1.1rem; color: var(--neutral-medium); max-width: 650px; margin: 0 auto 1.5em auto; }
-.text-center { text-align: center; }
-.section-padding { padding: 80px 0; }
-strong { font-weight: 600; }
+    <!-- Header Section -->
+    <header class="site-header">
+        <div class="container header-container">
+            <a href="#" class="logo">eh-academics.com</a>
+            <nav class="main-nav">
+                <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+                    <i class="fas fa-bars"></i> <!-- Hamburger Icon -->
+                </button>
+                <ul class="nav-links">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#process">Our Process</a></li>
+                    <li><a href="#testimonials">Testimonials</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#consultation" class="button button-primary button-small">Book free Consult</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
-/* === Buttons === */
-.button {
-    display: inline-block; padding: 12px 28px; border-radius: var(--border-radius);
-    font-weight: 600; text-align: center; cursor: pointer; transition: all 0.3s ease;
-    border: none; font-size: 1rem; letter-spacing: 0.5px;
-}
-.button-primary {
-    background-color: var(--accent-green);
-    color: var(--text-light); /* Ensures text is white/light */
-    box-shadow: 0 4px 14px rgba(0, 106, 78, 0.3);
-}
-.button-primary:hover {
-    background-color: var(--accent-green-dark); color: var(--text-light);
-    transform: translateY(-2px); box-shadow: 0 6px 16px rgba(0, 106, 78, 0.4);
-}
-.button-large { padding: 15px 35px; font-size: 1.1rem; }
-.button-small { padding: 10px 22px; font-size: 0.9rem; box-shadow: none; }
-.button-small:hover { box-shadow: 0 2px 8px rgba(0, 106, 78, 0.3); }
+    <main>
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <div class="container hero-content">
+                <div class="hero-text">
+                    <h1>70+ Schools. One Perfect Fit for Your Child. <span class="highlight-green">Let Us Find It.</span></h1>
+                    <p class="subtitle">Moving to Singapore is exciting, but navigating the complex international school landscape takes time and creates anxiety. We help families like yours find the ideal high-calibre school, stress-free.</p>
+                    <a href="#consultation" class="button button-primary button-large">Simplify Your School Search Now</a>
+                </div>
+                <div class="hero-image">
+                    <!-- This is hidden by CSS currently, but kept for potential future use -->
+                     <img src="https://via.placeholder.com/500x450/DEE2E6/495057?text=Placeholder" alt="Finding the right international school in Singapore">
+                 </div>
+            </div>
+        </section>
 
-/* === Header === */
-.site-header {
-    background-color: var(--text-light); color: var(--primary-dark-blue);
-    padding: 15px 0; position: sticky; top: 0; z-index: 1000;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-}
-.header-container { display: flex; justify-content: space-between; align-items: center; }
-.logo { font-size: 1.6rem; font-weight: 700; color: var(--primary-dark-blue); }
-.logo:hover { color: var(--accent-green); }
-.main-nav .nav-links { list-style: none; display: flex; align-items: center; margin: 0; padding: 0; }
-.main-nav li { margin-left: 30px; }
-.main-nav a { color: var(--primary-dark-blue); font-weight: 600; padding: 5px 0; position: relative; font-size: 0.95rem;}
-.main-nav a:not(.button)::after {
-    content: ''; position: absolute; width: 0; height: 2px; bottom: -5px; left: 50%; transform: translateX(-50%);
-    background-color: var(--accent-green); transition: width 0.3s ease;
-}
-.main-nav a:not(.button):hover::after { width: 100%; }
-.main-nav a:hover, .main-nav a:focus { color: var(--accent-green); }
-.main-nav .button { margin-left: 20px; }
-.nav-toggle { display: none; background: none; border: none; color: var(--primary-dark-blue); font-size: 1.5rem; cursor: pointer; }
+        <!-- Pain Points Section -->
+        <section class="pain-points-section section-padding">
+            <div class="container">
+                <h2 class="text-center">Navigating Singapore's School Search Can Feel Overwhelming...</h2>
+                <div class="pain-points-grid">
+                    <div class="pain-point">
+                        <i class="fas fa-search-dollar fa-2x icon-color"></i>
+                        <h3>Endless Research</h3>
+                        <p>Comparing 70+ schools, curricula, hidden fees, and locations takes dozens of hours.</p>
+                    </div>
+                    <div class="pain-point">
+                        <i class="fas fa-puzzle-piece fa-2x icon-color"></i>
+                        <h3>Complex Choices</h3>
+                        <p>Matching budget, specific programs (like languages or SEN), and school culture is tough.</p>
+                    </div>
+                    <div class="pain-point">
+                        <i class="fas fa-map-signs fa-2x icon-color"></i>
+                        <h3>Lack of Local Insight</h3>
+                        <p>Online info misses the nuances. How do you know what a school is *really* like?</p>
+                    </div>
+                     <div class="pain-point">
+                        <i class="fas fa-clock fa-2x icon-color"></i>
+                        <h3>Time Pressure</h3>
+                        <p>You need to focus on your move, not get bogged down decoding school admissions.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-/* === Hero Section === */
-.hero-section {
-    color: var(--text-light); padding: 100px 0 80px; overflow: hidden; position: relative;
-    background-image:
-        linear-gradient(var(--hero-overlay-color), var(--hero-overlay-color)),
-        /* CRITICAL: Make sure this path is correct relative to your HTML file! */
-        /* Example: If your image is in root/images/family.jpg and HTML is in root/index.html, use 'images/family.jpg' */
-        url('images/Singapore park.jpg');
-    background-size: cover; background-position: center center; background-repeat: no-repeat;
-    /* Add fallback color in case image fails to load */
-    background-color: var(--primary-dark-blue);
-}
-.hero-content { display: flex; align-items: center; justify-content: space-between; gap: 50px; position: relative; z-index: 2; }
-.hero-text { flex-basis: 55%; }
-.hero-text h1 { color: var(--text-light); }
-.hero-text .highlight-green { color: var(--accent-green); }
-.hero-text .subtitle { color: var(--neutral-light); opacity: 0.95; margin: 0 0 2em 0; max-width: 550px; }
-.hero-image { display: none; }
+        <!-- Solution / Process Section -->
+        <section id="process" class="solution-process-section section-padding">
+            <div class="container">
+                <h2 class="text-center">Your Clear Path to the Perfect Singapore School (Without the Stress)</h2>
+                <div class="process-steps-grid">
+                    <!-- Step 1 -->
+                    <div class="process-step">
+                        <div class="step-icon-container"><i class="fas fa-comments fa-2x"></i></div>
+                        <div class="step-content">
+                            <h3><span>1.</span> Gain Clarity & Insight</h3>
+                            <p>Start with confidence. We begin with an in-depth consultation, leveraging <strong>insider knowledge</strong> to <strong>simplify</strong> Singapore's complex school options, focusing on <strong>your</strong> unique family needs.</p>
+                        </div>
+                    </div>
+                    <!-- Step 2 -->
+                    <div class="process-step">
+                         <div class="step-icon-container"><i class="fas fa-list-check fa-2x"></i></div>
+                         <div class="step-content">
+                            <h3><span>2.</span> Save Time & Get Focused Options</h3>
+                            <p>Stop drowning in choices. Receive a focused, curated shortlist matching your criteria, <strong>saving you countless hours</strong>. Get <strong>simplified</strong>, clear comparisons enhanced with <strong>insider knowledge</strong>.</p>
+                        </div>
+                    </div>
+                    <!-- Step 3 -->
+                    <div class="process-step">
+                         <div class="step-icon-container"><i class="fas fa-calendar-check fa-2x"></i></div>
+                         <div class="step-content">
+                            <h3><span>3.</span> Effortless School Visits</h3>
+                            <p>Focus on the environment, not logistics. We <strong>streamline</strong> the visit process, scheduling convenient virtual or physical tours, helping you get a real feel for the schools that matter.</p>
+                        </div>
+                    </div>
+                    <!-- Step 4 -->
+                     <div class="process-step">
+                         <div class="step-icon-container"><i class="fas fa-file-signature fa-2x"></i></div>
+                         <div class="step-content">
+                            <h3><span>4.</span> Secure Your Place with Confidence</h3>
+                             <p>Navigate admissions smoothly. We <strong>streamline</strong> applications, offer <strong>insider strategies</strong>, and provide expert guidance on documentation, deadlines, and assessments, giving you <strong>peace of mind</strong>.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-/* === Pain Points Section === */
-.pain-points-section { background-color: var(--neutral-light); }
-.pain-points-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 30px; margin-top: 40px; }
-.pain-point {
-    text-align: center; padding: 25px; background-color: #fff;
-    border-radius: var(--border-radius); border: 1px solid var(--border-color);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-.pain-point:hover { transform: translateY(-5px); box-shadow: var(--box-shadow); }
-.pain-point .icon-color { color: var(--accent-green); margin-bottom: 15px; }
-.pain-point h3 { margin-top: 0.5em; font-size: 1.15rem; color: var(--primary-dark-blue);}
-.pain-point p { font-size: 0.95rem; color: var(--neutral-medium); margin-bottom: 0; }
+        <!-- Trust Building Section -->
+        <section id="testimonials" class="trust-building-section section-padding">
+            <div class="container">
+                <h2 class="text-center">Trusted by Families Relocating to Singapore</h2>
+                <div class="expertise-statement text-center">
+                    <p><strong>Our Expertise:</strong> We specialise in guiding non-local families (Expatriates, Permanent Residents, and returning Singaporeans) through the complexities of finding and securing places in Singapore's high-calibre international and private schools.</p>
+                </div>
+                <div class="testimonials-grid">
+                    <!-- Testimonial 1 (France) -->
+                    <div class="testimonial-card">
+                        <span class="quote-icon">“</span>
+                        <blockquote>
+                            Moving from Paris, we were overwhelmed by the IB vs. other curricula. eh-academics listened carefully and found a school perfect for our daughter's learning style and our desire for strong arts programs. Their local knowledge was invaluable!
+                        </blockquote>
+                        <cite>– Moreau Family, Moved from France</cite>
+                    </div>
+                    <!-- Testimonial 2 (China - Simplified Chinese) -->
+                    <div class="testimonial-card">
+                         <span class="quote-icon">“</span>
+                        <blockquote lang="zh-CN">
+                            我们从上海搬来，eh-academics 的顾问非常专业，帮我们快速筛选了几所真正符合我们对学术和中文课程高要求的学校。他们对申请流程的指导非常清晰，为我们节省了大量时间和精力。
+                        </blockquote>
+                        <cite>– 李先生 (Mr. Li), Moved from China</cite>
+                    </div>
+                     <!-- Testimonial 3 (UK) -->
+                    <div class="testimonial-card">
+                         <span class="quote-icon">“</span>
+                        <blockquote>
+                            As a busy professional moving from London, I simply didn't have time for the endless school research. eh-academics provided a fantastic shortlist, managed the visit scheduling, and gave honest advice. They made a stressful process feel manageable and found a brilliant fit for our son.
+                        </blockquote>
+                        <cite>– J. Williams, Moved from the UK</cite>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-/* === Solution / Process Section === */
-.solution-process-section { background-color: var(--neutral-light); }
-.solution-process-section h2 { color: var(--primary-dark-blue); }
+        <!-- Final CTA Section -->
+        <section id="consultation" class="final-cta-section section-padding">
+            <div class="container text-center">
+                <h2>Ready to Find Your Child's Ideal Singapore School, Stress-Free?</h2>
+                <p class="subtitle">Take the first step towards a smooth school transition. Book your complimentary, no-obligation consultation today and let our experts guide you.</p>
+                <a href="#contact" class="button button-primary button-large">Book Your Free Consultation Now</a>
+                <p class="contact-info">Or call us: <a href="tel:+6587855563">(65) 8785 5563</a></p>
+            </div>
+        </section>
 
-.process-steps-grid { display: grid; grid-template-columns: 1fr; gap: 30px; margin-top: 50px; }
-.process-step {
-    display: flex; align-items: flex-start; gap: 20px;
-    background: linear-gradient(145deg, var(--process-box-gradient-start) 0%, var(--process-box-gradient-end) 100%);
-    padding: 30px; border-radius: var(--border-radius);
-    box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.7),
-                0 5px 15px rgba(72, 184, 159, 0.2);
-    color: var(--text-light); position: relative; overflow: hidden;
-}
-.step-icon-container {
-    flex-shrink: 0; width: 50px; height: 50px;
-    background-color: var(--process-box-icon-bg);
-    color: var(--text-light); border-radius: 50%;
-    display: flex; justify-content: center; align-items: center;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); position: relative; z-index: 2;
-}
-.step-content { position: relative; z-index: 2; }
-.process-step h3 { font-size: 1.3rem; margin-top: 0; color: var(--text-light); font-weight: 700; }
-.process-step h3 span { margin-right: 8px; font-weight: 700; }
-.process-step p { font-size: 1rem; margin-bottom: 0; color: var(--text-light); opacity: 0.95; }
-.process-step p strong { color: var(--text-light); font-weight: 700; }
+    </main>
 
-/* Decorative Corner Lines */
-.process-step::before, .process-step::after {
-    content: ''; position: absolute; width: 35px; height: 35px;
-    border-style: solid; border-color: var(--line-color); border-width: 0;
-    z-index: 1; pointer-events: none;
-}
-.process-step::before { top: 10px; left: 10px; border-top-width: 2px; border-left-width: 2px; border-top-left-radius: 6px; }
-.process-step::after { bottom: 10px; right: 10px; border-bottom-width: 2px; border-right-width: 2px; border-bottom-right-radius: 6px; }
+    <!-- Footer -->
+    <footer id="contact" class="site-footer-main">
+         <div class="container footer-grid">
+             <div class="footer-logo-area">
+                 <a href="#" class="footer-logo">eh-academics.com</a>
+                 <p>Your expert partner in Singapore school placement.</p>
+             </div>
+             <div class="footer-links">
+                 <h4>Quicklinks</h4>
+                 <ul>
+                     <li><a href="#">Home</a></li>
+                     <li><a href="#process">Our Process</a></li>
+                     <li><a href="#testimonials">Testimonials</a></li>
+                      <li><a href="#">About Us (Add Link)</a></li>
+                     <li><a href="#">FAQ (Add Link)</a></li>
+                 </ul>
+             </div>
+             <div class="footer-contact">
+                <h4>Contact Us</h4>
+                <p><i class="fas fa-envelope icon-footer"></i> info@eh-academics.com</p>
+                <p><i class="fas fa-phone icon-footer"></i> (65) 8785 5563</p>
+                <p><i class="fas fa-map-marker-alt icon-footer"></i> Duo Tower, 3 Fraser St, #08-21, Singapore 189352</p>
+                 <div class="social-icons-footer">
+                    {/* <!-- Social media links can go here --> */}
+                 </div>
+            </div>
+         </div>
+         <div class="footer-bottom">
+             <div class="container">
+                 <p>© 2024 eh-academics.com. All Rights Reserved.</p>
+             </div>
+         </div>
+    </footer>
 
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/6587855563" class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
+       <i class="fab fa-whatsapp"></i>
+    </a>
 
-/* === Trust Building Section === */
-.trust-building-section { background-color: var(--neutral-light); }
-.expertise-statement {
-    max-width: 800px; margin: -20px auto 50px auto; font-size: 1.1rem;
-    line-height: 1.6; padding: 20px; background-color: #fff;
-    border-radius: var(--border-radius); border: 1px solid var(--border-color);
-}
-.expertise-statement strong { color: var(--primary-dark-blue); }
-.testimonials-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 40px; }
-.testimonial-card {
-    background-color: #fff; padding: 30px; border-radius: var(--border-radius);
-    border: 1px solid var(--border-color); position: relative; box-shadow: var(--box-shadow);
-}
-.testimonial-card .quote-icon { position: absolute; top: 15px; left: 20px; font-size: 3rem; color: var(--accent-green); opacity: 0.2; line-height: 1; }
-.testimonial-card blockquote { font-size: 1.05rem; font-style: italic; color: var(--neutral-dark); margin-bottom: 1em; padding-top: 10px; }
-.testimonial-card blockquote[lang="zh-CN"] { font-style: normal; }
-.testimonial-card cite { font-style: normal; font-weight: 600; color: var(--neutral-medium); font-size: 0.9rem; }
-
-/* === Final CTA Section === */
-.final-cta-section { background: linear-gradient(135deg, var(--accent-green) 0%, var(--accent-green-dark) 100%); color: var(--text-light); }
-.final-cta-section h2 { color: var(--text-light); }
-.final-cta-section .subtitle { color: var(--neutral-light); opacity: 0.9; }
-.final-cta-section .button-primary { background-color: var(--text-light); color: var(--accent-green-dark); box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1); }
-.final-cta-section .button-primary:hover { background-color: #f0f0f0; color: var(--accent-green-dark); box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15); }
-.contact-info { margin-top: 25px; font-size: 1rem; }
-.contact-info a { color: var(--text-light); font-weight: 600; text-decoration: underline; }
-.contact-info a:hover { color: var(--neutral-light); }
-
-/* === Footer === */
-.site-footer-main { background-color: var(--primary-dark-blue); color: var(--neutral-medium); padding-top: 60px; font-size: 0.9rem; }
-.footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 40px; margin-bottom: 40px; }
-.footer-logo-area .footer-logo { font-size: 1.6rem; font-weight: 700; color: var(--text-light); display: block; margin-bottom: 10px; }
-.footer-logo-area p { color: var(--neutral-medium); margin-bottom: 0; line-height: 1.5;}
-.footer-links h4, .footer-contact h4 { color: var(--text-light); font-size: 1.1rem; margin-bottom: 18px; font-weight: 600; }
-.footer-links ul { list-style: none; padding: 0; margin: 0; }
-.footer-links li { margin-bottom: 12px; }
-.footer-links a { color: var(--neutral-medium); }
-.footer-links a:hover { color: var(--accent-green); text-decoration: underline; }
-.footer-contact p { margin-bottom: 12px; display: flex; align-items: center; gap: 10px; }
-.footer-contact .icon-footer { color: var(--accent-green); width: 1em; text-align: center; }
-.social-icons-footer { margin-top: 15px; }
-.social-icons-footer a { color: var(--neutral-medium); font-size: 1.2rem; margin-right: 15px; }
-.social-icons-footer a:hover { color: var(--accent-green); }
-.footer-bottom { padding: 25px 0; text-align: center; font-size: 0.85rem; border-top: 1px solid var(--primary-medium-blue); color: var(--neutral-medium); }
-
-/* === Floating WhatsApp Button === */
-.whatsapp-float {
-    position: fixed; width: 60px; height: 60px; bottom: 30px; right: 30px;
-    background-color: #25D366; color: #FFF; border-radius: 50%; text-align: center; font-size: 1.8rem;
-    box-shadow: 2px 2px 10px rgba(0,0,0,0.3); z-index: 100; display: flex; justify-content: center; align-items: center;
-    transition: transform 0.3s ease;
-}
-.whatsapp-float:hover { transform: scale(1.1); color: #fff; }
-
-
-/* === RESPONSIVENESS === */
-@media (min-width: 768px) { .process-steps-grid { grid-template-columns: repeat(2, 1fr); gap: 40px; } }
-@media (max-width: 992px) {
-    :root { --container-width: 960px; }
-    h1 { font-size: clamp(2.2rem, 5vw, 3rem); }
-    h2 { font-size: clamp(1.6rem, 4vw, 2.2rem); }
-    .hero-content { gap: 30px; flex-direction: column; text-align: center;}
-    .hero-text { flex-basis: auto; }
-    .hero-text .subtitle { margin-left: auto; margin-right: auto; }
-    .process-steps-grid { gap: 30px; }
-}
-@media (max-width: 768px) {
-    .section-padding { padding: 60px 0; }
-    .header-container { position: relative; }
-    .nav-toggle { display: block; position: absolute; right: 20px; top: 50%; transform: translateY(-50%); z-index: 1001; }
-    .main-nav .nav-links { display: none; flex-direction: column; position: absolute; top: 100%; left: 0; width: 100%; background-color: var(--text-light); padding: 20px 0; border-top: 1px solid var(--border-color); box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); z-index: 1000; }
-    .main-nav .nav-links.active { display: flex; }
-    .main-nav li { margin: 10px 0; text-align: center; margin-left: 0; }
-    .main-nav .button { margin-left: 0; margin-top: 15px; }
-    .process-steps-grid { grid-template-columns: 1fr; gap: 30px;}
-    .pain-points-grid { grid-template-columns: 1fr; }
-    .testimonials-grid { grid-template-columns: 1fr; }
-    .footer-grid { grid-template-columns: 1fr; text-align: center; }
-    .footer-contact p { justify-content: center; }
-    .whatsapp-float { width: 50px; height: 50px; font-size: 1.5rem; bottom: 20px; right: 20px; }
-}
+    <script src="script.js"></script>
+</body>
+</html>
