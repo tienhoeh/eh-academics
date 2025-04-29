@@ -70,51 +70,45 @@ strong { font-weight: 600; }
 .hero-section {
     background-color: var(--accent-green); /* Solid green background */
     color: var(--text-light);
-    padding: 80px 0; /* Adjust padding as needed */
+    padding: 100px 0; /* Adjust padding for vertical space */
     overflow: hidden;
+    display: flex; /* Use flex on the section itself */
+    align-items: center; /* Vertically center the container */
+    min-height: 60vh; /* Give it some minimum height */
 }
 .hero-content {
     display: flex;
-    align-items: center; /* Vertically align text and image */
-    gap: 40px; /* Space between text and image */
-    text-align: left; /* Align text left */
+    align-items: center; /* Vertically align text and image columns */
+    gap: 50px; /* Increased gap */
+    text-align: left; /* Default alignment for content within */
 }
 .hero-text-column {
-    flex: 1 1 55%; /* Allow text column to take up slightly more space */
-    max-width: 55%;
-    padding-right: 20px; /* Add some space to the right of text */
+    flex: 1 1 45%; /* Text takes slightly less space */
+    max-width: 45%;
+    padding-right: 30px; /* More space between text and image */
 }
 .hero-image-column {
-    flex: 1 1 45%; /* Image column takes less space */
-    max-width: 45%;
+    flex: 1 1 50%; /* Image takes slightly more space */
+    max-width: 50%;
+    align-self: stretch; /* Make column stretch vertically */
 }
 .hero-image-column img {
     width: 100%;
-    height: auto;
+    height: 100%; /* Fill the height of the stretched column */
+    object-fit: cover; /* Cover the area, cropping if needed */
     border-radius: var(--border-radius);
     box-shadow: var(--box-shadow-lg);
 }
-.hero-text-column h1 { color: var(--text-light); }
+/* Reduce heading size */
+.hero-text-column h1 {
+    color: var(--text-light);
+    font-size: clamp(2.2rem, 4vw, 3.0rem); /* Reduced size range */
+}
 .hero-text-column .highlight-green { color: var(--hero-highlight-green); }
-.hero-text-column .subtitle {
-    color: var(--neutral-light);
-    opacity: 0.95;
-    margin: 0 0 2em 0; /* Remove auto margins */
-    max-width: 100%; /* Allow full width within its column */
-    text-align: left; /* Ensure subtitle is left aligned */
-}
+.hero-text-column .subtitle { color: var(--neutral-light); opacity: 0.95; margin: 0 0 2.5em 0; max-width: 100%; text-align: left; }
 /* Hero button specific styles */
-.button-hero {
-    background-color: var(--text-light); /* White background */
-    color: var(--accent-green-dark); /* Dark green text */
-    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
-}
-.button-hero:hover {
-    background-color: #f0f0f0; /* Slightly off-white hover */
-    color: var(--accent-green-dark);
-    transform: translateY(-2px);
-    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
-}
+.button-hero { background-color: var(--text-light); color: var(--accent-green-dark); box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1); }
+.button-hero:hover { background-color: #f0f0f0; color: var(--accent-green-dark); transform: translateY(-2px); box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15); }
 
 
 /* === Pain Points Section === */
@@ -157,9 +151,9 @@ strong { font-weight: 600; }
 .cta-header { text-align: center; margin-bottom: 40px; }
 .final-cta-section h2 { color: var(--text-light); }
 .final-cta-section .subtitle { color: var(--neutral-light); opacity: 0.9; max-width: 650px; margin-left: auto; margin-right: auto; }
-.cta-container-flex { display: flex; align-items: flex-start; gap: 40px; margin-top: 40px; } /* Added margin-top */
+.cta-container-flex { display: flex; align-items: flex-start; gap: 40px; margin-top: 40px; }
 .cta-image-column { flex: 1 1 45%; max-width: 45%; }
-.cta-image-column img { width: 100%; height: auto; border-radius: var(--border-radius); box-shadow: var(--box-shadow-lg); }
+.cta-image-column img { width: 100%; height: 100%; object-fit: cover; border-radius: var(--border-radius); box-shadow: var(--box-shadow-lg); } /* Added height and object-fit */
 .cta-form-column { flex: 1 1 50%; max-width: 50%; }
 .cta-form { max-width: 100%; margin: 0; text-align: left; }
 .form-group { margin-bottom: 15px; }
@@ -199,15 +193,13 @@ strong { font-weight: 600; }
 /* Tablet breakpoint */
 @media (max-width: 992px) {
     :root { --container-width: 960px; }
-    h1 { font-size: clamp(2.2rem, 5vw, 3rem); }
+    h1 { font-size: clamp(2.0rem, 4.5vw, 2.8rem); } /* Further adjusted H1 */
     h2 { font-size: clamp(1.6rem, 4vw, 2.2rem); }
-    /* Hero adjustments */
-    .hero-content { flex-direction: column; text-align: center; gap: 30px; }
+    .hero-content { flex-direction: column; text-align: center; gap: 30px; padding: 60px 20px; }
     .hero-text-column, .hero-image-column { max-width: 100%; flex-basis: auto; padding-right: 0; }
-    .hero-image-column { order: -1; max-width: 70%; margin: 0 auto; } /* Image above text, smaller */
-    .hero-text-column .subtitle { margin-left: auto; margin-right: auto; } /* Center subtitle */
-    .hero-text-column { text-align: center; } /* Center text */
-
+    .hero-image-column { order: -1; max-width: 70%; margin: 0 auto; }
+    .hero-text-column { text-align: center; }
+    .hero-text-column .subtitle { margin-left: auto; margin-right: auto; }
     .process-steps-grid { gap: 30px; }
     .cta-container-flex { flex-direction: column; gap: 30px; }
     .cta-image-column, .cta-form-column { flex-basis: auto; max-width: 100%; }
@@ -224,8 +216,8 @@ strong { font-weight: 600; }
     .main-nav .nav-links.active { display: flex; }
     .main-nav li { margin: 10px 0; text-align: center; margin-left: 0; }
     .main-nav .button { margin-left: 0; margin-top: 15px; }
-    .hero-section { min-height: auto; padding: 60px 0; } /* Adjust hero padding */
-    .hero-image-column { max-width: 80%; } /* Adjust image size */
+    .hero-section { min-height: auto; padding: 60px 0; }
+    .hero-image-column { max-width: 80%; }
     .process-steps-grid { grid-template-columns: 1fr; gap: 30px;}
     .pain-points-grid { grid-template-columns: 1fr; }
     .testimonials-grid { grid-template-columns: 1fr; }
