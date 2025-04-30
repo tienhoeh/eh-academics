@@ -7,6 +7,22 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+
+    <!-- ======================================= -->
+    <!-- Google tag (gtag.js) - ADDED HERE -->
+    <!-- ======================================= -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17044395241"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'AW-17044395241');
+    </script>
+    <!-- ======================================= -->
+    <!-- End Google tag -->
+    <!-- ======================================= -->
+
 </head>
 <body>
 
@@ -39,7 +55,7 @@
                     <a href="#consultation" class="button button-hero button-large">Simplify Your School Search Now</a>
                 </div>
                  <div class="hero-image-column">
-                     <img src="images/kids2.jpg" alt="International students in Singapore">
+                     <img src="images/students.jpg" alt="Happy students ready for school in Singapore">
                  </div>
             </div>
         </section>
@@ -151,8 +167,11 @@
                         <img src="images/kids.jpg" alt="Children looking at tablet during consultation">
                     </div>
                     <div class="cta-form-column">
-                        <form name="consultation-request" method="POST" data-netlify="true" action="/thank-you.html" class="cta-form">
+                        <form name="consultation-request" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/thank-you.html" class="cta-form">
                             <input type="hidden" name="form-name" value="consultation-request">
+                            <p class="hidden" style="display: none;">
+                                <label>Don’t fill this out if you're human: <input name="bot-field"></label>
+                            </p>
                             <div class="form-group">
                                 <label for="name" class="sr-only">Name</label>
                                 <input type="text" id="name" name="name" placeholder="Your Name" required>
