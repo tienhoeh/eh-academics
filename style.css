@@ -110,6 +110,15 @@ strong { font-weight: 600; }
 .process-step::before { top: 10px; left: 10px; border-top-width: 2px; border-left-width: 2px; border-top-left-radius: 6px; }
 .process-step::after { bottom: 10px; right: 10px; border-bottom-width: 2px; border-right-width: 2px; border-bottom-right-radius: 6px; }
 
+/* === Quick FAQ Section === */
+.quick-faq-section { background-color: var(--neutral-light); }
+.quick-faq-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-top: 2rem; }
+.quick-faq-item { text-align: center; padding: 2rem; background: white; border-radius: var(--border-radius); box-shadow: var(--box-shadow); transition: transform 0.3s ease; }
+.quick-faq-item:hover { transform: translateY(-3px); }
+.quick-faq-item .icon-color { font-size: 2.5rem; color: var(--accent-green); margin-bottom: 1rem; }
+.quick-faq-item h3 { color: var(--primary-dark-blue); margin-bottom: 1rem; font-size: 1.2rem; }
+.quick-faq-item p { color: var(--neutral-medium); margin-bottom: 0; font-size: 0.95rem; }
+
 /* === Trust Building Section === */
 .trust-building-section { background-color: var(--neutral-light); }
 .expertise-statement { max-width: 800px; margin: -20px auto 50px auto; font-size: 1.1rem; line-height: 1.6; padding: 20px; background-color: #fff; border-radius: var(--border-radius); border: 1px solid var(--border-color); }

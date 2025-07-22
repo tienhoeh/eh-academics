@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-T33335GR');</script>
+<!-- End Google Tag Manager -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frequently Asked Questions - eh-academics</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17044395241"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'AW-17044395241');
+    </script>
+
+    <style>
+        .faq-content { background-color: var(--neutral-light); }
+        .faq-section { margin-bottom: 3rem; }
+        .faq-category { background: white; border-radius: var(--border-radius); box-shadow: var(--box-shadow); margin-bottom: 2rem; overflow: hidden; }
+        .faq-category h3 { background: var(--accent-green); color: white; padding: 1.5rem; margin: 0; }
+        .faq-item { border-bottom: 1px solid var(--border-color); }
+        .faq-item:last-child { border-bottom: none; }
+        .faq-question { padding: 1.5rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; transition: background-color 0.3s ease; }
+        .faq-question:hover { background-color: var(--neutral-light); }
+        .faq-question h4 { margin: 0; color: var(--primary-dark-blue); font-weight: 600; }
+        .faq-toggle { color: var(--accent-green); font-size: 1.2rem; transition: transform 0.3s ease; }
+        .faq-answer { padding: 0 1.5rem 1.5rem 1.5rem; color: var(--neutral-medium); line-height: 1.7; display: none; }
+        .faq-answer.active { display: block; }
+        .faq-question.active .faq-toggle { transform: rotate(180deg); }
+        .faq-search { background: white; padding: 2rem; border-radius: var(--border-radius); box-shadow: var(--box-shadow); margin-bottom: 3rem; text-align: center; }
+        .faq-search input { width: 100%; max-width: 500px; padding: 1rem; border: 2px solid var(--border-color); border-radius: var(--border-radius); font-size: 1rem; margin-top: 1rem; }
+        .faq-search input:focus { outline: none; border-color: var(--accent-green); }
+        .highlight { background-color: #ffeb3b; padding: 2px 4px; border-radius: 3px; }
+    </style>
+</head>
+<body>
+    <!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T33335GR"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+    <header class="site-header">
+        <div class="container header-container">
+            <a href="/" class="logo">
+                <img src="images/logo.jpg" alt="eh-academics Logo">
+            </a>
+            <nav class="main-nav">
+                <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <ul class="nav-links">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/#process">Our Process</a></li>
+                    <li><a href="/#testimonials">Testimonials</a></li>
+                    <li><a href="guide-en.html">School Guide</a></li>
+                    <li><a href="faq.html" class="active">FAQ</a></li>
+                    <li><a href="/#contact">Contact</a></li>
+                    <li><a href="/#consultation" class="button button-primary button-small">Book free Consult</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero-section">
+            <div class="container">
+                <div class="hero-content" style="flex-direction: column; text-align: center;">
+                    <h1>Frequently Asked Questions</h1>
+                    <p class="subtitle">Find answers to common questions about Singapore school applications and our services</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="faq-content section-padding">
+            <div class="container">
+                
+                <div class="faq-search">
+                    <h2>Search FAQs</h2>
+                    <input type="text" id="faq-search" placeholder="Type your question or keyword..." />
+                </div>
+
+                <div class="faq-sections">
+                    
+                    <div class="faq-category">
+                        <h3><i class="fas fa-school"></i> School Applications & Process</h3>
+                        
+                        <div class="faq-item">
+                            <div class="faq-question" onclick="toggleFaq(this)">
+                                <h4>When should I start the school application process?</h4>
+                                <i class="fas fa-chevron-down faq-toggle"></i>
+                            </div>
+                            <div class="faq-answer">
+                                <p>We recommend starting the application process at least 12-18 months before your intended start date. Most Singapore international schools open applications in January for the following academic year (starting in August). Popular schools fill up quickly, and some have lengthy waiting lists.</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <div class="faq-question" onclick="toggleFaq(this)">
+                                <h4>What documents do I need for school applications?</h4>
+                                <i class="fas fa-chevron-down faq-toggle"></i>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Essential documents include: student's passport, birth certificate, last 2 years of school reports, teacher recommendation letters, parents' passports and work permits, proof of residence, vaccination records, and any language proficiency certificates. Each school may have additional requirements.</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <div class="faq-question" onclick="toggleFaq(this)">
+                                <h4>How competitive is admission to top international schools?</h4>
+                                <i class="fas fa-chevron-down faq-toggle"></i>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Admission to top-tier international schools in Singapore is highly competitive, especially for certain grade levels. Schools like UWC, Tanglin Trust, and Dulwich often have more applicants than places available. Strong academic records, well-rounded profiles, and early application significantly improve your chances.</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <div class="faq-question" onclick="toggleFaq(this)">
+                                <h4>Can my child start mid-year?</h4>
+                                <i class="fas fa-chevron-down faq-toggle"></i>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Yes, many international schools accept mid-year admissions subject to availability. January is a common mid-year entry point. However, availability is limited and depends on students leaving or the school having space in specific grade levels.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="faq-category">
+                        <h3><i class="fas fa-dollar-sign"></i> Costs & Fees</h3>
+                        
+                        <div class="faq-item">
+                            <div class="faq-question" onclick="toggleFaq(this)">
+                                <h4>What are the typical costs for international schools in Singapore?</h4>
+                                <i class="fas fa-chevron-down faq-toggle"></i>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Annual tuition fees range from S$25,000 to S$55,000 for day students. Additional costs include application fees (S$300-800), enrollment deposits (S$3,000-10,000), capital fees (S$5,000-20,000), and miscellaneous expenses like uniforms, books, and activities (S$2,000-5,000 annually).</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <div class="faq-question" onclick="toggleFaq(this)">
+                                <h4>Are there any hidden costs I should know about?</h4>
+                                <i class="fas fa-chevron-down faq-toggle"></i>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Beyond tuition, consider capital fees (one-time), development funds, technology fees, transport costs, extracurricular activities, school trips, examination fees, and uniform costs. Some schools also charge for facilities like swimming pools or specialized programs.</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <div class="faq-question" onclick="toggleFaq(this)">
+                                <h4>Do schools offer scholarships or financial aid?</h4>
+                                <i class="fas fa-chevron-down faq-toggle"></i>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Some international schools offer limited scholarships based on academic merit, need, or special talents. UWC offers needs-based financial assistance, and some schools have sibling discounts. Corporate sponsorship through employers is also common for expatriate families.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="faq-category">
+                        <h3><i class="fas fa-graduation-cap"></i> Curricula & Academic Programs</h3>
+                        
+                        <div class="faq-item">
+                            <div class="faq-question" onclick="toggleFaq(this)">
+                                <h4>What's the difference between IB, British, and American curricula?</h4>
+                                <i class="fas fa-chevron-down faq-toggle"></i>
+                            </div>
+                            <div class="faq-answer">
+                                <p><strong>IB:</strong> Internationally recognized, focuses on critical thinking and global perspectives. <strong>British:</strong> Traditional structure with IGCSE and A-Levels, excellent for UK university preparation. <strong>American:</strong> Flexible with AP courses, ideal for US college applications. Choice depends on your child's learning style and university goals.</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <div class="faq-question" onclick="toggleFaq(this)">
+                                <h4>Which curriculum is best for university admissions?</h4>
+                                <i class="fas fa-chevron-down faq-toggle"></i>
+                            </div>
+                            <div class="faq-answer">
+                                <p>All three curricula are widely accepted by universities worldwide. IB is particularly valued for its rigor and international perspective. British A-Levels are preferred for UK universities, while American curricula with AP courses align well with US college admissions. The "best" depends on your target universities and your child's strengths.</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <div class="faq-question" onclick="toggleFaq(this)">
+                                <h4>How important are Chinese language programs?</h4>
+                                <i class="fas fa-chevron-down faq-toggle"></i>
+                            </div>
+                            <div class="faq-answer">
+                                <p>For families wanting to maintain Chinese proficiency, strong Mandarin programs are crucial. Schools like Dulwich, UWCSEA, and Hwa Chong International offer robust Chinese A programs for native speakers. This is especially important if you're considering future education in Chinese-speaking regions or want to preserve cultural identity.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="faq-category">
+                        <h3><i class="fas fa-hands-helping"></i> Our Services</h3>
+                        
+                        <div class="faq-item">
+                            <div class="faq-question" onclick="toggleFaq(this)">
+                                <h4>What services does eh-academics provide?</h4>
+                                <i class="fas fa-chevron-down faq-toggle"></i>
+                            </div>
+                            <div class="faq-answer">
+                                <p>We offer comprehensive school placement consultancy including: initial consultation and needs assessment, school shortlisting and recommendations, application strategy and timeline planning, application preparation and review, interview preparation, school visit coordination, and ongoing support throughout the application process.</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <div class="faq-question" onclick="toggleFaq(this)">
+                                <h4>How much do your services cost?</h4>
+                                <i class="fas fa-chevron-down faq-toggle"></i>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Our fees vary depending on the scope of services required. We offer different packages from basic consultation to comprehensive full-service support. Contact us for a detailed quote based on your specific needs. We believe in transparent pricing with no hidden costs.</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <div class="faq-question" onclick="toggleFaq(this)">
+                                <h4>What makes eh-academics different from other consultancies?</h4>
+                                <i class="fas fa-chevron-down faq-toggle"></i>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Our deep local knowledge of Singapore's education landscape, personalized approach to each family's needs, strong relationships with school admission teams, and track record of successful placements set us apart. We focus on finding the right fit for your child, not just the most prestigious school.</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <div class="faq-question" onclick="toggleFaq(this)">
+                                <h4>Do you guarantee school admission?</h4>
+                                <i class="fas fa-chevron-down faq-toggle"></i>
+                            </div>
+                            <div class="faq-answer">
+                                <p>While we cannot guarantee admission to specific schools (as final decisions rest with schools), we significantly improve your chances through strategic planning, expert guidance, and comprehensive preparation. Our success rate is high because we carefully match families with suitable schools and prepare strong applications.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="faq-category">
+                        <h3><i class="fas fa-map-marker-alt"></i> Living in Singapore</h3>
+                        
+                        <div class="faq-item">
+                            <div class="faq-question" onclick="toggleFaq(this)">
+                                <h4>Which areas of Singapore are best for families with school-age children?</h4>
+                                <i class="fas fa-chevron-down faq-toggle"></i>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Popular expat areas include District 10 (Tanglin, Holland Village), District 11 (Newton, Novena), Orchard area, East Coast, and Sentosa. Consider proximity to your target schools, international community presence, housing options, and amenities. Many families choose based on school bus routes.</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <div class="faq-question" onclick="toggleFaq(this)">
+                                <h4>What visa requirements are needed for school enrollment?</h4>
+                                <i class="fas fa-chevron-down faq-toggle"></i>
+                            </div>
+                            <div class="faq-answer">
+                                <p>International students typically need a Student's Pass, while parents need Employment Passes or other valid long-term passes. Some schools may accept students on Tourist Passes temporarily, but long-term enrollment requires proper immigration status. Schools often assist with Student's Pass applications.</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <div class="faq-question" onclick="toggleFaq(this)">
+                                <h4>How is the transition for children moving to Singapore?</h4>
+                                <i class="fas fa-chevron-down faq-toggle"></i>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Most children adapt well to Singapore's multicultural environment. International schools have extensive support systems for new students. The key is choosing a school with strong pastoral care and integration programs. Singapore's safety, English-speaking environment, and international community make transitions smoother.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="faq-section" style="background: white; padding: 3rem; border-radius: var(--border-radius); box-shadow: var(--box-shadow); text-align: center; margin-top: 3rem;">
+                    <h2>Still Have Questions?</h2>
+                    <p class="subtitle">Can't find what you're looking for? Our expert consultants are here to help with personalized answers to your specific situation.</p>
+                    <a href="/#consultation" class="button button-primary button-large">Get Personalized Answers</a>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <footer id="contact" class="site-footer-main">
+        <div class="container footer-grid">
+            <div class="footer-logo-area">
+                <a href="/" class="footer-logo">
+                    <img src="images/logo.jpg" alt="eh-academics Logo">
+                </a>
+                <p>Your expert partner in Singapore school placement.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Quicklinks</h4>
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/#process">Our Process</a></li>
+                    <li><a href="/#testimonials">Testimonials</a></li>
+                    <li><a href="guide-en.html">School Guide</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
+                    <li><a href="/#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-contact">
+               <h4>Contact Us</h4>
+               <p><i class="fas fa-envelope icon-footer"></i> info@eh-academics.com</p>
+               <p><i class="fas fa-phone icon-footer"></i> (65) 8785 5563</p>
+               <p><i class="fas fa-map-marker-alt icon-footer"></i> Duo Tower, 3 Fraser St, #08-21, Singapore 189352</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <p>© 2024 eh-academics. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <a href="https://wa.me/6587855563" class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
+      <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script src="script.js"></script>
+    <script>
+        function toggleFaq(element) {
+            const answer = element.nextElementSibling;
+            const isActive = answer.classList.contains('active');
+            
+            // Close all other FAQs
+            document.querySelectorAll('.faq-answer.active').forEach(activeAnswer => {
+                activeAnswer.classList.remove('active');
+                activeAnswer.previousElementSibling.classList.remove('active');
+            });
+            
+            // Toggle current FAQ
+            if (!isActive) {
+                answer.classList.add('active');
+                element.classList.add('active');
+            }
+        }
+
+        // Search functionality
+        document.getElementById('faq-search').addEventListener('input', function(e) {
+            const searchTerm = e.target.value.toLowerCase();
+            const faqItems = document.querySelectorAll('.faq-item');
+            
+            faqItems.forEach(item => {
+                const question = item.querySelector('h4').textContent.toLowerCase();
+                const answer = item.querySelector('.faq-answer').textContent.toLowerCase();
+                
+                if (question.includes(searchTerm) || answer.includes(searchTerm)) {
+                    item.style.display = 'block';
+                    // Highlight search terms
+                    if (searchTerm) {
+                        highlightText(item, searchTerm);
+                    } else {
+                        removeHighlights(item);
+                    }
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        });
+
+        function highlightText(element, searchTerm) {
+            if (!searchTerm) return;
+            
+            const walker = document.createTreeWalker(
+                element,
+                NodeFilter.SHOW_TEXT,
+                null,
+                false
+            );
+            
+            const textNodes = [];
+            let node;
+            while (node = walker.nextNode()) {
+                textNodes.push(node);
+            }
+            
+            textNodes.forEach(textNode => {
+                const parent = textNode.parentNode;
+                if (parent.tagName === 'SCRIPT') return;
+                
+                const text = textNode.textContent;
+                const regex = new RegExp(`(${searchTerm})`, 'gi');
+                
+                if (regex.test(text)) {
+                    const highlightedHTML = text.replace(regex, '<span class="highlight">$1</span>');
+                    const wrapper = document.createElement('div');
+                    wrapper.innerHTML = highlightedHTML;
+                    
+                    while (wrapper.firstChild) {
+                        parent.insertBefore(wrapper.firstChild, textNode);
+                    }
+                    parent.removeChild(textNode);
+                }
+            });
+        }
+
+        function removeHighlights(element) {
+            const highlights = element.querySelectorAll('.highlight');
+            highlights.forEach(highlight => {
+                highlight.outerHTML = highlight.textContent;
+            });
+        }
+    </script>
+</body>
+</html>
