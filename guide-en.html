@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-T33335GR');</script>
+<!-- End Google Tag Manager -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Singapore International School Guide - eh-academics</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17044395241"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'AW-17044395241');
+    </script>
+    
+    <style>
+        .guide-content { background-color: var(--neutral-light); }
+        .guide-section { margin-bottom: 4rem; }
+        .guide-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 2rem; }
+        .guide-card { background: white; padding: 2rem; border-radius: var(--border-radius); box-shadow: var(--box-shadow); transition: transform 0.3s ease; }
+        .guide-card:hover { transform: translateY(-5px); }
+        .guide-card h3 { color: var(--primary-dark-blue); margin-bottom: 1rem; }
+        .guide-card ul { list-style: none; padding: 0; margin-top: 1rem; }
+        .guide-card li { padding: 0.5rem 0; border-bottom: 1px solid var(--border-color); }
+        .guide-card li:last-child { border-bottom: none; }
+        .guide-card li i { color: var(--accent-green); margin-right: 0.5rem; }
+        .timeline { position: relative; margin: 2rem 0; }
+        .timeline-item { display: flex; margin-bottom: 2rem; align-items: flex-start; }
+        .timeline-date { background: var(--accent-green); color: white; padding: 1rem; border-radius: var(--border-radius); min-width: 120px; text-align: center; font-weight: 600; margin-right: 2rem; }
+        .timeline-content { background: white; padding: 1.5rem; border-radius: var(--border-radius); box-shadow: var(--box-shadow); flex: 1; }
+        .timeline-content h3 { color: var(--primary-dark-blue); margin-bottom: 0.5rem; }
+        .checklist-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 2rem; }
+        .checklist-column { background: white; padding: 2rem; border-radius: var(--border-radius); box-shadow: var(--box-shadow); }
+        .checklist-column h3 { color: var(--primary-dark-blue); margin-bottom: 1rem; }
+        .checklist { list-style: none; padding: 0; margin: 0; }
+        .checklist li { padding: 0.5rem 0; display: flex; align-items: center; }
+        .checklist li i { color: var(--accent-green); margin-right: 0.75rem; }
+        .fee-table { background: white; border-radius: var(--border-radius); box-shadow: var(--box-shadow); overflow: hidden; margin-top: 2rem; }
+        .fee-table table { width: 100%; border-collapse: collapse; }
+        .fee-table th { background: var(--accent-green); color: white; padding: 1rem; text-align: left; }
+        .fee-table td { padding: 1rem; border-bottom: 1px solid var(--border-color); }
+        .fee-table tbody tr:last-child td { border-bottom: none; }
+        .tips-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-top: 2rem; }
+        .tip-card { background: white; padding: 2rem; border-radius: var(--border-radius); box-shadow: var(--box-shadow); text-align: center; transition: transform 0.3s ease; }
+        .tip-card:hover { transform: translateY(-5px); }
+        .tip-card i { color: var(--accent-green); font-size: 2rem; margin-bottom: 1rem; }
+        .tip-card h3 { color: var(--primary-dark-blue); margin-bottom: 1rem; }
+        .language-toggle, .language-toggle-hero { background: rgba(255,255,255,0.2); color: white; padding: 0.5rem 1rem; border-radius: var(--border-radius); text-decoration: none; transition: all 0.3s ease; }
+        .language-toggle:hover, .language-toggle-hero:hover { background: rgba(255,255,255,0.3); color: white; }
+        .active { font-weight: bold; color: var(--accent-green) !important; }
+        
+        @media (max-width: 768px) {
+            .timeline-item { flex-direction: column; }
+            .timeline-date { margin-right: 0; margin-bottom: 1rem; }
+            .guide-grid { grid-template-columns: 1fr; }
+            .checklist-container { grid-template-columns: 1fr; }
+            .tips-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T33335GR"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+    <header class="site-header">
+        <div class="container header-container">
+            <a href="/" class="logo">
+                <img src="images/logo.jpg" alt="eh-academics Logo">
+            </a>
+            <nav class="main-nav">
+                <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <ul class="nav-links">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/#process">Our Process</a></li>
+                    <li><a href="/#testimonials">Testimonials</a></li>
+                    <li><a href="guide-en.html" class="active">School Guide</a></li>
+                    <li><a href="/#contact">Contact</a></li>
+                    <li><a href="/#consultation" class="button button-primary button-small">Book free Consult</a></li>
+                    <li><a href="guide.html" class="language-toggle">中文</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero-section">
+            <div class="container">
+                <div class="hero-content" style="flex-direction: column; text-align: center;">
+                    <h1>Singapore International School Application Guide</h1>
+                    <p class="subtitle">Comprehensive guide to Singapore international school applications, requirements and timelines</p>
+                    <a href="guide.html" class="language-toggle-hero">中文版</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="guide-content section-padding">
+            <div class="container">
+                <div class="guide-sections">
+                    
+                    <div class="guide-section">
+                        <h2><i class="fas fa-graduation-cap"></i> School Types Overview</h2>
+                        <div class="guide-grid">
+                            <div class="guide-card">
+                                <h3>International Baccalaureate (IB) Schools</h3>
+                                <p>Offering IB programmes including Primary Years Programme (PYP), Middle Years Programme (MYP) and Diploma Programme (DP). Ideal for students planning overseas university education.</p>
+                                <ul>
+                                    <li><i class="fas fa-check"></i> Globally recognized qualifications</li>
+                                    <li><i class="fas fa-check"></i> Develops critical thinking skills</li>
+                                    <li><i class="fas fa-check"></i> Multicultural environment</li>
+                                </ul>
+                            </div>
+                            <div class="guide-card">
+                                <h3>British Curriculum Schools</h3>
+                                <p>Following the UK National Curriculum with IGCSE and A-Level examinations. Perfect for students targeting UK universities.</p>
+                                <ul>
+                                    <li><i class="fas fa-check"></i> Rigorous academic standards</li>
+                                    <li><i class="fas fa-check"></i> Subject specialization depth</li>
+                                    <li><i class="fas fa-check"></i> Direct pathway to UK universities</li>
+                                </ul>
+                            </div>
+                            <div class="guide-card">
+                                <h3>American Curriculum Schools</h3>
+                                <p>Providing US High School Diploma and Advanced Placement (AP) courses. Suitable for students applying to US universities.</p>
+                                <ul>
+                                    <li><i class="fas fa-check"></i> Flexible course selection</li>
+                                    <li><i class="fas fa-check"></i> Holistic development approach</li>
+                                    <li><i class="fas fa-check"></i> US university preparation</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="guide-section">
+                        <h2><i class="fas fa-calendar-alt"></i> Application Timeline</h2>
+                        <div class="timeline">
+                            <div class="timeline-item">
+                                <div class="timeline-date">Jan - Mar</div>
+                                <div class="timeline-content">
+                                    <h3>Spring Application Period</h3>
+                                    <p>Most schools open applications for the following academic year. We recommend preparing all application materials in advance.</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-date">Apr - Jun</div>
+                                <div class="timeline-content">
+                                    <h3>Interviews and Assessments</h3>
+                                    <p>Schools conduct student interviews and academic assessments. Parent interviews are typically scheduled during this period.</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-date">Jul - Aug</div>
+                                <div class="timeline-content">
+                                    <h3>Admission Results</h3>
+                                    <p>Schools release admission decisions. Students must confirm their place and pay deposit within the specified timeframe.</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-date">Aug - Sep</div>
+                                <div class="timeline-content">
+                                    <h3>New Academic Year Begins</h3>
+                                    <p>Complete registration procedures, attend new student orientation, and officially start the new academic year.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="guide-section">
+                        <h2><i class="fas fa-file-alt"></i> Application Document Checklist</h2>
+                        <div class="checklist-container">
+                            <div class="checklist-column">
+                                <h3>Student Documents</h3>
+                                <ul class="checklist">
+                                    <li><i class="fas fa-check"></i> Passport copy</li>
+                                    <li><i class="fas fa-check"></i> Birth certificate</li>
+                                    <li><i class="fas fa-check"></i> Last 2 years' school reports</li>
+                                    <li><i class="fas fa-check"></i> Teacher/Principal recommendation letters</li>
+                                    <li><i class="fas fa-check"></i> Language proficiency certificates</li>
+                                    <li><i class="fas fa-check"></i> Personal statement/Portfolio</li>
+                                </ul>
+                            </div>
+                            <div class="checklist-column">
+                                <h3>Parent Documents</h3>
+                                <ul class="checklist">
+                                    <li><i class="fas fa-check"></i> Parents' passport copies</li>
+                                    <li><i class="fas fa-check"></i> Employment letter/Work permit</li>
+                                    <li><i class="fas fa-check"></i> Proof of residence address</li>
+                                    <li><i class="fas fa-check"></i> Vaccination records</li>
+                                    <li><i class="fas fa-check"></i> Medical insurance proof</li>
+                                    <li><i class="fas fa-check"></i> Application fee payment proof</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="guide-section">
+                        <h2><i class="fas fa-dollar-sign"></i> Fee Structure</h2>
+                        <div class="fee-table">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Fee Type</th>
+                                        <th>Amount Range (SGD)</th>
+                                        <th>Notes</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Application Fee</td>
+                                        <td>$300 - $800</td>
+                                        <td>One-time, non-refundable</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Annual Tuition</td>
+                                        <td>$25,000 - $55,000</td>
+                                        <td>Varies by school and grade level</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Enrollment Deposit</td>
+                                        <td>$3,000 - $10,000</td>
+                                        <td>Required upon place confirmation</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Capital Fee</td>
+                                        <td>$5,000 - $20,000</td>
+                                        <td>One-time, some schools require</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Other Expenses</td>
+                                        <td>$2,000 - $5,000</td>
+                                        <td>Uniforms, books, activities, etc.</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="guide-section">
+                        <h2><i class="fas fa-lightbulb"></i> Application Tips</h2>
+                        <div class="tips-grid">
+                            <div class="tip-card">
+                                <i class="fas fa-search"></i>
+                                <h3>Research Early</h3>
+                                <p>Thoroughly understand your target schools' educational philosophy, curriculum offerings, and campus culture to ensure alignment with your child's needs.</p>
+                            </div>
+                            <div class="tip-card">
+                                <i class="fas fa-users"></i>
+                                <h3>Attend Open Houses</h3>
+                                <p>Participate in school open days whenever possible to interact with teachers and current parents, gaining first-hand insights.</p>
+                            </div>
+                            <div class="tip-card">
+                                <i class="fas fa-clock"></i>
+                                <h3>Plan Ahead</h3>
+                                <p>Start preparing applications at least one year in advance. Popular schools are highly competitive, so early application brings peace of mind.</p>
+                            </div>
+                            <div class="tip-card">
+                                <i class="fas fa-star"></i>
+                                <h3>Showcase Uniqueness</h3>
+                                <p>Highlight your child's unique talents and interests to make your application materials more compelling and persuasive.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <section class="final-cta-section section-padding">
+            <div class="container">
+                <div class="cta-header text-center">
+                    <h2>Need Professional Application Guidance?</h2>
+                    <p class="subtitle">Our expert team will provide you with personalized school application solutions</p>
+                    <a href="/#consultation" class="button button-hero button-large">Book Your Free Consultation Now</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer id="contact" class="site-footer-main">
+        <div class="container footer-grid">
+            <div class="footer-logo-area">
+                <a href="/" class="footer-logo">
+                    <img src="images/logo.jpg" alt="eh-academics Logo">
+                </a>
+                <p>Your expert partner in Singapore school placement.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Quicklinks</h4>
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/#process">Our Process</a></li>
+                    <li><a href="/#testimonials">Testimonials</a></li>
+                    <li><a href="guide-en.html">School Guide</a></li>
+                    <li><a href="/#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-contact">
+               <h4>Contact Us</h4>
+               <p><i class="fas fa-envelope icon-footer"></i> info@eh-academics.com</p>
+               <p><i class="fas fa-phone icon-footer"></i> (65) 8785 5563</p>
+               <p><i class="fas fa-map-marker-alt icon-footer"></i> Duo Tower, 3 Fraser St, #08-21, Singapore 189352</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <p>© 2024 eh-academics. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <a href="https://wa.me/6587855563" class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
+      <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script src="script.js"></script>
+</body>
+</html>

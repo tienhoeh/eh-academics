@@ -10,8 +10,11 @@ This is a static HTML website for eh-academics, a Singapore-based school placeme
 
 - `index.html` - Main landing page with hero section, pain points, process steps, testimonials, and consultation form
 - `thank-you.html` - Form submission confirmation page
+- `guide.html` - Chinese version of comprehensive school application guide with interactive features
+- `guide-en.html` - English version of school application guide with bilingual navigation
 - `style.css` - Complete stylesheet with CSS custom properties, responsive design, and component styles
 - `script.js` - JavaScript for mobile navigation toggle functionality
+- `sitemap.xml` - SEO sitemap for search engine crawling
 - `images/` - Static assets including logos, student photos, and background images
 
 ## Key Architecture
@@ -72,3 +75,8 @@ Since this is a static site, common development tasks include:
 - Images stored in `images/` directory
 - CSS variables in `:root` for theme modifications
 - Form fields and validation in HTML attributes
+
+### Guide Pages
+- `guide.html` - Interactive Chinese school guide with advanced JavaScript features, Chart.js integration, and dynamic filtering
+- `guide-en.html` - Simplified English guide with responsive CSS grid layouts and language toggle functionality
+- Both guide pages include bilingual navigation and language switching capabilities

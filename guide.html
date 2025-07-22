@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>新加坡国际学校深度解析 | Interactive Guide to Singapore International Schools</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+    <!-- Chosen Palette: Warm Neutrals with Teal Accents -->
+    <!-- Application Structure Plan: The application is designed as a single-page interactive dashboard to guide families through the complex decision-making process. The structure prioritizes user flow and task completion over mirroring the linear report. It begins with a high-level overview of Singapore's educational landscape. The core is the 'School Explorer'—an interactive comparison tool with charts and a filterable table, allowing users to compare schools based on critical metrics (IB scores, fees). This directly addresses the primary user need for data-driven comparison. Following this is a 'Find Your Fit' section using personas (e.g., 'Ivy League Aspirant') to provide tailored recommendations, simplifying the choice for users unsure where to start. Clicking any school throughout the app reveals its detailed profile in a dedicated, consistently structured section. This architecture transforms the static report into a dynamic, user-driven exploration tool, enhancing comprehension and facilitating informed decisions. -->
+    <!-- Visualization & Content Choices: 
+        - Report Info: IB Scores vs. Fees. Goal: Compare investment vs. academic return. Viz: Interactive Scatter Plot (Chart.js). Interaction: Hovering over a point reveals school details (name, score, fees). Justification: A scatter plot is the most effective way to show the relationship between two quantitative variables, instantly revealing outliers and value propositions.
+        - Report Info: School Comparison Data (Fees, Scores, Size, Type). Goal: Organize & Compare. Presentation: Dynamic HTML Table. Interaction: Sortable columns (by IB score, fees) and filters (by school type, price tier). Justification: A table provides structured, detailed data. Interactivity makes it a powerful tool for users to drill down based on their specific priorities.
+        - Report Info: Persona-based recommendations. Goal: Inform & Guide. Presentation: Clickable Persona Cards. Interaction: Clicking a card filters the main school list/table to show only relevant schools. Justification: Personas simplify complex choices into relatable scenarios, guiding users to a manageable shortlist.
+        - Report Info: Detailed School Profiles. Goal: Inform. Presentation: Tabbed content view for each school. Interaction: Clicking tabs (Overview, Academics, Fees, etc.) reveals specific information. Justification: Tabs organize extensive content without overwhelming the user, allowing them to pull information as needed rather than being pushed all at once.
+        - CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <style>
+        body { font-family: 'Inter', 'Noto Sans SC', sans-serif; }
+        .bg-warm-beige { background-color: #F5F5DC; }
+        .bg-soft-cream { background-color: #FFFDD0; }
+        .bg-light-tan { background-color: #D2B48C; }
+        .text-deep-teal { color: #008080; }
+        .bg-deep-teal { background-color: #008080; }
+        .border-deep-teal { border-color: #008080; }
+        .accent-teal { color: #008080; }
+        .bg-teal-highlight { background-color: #E0F2F1; }
+        .tab-active { border-bottom: 2px solid #008080; color: #008080; font-weight: 600; }
+        .tab-inactive { border-bottom: 2px solid transparent; color: #6B7280; }
+        .persona-card { transition: transform 0.3s ease, box-shadow 0.3s ease; }
+        .persona-card:hover { transform: translateY(-5px); box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); }
+        .chart-container { position: relative; width: 100%; height: 400px; max-height: 50vh; margin: auto; }
+        @media (min-width: 768px) { .chart-container { height: 450px; } }
+        .school-row { cursor: pointer; transition: background-color 0.2s ease-in-out; }
+        .school-row:hover { background-color: #f0fdfa; }
+        .sticky-header { position: sticky; top: 0; z-index: 10; }
+    </style>
+</head>
+<body class="bg-warm-beige text-gray-800">
+
+    <div class="container mx-auto p-4 md:p-8">
+
+        <header class="text-center mb-12">
+            <h1 class="text-4xl md:text-5xl font-bold text-deep-teal mb-4">新加坡国际学校择校指南</h1>
+            <p class="text-lg text-gray-600">一份为中国家庭量身打造的IB教育路径战略报告</p>
+        </header>
+
+        <section id="intro" class="bg-white rounded-lg shadow-lg p-8 mb-12">
+            <h2 class="text-3xl font-bold text-deep-teal mb-4">新加坡：全球IB教育的巅峰</h2>
+            <p class="text-gray-700 leading-relaxed">
+                新加坡已成为全球IB教育的卓越中心。其学校的学术成果持续大幅超越国际标准。例如，2023年5月，新加坡的IB文凭平均分为35.05，远高于全球平均的30.24。这种卓越表现证明了其高质量的教学、积极的学生群体和强大的家庭参与度。本指南将帮助您在这个高成就的环境中，为您孩子独特的才能和需求，找到最匹配的学校。
+            </p>
+        </section>
+
+        <section id="persona-selector" class="mb-12">
+            <h2 class="text-3xl font-bold text-center text-deep-teal mb-6">第一步：找到您的家庭定位 (Find Your Fit)</h2>
+            <p class="text-center text-gray-600 mb-8">选择最符合您家庭教育目标的类型，我们将为您筛选出最合适的学校。</p>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div id="persona-academic" class="persona-card bg-white rounded-lg shadow-md p-6 text-center cursor-pointer border-2 border-transparent hover:border-deep-teal" onclick="filterByPersona('academic')">
+                    <div class="text-4xl mb-4">🏆</div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">常春藤种子选手</h3>
+                    <p class="text-gray-600">目标是美国常春藤、英国牛剑等世界顶尖大学，最看重IB成绩和精英大学录取记录。</p>
+                </div>
+                <div id="persona-holistic" class="persona-card bg-white rounded-lg shadow-md p-6 text-center cursor-pointer border-2 border-transparent hover:border-deep-teal" onclick="filterByPersona('holistic')">
+                    <div class="text-4xl mb-4">🌍</div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">全人发展的世界公民</h3>
+                    <p class="text-gray-600">学术与个人成长并重，重视跨文化理解、领导力发展和社区服务。</p>
+                </div>
+                <div id="persona-bilingual" class="persona-card bg-white rounded-lg shadow-md p-6 text-center cursor-pointer border-2 border-transparent hover:border-deep-teal" onclick="filterByPersona('bilingual')">
+                    <div class="text-4xl mb-4">🇨🇳</div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">双语文化领袖</h3>
+                    <p class="text-gray-600">希望在保持并提升中文学术水平的同时，获得IB双语文凭，具备深厚的双文化背景。</p>
+                </div>
+            </div>
+             <div class="text-center mt-6">
+                <button id="reset-filter" class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-lg transition" onclick="filterByPersona('all')">重置筛选 (Reset)</button>
+            </div>
+        </section>
+
+        <section id="school-explorer" class="bg-white rounded-lg shadow-lg p-4 md:p-8 mb-12">
+            <h2 class="text-3xl font-bold text-deep-teal mb-6 text-center">第二步：探索与比较学校 (School Explorer)</h2>
+            
+            <div class="grid lg:grid-cols-5 gap-8">
+                <div class="lg:col-span-3">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-4 text-center">IB平均分 vs. 首年总费用</h3>
+                    <div class="chart-container bg-gray-50 rounded-lg p-2">
+                        <canvas id="school-comparison-chart"></canvas>
+                    </div>
+                    <p class="text-center text-sm text-gray-500 mt-2">此图表直观展示了各校的“性价比”。将鼠标悬停在圆点上查看详情。</p>
+                </div>
+
+                <div class="lg:col-span-2 flex flex-col justify-center">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-4 text-center">关键指标概览</h3>
+                    <div class="space-y-4">
+                        <div class="bg-teal-highlight p-4 rounded-lg text-center">
+                            <p class="text-sm font-medium text-deep-teal">最高IB平均分</p>
+                            <p id="stat-max-ib" class="text-3xl font-bold text-gray-900">39.3</p>
+                            <p class="text-xs text-gray-600">(Tanglin Trust School)</p>
+                        </div>
+                        <div class="bg-teal-highlight p-4 rounded-lg text-center">
+                            <p class="text-sm font-medium text-deep-teal">首年费用范围 (走读)</p>
+                            <p id="stat-fee-range" class="text-3xl font-bold text-gray-900">~S$33.5k - S$66k</p>
+                            <p class="text-xs text-gray-600">(不含寄宿)</p>
+                        </div>
+                        <div class="bg-teal-highlight p-4 rounded-lg text-center">
+                            <p class="text-sm font-medium text-deep-teal">全球IB平均分 (2025)</p>
+                            <p class="text-3xl font-bold text-gray-900">30.58</p>
+                            <p class="text-xs text-gray-600">(参考基准)</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-12 overflow-x-auto">
+                 <h3 class="text-xl font-semibold text-gray-800 mb-4 text-center">学校数据对比表</h3>
+                <table class="min-w-full bg-white">
+                    <thead class="bg-deep-teal text-white sticky-header">
+                        <tr>
+                            <th class="text-left py-3 px-4 uppercase font-semibold text-sm cursor-pointer" onclick="sortTable(0)">学校名称</th>
+                            <th class="text-left py-3 px-4 uppercase font-semibold text-sm cursor-pointer" onclick="sortTable(1)">IB平均分 (2025)</th>
+                            <th class="text-left py-3 px-4 uppercase font-semibold text-sm cursor-pointer" onclick="sortTable(2)">首年费用 (走读)</th>
+                            <th class="text-left py-3 px-4 uppercase font-semibold text-sm">学校类型</th>
+                        </tr>
+                    </thead>
+                    <tbody id="school-table-body" class="text-gray-700">
+                    </tbody>
+                </table>
+                 <p class="text-center text-sm text-gray-500 mt-2">点击学校名称查看下方详细资料。点击表头可进行排序。</p>
+            </div>
+        </section>
+
+        <section id="school-details" class="bg-white rounded-lg shadow-lg p-8 hidden">
+            <div id="details-content"></div>
+        </section>
+
+    </div>
+
+    <script>
+        const schoolData = [
+            {
+                id: 'tts',
+                name: 'Tanglin Trust School',
+                name_zh: '东陵信托学校',
+                ibScore: 39.3,
+                fees: 65734,
+                boarding: false,
+                type: '英式国际',
+                persona: ['academic'],
+                profile: {
+                    overview: `成立于1925年，是东南亚最古老的英式国际学校，非营利性机构。以其卓越的学术和强大的社区精神而闻名。其高中部提供A-Level和IB双轨制，是其一大特色。`,
+                    academics: `全球表现最好的IB学校之一。2025届毕业生IB平均分高达39.3，100%通过率，72%的学生获得38分以上。`,
+                    university: `毕业生在英美顶尖大学的录取记录非常出色且均衡。2024年，96%的毕业生获得了第一或第二志愿大学的录取。常规录取包括牛津、剑桥及美国常春藤盟校。`,
+                    holistic: `提供超过400种课外活动。在艺术和体育方面有很强的实力，并拥有专业级的表演和体育设施。`,
+                    community: `位于女皇镇，拥有2800多名来自50多个国家的学生，英国学生占多数。无寄宿。`,
+                    mandarin: `为母语者提供“母语课程”，旨在支持学生发展第一语言，并为获得IB双语文凭做准备。`,
+                    fees_detail: `一次性费用: S$10,000 | 年度学费 (12-13年级): S$55,734 | 总计首年: S$65,734`,
+                    address: `95 Portsdown Road, Singapore 139299`
+                }
+            },
+            {
+                id: 'acs_i',
+                name: 'ACS (Independent)',
+                name_zh: '英华自主学校',
+                ibScore: 40.8, // Using 2023 data as it's a Nov school
+                fees: 33500,
+                boarding: true,
+                type: '本地国际',
+                persona: ['academic'],
+                profile: {
+                    overview: `成立于1886年的卫理公会学校，在新加坡教育界享有盛誉。自2005年成为IB世界学校以来，一直位居全球IB学校前三名。`,
+                    academics: `世界顶级的学术表现。2023年平均分高达40.8。以培养出大量满分（45分）学生而闻名。`,
+                    university: `拥有将毕业生送入世界顶尖大学的杰出记录，包括牛津、剑桥、哈佛等。`,
+                    holistic: `提供超过60种课外活动，在体育、表演艺术等方面有很强的传统。校园设施先进，包括专门的IB大楼和一流的体育设施。`,
+                    community: `位于杜佛路，学生主体为新加坡本地男孩，高中IB阶段变为男女同校。其寄宿学校容纳约500名国际学生，主要来自中国、印尼等地。`,
+                    mandarin: `作为特别辅助计划（SAP）学校，强制要求学生达到高水平的英中双语能力。提供IB中文A语言与文学课程。`,
+                    fees_detail: `年度学费 (国际学生): ~S$33,500 | 提供寄宿，费用另计。`,
+                    address: `121 Dover Road, Singapore 139650`
+                }
+            },
+            {
+                id: 'sji',
+                name: 'St. Joseph\'s Institution',
+                name_zh: '圣若瑟书院',
+                ibScore: 40.0, // Using 2024 data
+                fees: 33500, // Estimated similar to ACS(I)
+                boarding: false,
+                type: '本地国际',
+                persona: ['academic'],
+                profile: {
+                    overview: `一所天主教喇沙会学校，是新加坡最古老、最受尊敬的学校之一。提供六年制直通车课程（IP），直通IBDP。`,
+                    academics: `学术巨头。2024届毕业生平均分高达40分，约60%的学生得分在40分及以上。注重培养学生“学会如何学习”的能力。`,
+                    university: `毕业生被新加坡本地顶尖大学（国大、南大）和全球顶尖学府录取。`,
+                    holistic: `独特的“艺术科学课程”和“创新者课程”鼓励跨学科思维和创造性解决问题。`,
+                    community: `位于市中心的Malcolm Road，学生主体为新加坡人，提供纯正的本地文化体验。无寄宿。`,
+                    mandarin: `提供IB中文A（标准水平），专注于文学作品的批判性阅读和文本分析。`,
+                    fees_detail: `作为本地自主学校，费用与ACS(I)相当，远低于传统国际学校。`,
+                    address: `38 Malcolm Road, Singapore 308274`
+                }
+            },
+            {
+                id: 'uwcsea',
+                name: 'UWCSEA',
+                name_zh: '东南亚世界联合书院',
+                ibScore: 36.3,
+                fees: 64020,
+                boarding: true,
+                type: '国际学校',
+                persona: ['holistic'],
+                profile: {
+                    overview: `全球UWC运动的旗舰院校，以通过教育促进和平与可持续未来为使命。拥有两个校区，超过5500名来自100多个国家的学生。`,
+                    academics: `在拥有全球最大、最多元化的IB学生群体之一的情况下，持续取得优异成绩。2025届605名学生平均分36.3，98.7%通过率。`,
+                    university: `拥有新加坡最强大、地域最多元化的大学录取记录。UWC品牌在全球享有盛誉，尤其在美国，戴维斯UWC学者计划为毕业生提供大量奖学金。`,
+                    holistic: `全人教育是UWCSEA体验的基石，围绕学术、活动、户外教育、个人与社会教育、服务五大支柱构建。`,
+                    community: `拥有Dover和East两个大型现代化校区。寄宿是UWC体验的核心部分，为8年级以上学生提供紧密、支持性的国际化住宿社区。`,
+                    mandarin: `为母语者从1年级起就提供高级中文课程。IB阶段提供中文A（语言与文学/文学）的高级和标准水平课程。`,
+                    fees_detail: `一次性费用: S$5,949 | 年度费用 (学费+发展税): S$57,774 | 总计首年: S$64,020 | 年度寄宿费: S$43,131`,
+                    address: `Dover Campus: 1207 Dover Road, Singapore 139654 | East Campus: 1 Tampines Street 73, Singapore 528704`
+                }
+            },
+            {
+                id: 'dulwich',
+                name: 'Dulwich College (Singapore)',
+                name_zh: '新加坡德威英国国际学校',
+                ibScore: 36.9,
+                fees: 66220,
+                boarding: true,
+                type: '英式国际',
+                persona: ['holistic', 'bilingual'],
+                profile: {
+                    overview: `源于拥有400年历史的伦敦德威公学，是一所学术选择性强、具有前瞻性和创新精神的学校。`,
+                    academics: `迅速建立起卓越的学术声誉。2025届149名学生平均分36.9，100%通过率，2名学生获得满分。`,
+                    university: `拥有强大且不断增长的全球大学录取记录。凭借其英国传统，在英国顶尖大学录取方面优势明显，同时也积极拓展美国大学的录取。`,
+                    holistic: `提供广泛、均衡的全人教育。拥有世界一流的设施，包括700座的表演艺术中心和先进的科技实验室。`,
+                    community: `位于Bukit Batok，拥有近3000名来自60多个国家的学生。为12-13年级学生提供与ACS Oldham Hall合作的全寄宿服务。`,
+                    mandarin: `中文课程是其一大强项。采用三轨制教学，其中的“中文A（母语）”路径专为母语者设计，专注于高级文学分析和写作技巧，是新加坡国际学校中最完善的中文课程之一。`,
+                    fees_detail: `一次性费用: S$10,000 | 年度学费 (12-13年级): S$56,220 | 总计首年: S$66,220 | 年度寄宿费: S$43,200`,
+                    address: `71 Bukit Batok West Avenue 8, Singapore 658966`
+                }
+            },
+            {
+                id: 'nlcs',
+                name: 'NLCS Singapore',
+                name_zh: '北伦敦大学学院（新加坡）',
+                ibScore: 36.3,
+                fees: 62640,
+                boarding: false,
+                type: '英式国际',
+                persona: ['academic', 'bilingual'],
+                profile: {
+                    overview: `成立于2020年，是英国顶级学术名校NLCS的姐妹学校。提供完整的IB课程体系（PYP, MYP, DP）。`,
+                    academics: `作为一所新学校，学术成果斐然。首届毕业生（2023年）平均分高达38.77。2025届平均分为36.3，100%通过率。`,
+                    university: `已建立起强大的大学录取记录，毕业生获得剑桥、伦敦国王学院、UCL等世界名校的录取。`,
+                    holistic: `教牧关怀是其教育哲学的基石，充满活力的学院制为每个学生提供支持网络。`,
+                    community: `位于Depot Road，校园现代化但紧凑。学校规模相对较小，社区感强。无寄宿。`,
+                    mandarin: `提供三轨制中文课程，其“母语中文路径”专为流利者设计，并可通过“扩展”课程提供高级文学课程，为IB中文A做准备。`,
+                    fees_detail: `一次性费用: S$8,000 | 年度学费 (12-13年级): S$54,640 | 总计首年: S$62,640`,
+                    address: `130 Depot Road, Singapore 109708`
+                }
+            },
+            {
+                id: 'hcis',
+                name: 'Hwa Chong International',
+                name_zh: '华中国际学校',
+                ibScore: 34.0,
+                fees: 47420,
+                boarding: true,
+                type: '本地国际',
+                persona: ['bilingual'],
+                profile: {
+                    overview: `成立于2005年，是著名华中大家庭的一员。提供六年制直通车课程，直通IBDP。`,
+                    academics: `拥有优异的学术表现记录，IB成绩持续高于全球平均水平。2024届平均分为37.9。`,
+                    university: `拥有将毕业生送入全球知名大学的坚实记录，尤其在英国顶尖大学如牛津、KCL、LSE等有良好表现。`,
+                    holistic: `结构化的学生发展框架关注学生的全面成长，整合了品格发展、领导力和服务学习。`,
+                    community: `位于武吉知马路，学生群体由至少50%的新加坡人和来自20多个国家的国际学生组成，创造了独特的双文化环境。提供寄宿。`,
+                    mandarin: `源于华中传统，对中文语言和文化有很强的侧重。提供IB中文A：语言与文学课程，是寻求重视和推广高水平中文环境家庭的理想选择。`,
+                    fees_detail: `一次性费用 (含S$6k可退押金): S$12,540 | 年度学费 (11-12年级): S$34,880 | 总计首年: S$47,420`,
+                    address: `663 Bukit Timah Road, Singapore 269783`
+                }
+            },
+            {
+                id: 'acsi',
+                name: 'ACS (International)',
+                name_zh: '英华国际学校',
+                ibScore: 38.34, // Using 2024 data
+                fees: 48630,
+                boarding: false,
+                type: '本地国际',
+                persona: ['academic', 'bilingual'],
+                profile: {
+                    overview: `成立于2005年，是英华学校大家庭的一员，是一所私立的“本地国际”学校。课程融合了新加坡的学术严谨性和国际化背景。`,
+                    academics: `拥有优异的IB成绩记录，历史平均分非常出色，2024年为38.34分。`,
+                    university: `在将学生送入顶尖西方大学方面有很强的历史。毕业生每年都会收到来自世界各地大学的众多录取通知书。`,
+                    holistic: `提供超过40种课外活动和200多个正式领导力职位，并组织国际服务和文化交流旅行。`,
+                    community: `位于充满活力的荷兰村地区。学生人数约1100人，由50%新加坡学生和50%国际学生组成，文化环境平衡。`,
+                    mandarin: `提供IB中文A：语言与文学和IB中文A：文学课程，满足母语者的需求。`,
+                    fees_detail: `一次性费用 (含S$6k可退押金): S$10,630 | 年度学费 (IBDP): S$38,000 | 总计首年: S$48,630`,
+                    address: `61 Jalan Hitam Manis, Singapore 278475`
+                }
+            }
+        ];
+
+        let currentChart = null;
+        let currentSortColumn = -1;
+        let currentSortDirection = 'asc';
+
+        function renderSchoolTable(data) {
+            const tableBody = document.getElementById('school-table-body');
+            tableBody.innerHTML = '';
+            data.forEach(school => {
+                const row = document.createElement('tr');
+                row.className = 'school-row border-b border-gray-200';
+                row.setAttribute('data-school-id', school.id);
+                row.innerHTML = `
+                    <td class="py-3 px-4 font-semibold text-deep-teal">${school.name_zh} (${school.name})</td>
+                    <td class="py-3 px-4">${school.ibScore.toFixed(1)}</td>
+                    <td class="py-3 px-4">S$${school.fees.toLocaleString()}</td>
+                    <td class="py-3 px-4">${school.type}</td>
+                `;
+                row.onclick = () => showSchoolDetails(school.id);
+                tableBody.appendChild(row);
+            });
+        }
+
+        function renderChart(data) {
+            const ctx = document.getElementById('school-comparison-chart').getContext('2d');
+            if (currentChart) {
+                currentChart.destroy();
+            }
+            
+            const chartData = {
+                datasets: [{
+                    label: '学校',
+                    data: data.map(school => ({
+                        x: school.ibScore,
+                        y: school.fees,
+                        name: `${school.name_zh} (${school.name})`
+                    })),
+                    backgroundColor: 'rgba(0, 128, 128, 0.6)',
+                    borderColor: 'rgba(0, 128, 128, 1)',
+                    pointRadius: 8,
+                    pointHoverRadius: 12
+                }]
+            };
+
+            currentChart = new Chart(ctx, {
+                type: 'scatter',
+                data: chartData,
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { display: false },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    const point = context.raw;
+                                    return `${point.name}: IB ${point.x}, 费用 S$${point.y.toLocaleString()}`;
+                                }
+                            },
+                            bodyFont: { size: 14 },
+                            titleFont: { size: 0 },
+                            padding: 12,
+                            backgroundColor: 'rgba(0, 0, 0, 0.8)'
+                        }
+                    },
+                    scales: {
+                        x: {
+                            title: {
+                                display: true,
+                                text: 'IB 平均分 (越高越好)',
+                                font: { size: 14 }
+                            },
+                            grid: {
+                                color: '#e5e7eb'
+                            }
+                        },
+                        y: {
+                            title: {
+                                display: true,
+                                text: '首年总费用 (新元)',
+                                font: { size: 14 }
+                            },
+                            ticks: {
+                                callback: function(value, index, values) {
+                                    return 'S$' + (value / 1000) + 'k';
+                                }
+                            },
+                             grid: {
+                                color: '#e5e7eb'
+                            }
+                        }
+                    }
+                }
+            });
+        }
+        
+        function showSchoolDetails(schoolId) {
+            const school = schoolData.find(s => s.id === schoolId);
+            if (!school) return;
+
+            const detailsContainer = document.getElementById('school-details');
+            const detailsContent = document.getElementById('details-content');
+
+            detailsContent.innerHTML = `
+                <div class="flex flex-col md:flex-row justify-between items-start mb-6">
+                    <div>
+                        <h2 class="text-3xl font-bold text-deep-teal">${school.name_zh}</h2>
+                        <h3 class="text-xl text-gray-600 font-medium">${school.name}</h3>
+                        <p class="text-sm text-gray-500 mt-2">📍 ${school.profile.address}</p>
+                    </div>
+                    <button onclick="hideSchoolDetails()" class="mt-4 md:mt-0 bg-gray-200 text-gray-800 px-4 py-2 rounded-lg">&times; 关闭</button>
+                </div>
+
+                <div class="border-b border-gray-200 mb-6">
+                    <nav class="-mb-px flex space-x-6" aria-label="Tabs">
+                        <button onclick="showTab(this, '${school.id}', 'overview')" class="tab-active whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm">概览</button>
+                        <button onclick="showTab(this, '${school.id}', 'academics')" class="tab-inactive whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm">学术与IB</button>
+                        <button onclick="showTab(this, '${school.id}', 'university')" class="tab-inactive whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm">大学去向</button>
+                        <button onclick="showTab(this, '${school.id}', 'holistic')" class="tab-inactive whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm">全人教育</button>
+                        <button onclick="showTab(this, '${school.id}', 'mandarin')" class="tab-inactive whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm">中文项目</button>
+                        <button onclick="showTab(this, '${school.id}', 'fees_detail')" class="tab-inactive whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm">费用详情</button>
+                    </nav>
+                </div>
+
+                <div id="tab-content" class="prose max-w-none text-gray-700 leading-relaxed">
+                    ${school.profile.overview}
+                </div>
+            `;
+
+            detailsContainer.classList.remove('hidden');
+            detailsContainer.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            
+            document.querySelectorAll('.school-row').forEach(row => {
+                row.classList.remove('bg-teal-highlight');
+                if(row.getAttribute('data-school-id') === schoolId) {
+                    row.classList.add('bg-teal-highlight');
+                }
+            });
+        }
+        
+        function hideSchoolDetails() {
+            document.getElementById('school-details').classList.add('hidden');
+            document.querySelectorAll('.school-row').forEach(row => {
+                row.classList.remove('bg-teal-highlight');
+            });
+        }
+
+        function showTab(button, schoolId, tabName) {
+            const school = schoolData.find(s => s.id === schoolId);
+            if (!school) return;
+
+            document.querySelectorAll(`#school-details nav button`).forEach(btn => {
+                btn.classList.remove('tab-active');
+                btn.classList.add('tab-inactive');
+            });
+            button.classList.add('tab-active');
+            button.classList.remove('tab-inactive');
+
+            document.getElementById('tab-content').innerHTML = school.profile[tabName];
+        }
+
+        function filterByPersona(persona) {
+            let filteredData;
+            if (persona === 'all') {
+                filteredData = schoolData;
+            } else {
+                filteredData = schoolData.filter(s => s.persona.includes(persona));
+            }
+            
+            document.querySelectorAll('.persona-card').forEach(card => {
+                card.classList.remove('ring-2', 'ring-deep-teal', 'ring-offset-2');
+            });
+
+            if (persona !== 'all') {
+                document.getElementById(`persona-${persona}`).classList.add('ring-2', 'ring-deep-teal', 'ring-offset-2');
+            }
+
+            renderSchoolTable(filteredData);
+            renderChart(filteredData);
+            hideSchoolDetails();
+        }
+
+        function sortTable(columnIndex) {
+            const tableBody = document.getElementById('school-table-body');
+            const rows = Array.from(tableBody.querySelectorAll('tr'));
+            
+            if (currentSortColumn === columnIndex) {
+                currentSortDirection = currentSortDirection === 'asc' ? 'desc' : 'asc';
+            } else {
+                currentSortColumn = columnIndex;
+                currentSortDirection = 'asc';
+            }
+
+            const sortedRows = rows.sort((a, b) => {
+                let cellA, cellB;
+                if (columnIndex === 0) { // School Name
+                    cellA = a.cells[columnIndex].textContent.trim();
+                    cellB = b.cells[columnIndex].textContent.trim();
+                } else { // IB Score or Fees
+                    cellA = parseFloat(a.cells[columnIndex].textContent.replace(/[^0-9.-]+/g,""));
+                    cellB = parseFloat(b.cells[columnIndex].textContent.replace(/[^0-9.-]+/g,""));
+                }
+                
+                if (cellA < cellB) {
+                    return currentSortDirection === 'asc' ? -1 : 1;
+                }
+                if (cellA > cellB) {
+                    return currentSortDirection === 'asc' ? 1 : -1;
+                }
+                return 0;
+            });
+
+            sortedRows.forEach(row => tableBody.appendChild(row));
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            renderSchoolTable(schoolData);
+            renderChart(schoolData);
+        });
+
+    </script>
+</body>
+</html>
