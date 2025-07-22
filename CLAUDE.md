@@ -10,8 +10,9 @@ This is a static HTML website for eh-academics, a Singapore-based school placeme
 
 - `index.html` - Main landing page with hero section, pain points, process steps, testimonials, and consultation form
 - `thank-you.html` - Form submission confirmation page
-- `guide.html` - Chinese version of comprehensive school application guide with interactive features
+- `guide.html` - Chinese version of comprehensive school application guide with interactive features using Tailwind CSS and Chart.js
 - `guide-en.html` - English version of school application guide with bilingual navigation
+- `faq.html` - FAQ page with search functionality and collapsible answers
 - `style.css` - Complete stylesheet with CSS custom properties, responsive design, and component styles
 - `script.js` - JavaScript for mobile navigation toggle functionality
 - `sitemap.xml` - SEO sitemap for search engine crawling
@@ -76,7 +77,21 @@ Since this is a static site, common development tasks include:
 - CSS variables in `:root` for theme modifications
 - Form fields and validation in HTML attributes
 
-### Guide Pages
-- `guide.html` - Interactive Chinese school guide with advanced JavaScript features, Chart.js integration, and dynamic filtering
-- `guide-en.html` - Simplified English guide with responsive CSS grid layouts and language toggle functionality
-- Both guide pages include bilingual navigation and language switching capabilities
+### Guide Pages Architecture
+- `guide.html` - Interactive Chinese school guide built with Tailwind CSS and Chart.js
+  - Interactive scatter plot showing IB scores vs fees using Chart.js
+  - Persona-based filtering system (Academic, Holistic, Bilingual personas)
+  - Dynamic HTML table with sortable columns and filters
+  - Tabbed content view for detailed school profiles
+  - Uses Tailwind utility classes for styling
+- `guide-en.html` - Simplified English guide using vanilla CSS
+  - Static grid layouts with responsive CSS Grid and Flexbox
+  - Timeline component for application process
+  - Checklist containers and fee tables
+  - Language toggle functionality
+- `faq.html` - FAQ page with JavaScript-powered search and expand/collapse functionality
+
+### File Structure Considerations
+- Images with spaces in filenames require URL encoding in CSS (e.g., 'school%20and%20kids%20playing.jpg')
+- Both guide pages share common navigation structure but use different CSS frameworks
+- Hero sections use background images with overlay gradients for better text readability
