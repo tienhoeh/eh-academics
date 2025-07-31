@@ -1,0 +1,172 @@
+:root {
+    --primary-dark-green: #004d40;
+    --secondary-dark-green: #00695c;
+    --accent-gold: #c7a46e;
+    --light-gray: #f4f4f4;
+    --dark-text: #333;
+    --light-text: #ffffff;
+    --border-radius: 8px;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--light-gray);
+    color: var(--dark-text);
+}
+
+.database-hero-section {
+    background: linear-gradient(rgba(0, 77, 64, 0.8), rgba(0, 77, 64, 0.8)), url('images/Singapore supertree 1.jpg') no-repeat center center/cover;
+    color: var(--light-text);
+    padding: 4rem 0;
+    text-align: center;
+}
+
+.database-hero-section h1 {
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+}
+
+.database-section {
+    padding: 4rem 0;
+}
+
+.filters-container {
+    background-color: var(--light-text);
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: space-around;
+    align-items: center;
+    margin-bottom: 3rem;
+}
+
+.filter-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    min-width: 250px;
+}
+
+.filter-group label {
+    font-weight: 600;
+    color: var(--primary-dark-green);
+}
+
+.filter-group input[type="range"] {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 8px;
+    background: #ddd;
+    border-radius: 5px;
+    outline: none;
+}
+
+.filter-group input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    background: var(--secondary-dark-green);
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+.filter-group input[type="range"]::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    background: var(--secondary-dark-green);
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+.filter-group select {
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.filter-group span {
+    font-weight: 600;
+    color: var(--primary-dark-green);
+    align-self: center;
+}
+
+.charts-container {
+    background-color: var(--light-text);
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    margin-bottom: 3rem;
+}
+
+.chart-wrapper {
+    max-width: 800px;
+    margin: 0 auto;
+    height: 500px; /* Increased height */
+    margin-bottom: 2rem;
+}
+
+.chart-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1rem;
+    gap: 1rem;
+}
+
+.chart-controls label {
+    font-weight: 600;
+    color: var(--primary-dark-green);
+}
+
+.chart-controls select {
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.table-container {
+    background-color: var(--light-text);
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    overflow-x: auto;
+}
+
+#schools-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#schools-table thead {
+    background-color: var(--primary-dark-green);
+    color: var(--light-text);
+}
+
+#schools-table th {
+    padding: 1rem;
+    text-align: left;
+    cursor: pointer;
+}
+
+#schools-table th:hover {
+    background-color: var(--secondary-dark-green);
+}
+
+#schools-table td {
+    padding: 1rem;
+    border-bottom: 1px solid #ddd;
+}
+
+#schools-table tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+#schools-table tbody tr:hover {
+    background-color: #e8f5e9; /* A very light green */
+}

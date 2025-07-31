@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-T33335GR');</script>
+<!-- End Google Tag Manager -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IBDP Schools Database - eh-academics</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="database-style.css">
+
+    <!-- ======================================= -->
+    <!-- Google tag (gtag.js) - ADDED HERE -->
+    <!-- ======================================= -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17044395241"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'AW-17044395241');
+    </script>
+    <!-- ======================================= -->
+    <!-- End Google tag -->
+    <!-- ======================================= -->
+
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-17044395241"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'AW-17044395241');
+</script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+<body>
+    <!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T33335GR"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+    <header class="site-header">
+        <div class="container header-container">
+            <a href="index.html" class="logo">
+                <img src="images/logo.jpg" alt="eh-academics Logo">
+            </a>
+            <nav class="main-nav">
+                <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#process">Our Process</a></li>
+                    <li><a href="index.html#testimonials">Testimonials</a></li>
+                    <li><a href="guide-en.html">School Guide</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
+                    <li><a href="index.html#consultation" class="button button-primary button-small">Book free Consult</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="database-hero-section">
+            <div class="container">
+                <h1>Singapore IBDP Schools Database</h1>
+                <p>An interactive tool to compare schools based on IBDP scores and tuition fees.</p>
+            </div>
+        </section>
+
+        <section class="database-section section-padding">
+            <div class="container">
+                <div class="filters-container">
+                    <div class="filter-group">
+                        <label for="ibdp-score-filter">Min. IBDP Score:</label>
+                        <input type="range" id="ibdp-score-filter" min="30" max="42" value="30" step="0.5">
+                        <span id="ibdp-score-value">30</span>
+                    </div>
+                    <div class="filter-group">
+                        <label for="tuition-fee-filter">Max. Annual Tuition (SGD):</label>
+                        <input type="range" id="tuition-fee-filter" min="5000" max="60000" value="60000" step="1000">
+                        <span id="tuition-fee-value">60,000</span>
+                    </div>
+                    <div class="filter-group">
+                        <label for="boarding-filter">Boarding:</label>
+                        <select id="boarding-filter">
+                            <option value="all">All</option>
+                            <option value="yes">Yes</option>
+                            <option value="no">No</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="charts-container">
+                    <div class="chart-wrapper">
+                        <canvas id="schools-chart"></canvas>
+                    </div>
+                    <div class="chart-wrapper">
+                        <div class="chart-controls">
+                            <label for="plot-type-select">Select Plot:</label>
+                            <select id="plot-type-select">
+                                <option value="3y_avg" selected>3Y Average Score vs. Fees</option>
+                                <option value="2024">2024 IBDP Score vs. Fees</option>
+                            </select>
+                        </div>
+                        <canvas id="scatter-plot"></canvas>
+                    </div>
+                </div>
+
+                <div class="table-container">
+                    <table id="schools-table">
+                        <thead>
+                            <tr>
+                                <th data-sort="name">School Name</th>
+                                <th data-sort="ibdp_average_2024">2024 IBDP Score</th>
+                                <th data-sort="ibdp_average_2023">2023 IBDP Score</th>
+                                <th data-sort="ibdp_average_2022">2022 IBDP Score</th>
+                                <th data-sort="ibdp_average_3y">3Y Average Score</th>
+                                <th data-sort="tuition_fees_2025_range">Tuition Fee Range (2025)</th>
+                                <th data-sort="tuition_fees_2025_max">IB DP fees (latest)</th>
+                                <th data-sort="tuition_fees_2025_range">Tuition Fee Range (2025)</th>
+                                <th data-sort="boarding">Boarding</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Data will be populated by JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer id="contact" class="site-footer-main">
+         <div class="container footer-grid">
+             <div class="footer-logo-area">
+                 <a href="index.html" class="footer-logo">
+                     <img src="images/logo.jpg" alt="eh-academics Logo">
+                 </a>
+                 <p>Your expert partner in Singapore school placement.</p>
+             </div>
+             <div class="footer-links">
+                 <h4>Quicklinks</h4>
+                 <ul>
+                     <li><a href="index.html">Home</a></li>
+                     <li><a href="index.html#process">Our Process</a></li>
+                     <li><a href="index.html#testimonials">Testimonials</a></li>
+                     <li><a href="guide-en.html">School Guide</a></li>
+                     <li><a href="faq.html">FAQ</a></li>
+                     <li><a href="index.html#contact">Contact</a></li>
+                 </ul>
+             </div>
+             <div class="footer-contact">
+                <h4>Contact Us</h4>
+                <p><i class="fas fa-envelope icon-footer"></i> info@eh-academics.com</p>
+                <p><i class="fas fa-phone icon-footer"></i> (65) 8785 5563</p>
+                <p><i class="fas fa-map-marker-alt icon-footer"></i> Duo Tower, 3 Fraser St, #08-21, Singapore 189352</p>
+                 <div class="social-icons-footer">
+                 </div>
+            </div>
+         </div>
+         <div class="footer-bottom">
+             <div class="container">
+                 <p>© 2024 eh-academics. All Rights Reserved.</p>
+             </div>
+         </div>
+    </footer>
+
+    <a href="https://wa.me/6587855563" class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
+       <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script src="database-script.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
